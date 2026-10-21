@@ -1,314 +1,422 @@
-<title>Stock Market Trading Course - Learn to Trade with a Plan</title>
+<title>Stock Market Trading Course - Learn & Trade</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Learn stock market trading from scratch. Earn ₹50,000+ monthly. 8-week beginner course with live market sessions. Risk management, technical analysis, options trading. Start free demo today.">
+<meta name="description" content="8-week stock market course: chart reading, technical analysis, risk management, options trading. Live market sessions. Beginner friendly. Lifetime mentorship.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-:root{
-  --bg:#0d0d0d; --surface:#1a1a1a; --ink:#ffffff; --muted:#aaaaaa; --line:#2a2a2a;
-  --bull:#4dd26f; --bear:#ff6b35; --accent:#ffa500; --cta:#ffa500; --cta-ink:#0d0d0d;
-  --grid:rgba(255,165,0,.04);
-}
+:root{--bg:#0d0d0d;--surface:#1a1a1a;--ink:#ffffff;--muted:#999999;--line:#2a2a2a;--gold:#ffa500;--bull:#4dd26f;--bear:#ff6b35;--wrap:1120px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 'Figtree', system-ui;margin:0;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:'Bricolage Grotesque',monospace;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1{font-size:clamp(2.2rem,7vw,3.8rem);font-weight:800;line-height:1.1}
-h2{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:800;line-height:1.2}
-h3{font-size:1.15rem;font-weight:700}
-p{margin:0;line-height:1.7}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 'Inter',system-ui;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Bricolage Grotesque',monospace;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,7vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;line-height:1.15}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0;line-height:1.8}
 a{color:inherit;text-decoration:none}
-.mono{font-family:'JetBrains Mono',monospace}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;border:none;font-weight:600;font-size:1rem;cursor:pointer;border-radius:8px;transition:all .2s;text-decoration:none}
-.btn-primary{background:var(--cta);color:var(--cta-ink)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,165,0,.3)}
-.btn-secondary{background:transparent;border:1.5px solid var(--cta);color:var(--cta)}
-.btn-secondary:hover{background:rgba(255,165,0,.1)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.badge{display:inline-block;background:var(--gold);color:#0d0d0d;padding:.35rem .75rem;border-radius:4px;font:.7rem 'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2rem;border:none;font-weight:600;font-size:.95rem;cursor:pointer;border-radius:6px;transition:all .2s;text-decoration:none;font-family:'Inter',system-ui}
+.btn-primary{background:var(--gold);color:#0d0d0d}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(255,165,0,.35)}
+.btn-secondary{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
+.btn-secondary:hover{background:rgba(255,165,0,.08)}
+
+/* TOP BAR */
+.topbar{background:#000;border-bottom:1px solid var(--line);padding:.8rem 0;font-size:.85rem;color:var(--muted)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.topbar-left{display:flex;gap:2rem;align-items:center}
+.topbar-left span{display:flex;align-items:center;gap:.5rem}
+.topbar .badge{margin:0}
 
 /* HERO */
-.hero{padding:80px 0 60px;position:relative;background:linear-gradient(135deg,rgba(255,165,0,.1) 0%,rgba(255,165,0,0) 100%)}
-.hero .wrap{display:grid;gap:2rem;max-width:900px}
-.badge{display:inline-block;background:var(--accent);color:var(--cta-ink);padding:.4rem .8rem;border-radius:6px;font:.75rem 'JetBrains Mono',monospace;font-weight:600;text-transform:uppercase;letter-spacing:.1em;width:fit-content;margin-bottom:1rem}
-.hero h1{color:var(--ink)}
-.hero h1 .gold{color:var(--accent)}
-.hero .lede{font-size:1.15rem;color:var(--muted);max-width:650px;margin-top:1rem}
-.hero .ctas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
-.hero .ctas .btn{padding:.9rem 2.2rem;font-size:1.05rem}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
-.fact-item{display:grid;gap:.3rem}
-.fact-item .num{font:800 1.8rem 'Bricolage Grotesque',monospace;color:var(--accent)}
-.fact-item .label{font:.9rem var(--muted)}
+.hero{padding:70px 0;background:#0a0a0a}
+.hero .wrap{display:grid;gap:2.5rem}
+.hero-top{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:.5rem}
+.hero h1{font-size:clamp(2.8rem,8vw,4.2rem);margin-bottom:.5rem}
+.hero h1 .gold{color:var(--gold)}
+.hero .lede{font-size:1.1rem;color:var(--muted);max-width:700px;margin-top:1.2rem;margin-bottom:2rem}
+.hero .ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--line)}
+.hero-point{text-align:center;padding:.5rem}
+.hero-point span{display:block;font:700 .75rem 'JetBrains Mono',monospace;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.hero-point p{font:.95rem;color:var(--ink)}
+@media(max-width:768px){.hero-grid{grid-template-columns:1fr}}
 
-/* SOCIAL PROOF */
-.social-proof{padding:60px 0;background:var(--surface)}
-.social-proof .wrap{max-width:900px}
-.social-proof h2{margin-bottom:2.5rem}
-.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.testimonial{background:var(--bg);padding:1.5rem;border-radius:12px;border-left:3px solid var(--accent)}
-.stars{color:var(--accent);font-size:1.1rem;margin-bottom:.5rem}
-.testimonial p{font-size:.95rem;color:var(--muted);margin-bottom:1rem}
-.testimonial-author{font:600 .9rem var(--f-body)}
+/* CHART SECTION */
+.chart-section{padding:60px 0;background:var(--surface)}
+.chart-section .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.chart-content h2{margin-bottom:1.2rem}
+.chart-content p{color:var(--muted);margin-bottom:1.5rem}
+.chart-mock{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:1.5rem;font:500 .9rem 'JetBrains Mono',monospace;color:var(--muted);height:300px;display:flex;align-items:center;justify-content:center}
+@media(max-width:900px){.chart-section .wrap{grid-template-columns:1fr}.chart-mock{height:250px}}
 
-/* BENEFITS */
-.benefits{padding:70px 0}
-.benefits .wrap{max-width:900px}
-.benefits h2{margin-bottom:2.5rem}
-.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
-.benefit{padding:1.5rem}
-.benefit-icon{font-size:2.2rem;margin-bottom:.8rem}
-.benefit h3{color:var(--accent);margin-bottom:.5rem}
-.benefit p{color:var(--muted);font-size:.95rem}
+/* TAPE */
+.tape{overflow:hidden;background:var(--bg);border-block:1px solid var(--line);padding:1rem 0}
+.tape-content{display:flex;gap:3rem;width:max-content;animation:tape 50s linear infinite;font:.85rem 'JetBrains Mono',monospace;color:var(--muted)}
+.tape-item{white-space:nowrap;display:flex;align-items:center;gap:.5rem}
+.tape-item::before{content:"▲";color:var(--bull)}
+.tape-item:nth-child(3n)::before{content:"▼";color:var(--bear)}
+@keyframes tape{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tape-content{animation:none}}
 
-/* SYLLABUS PREVIEW */
-.syllabus{padding:70px 0;background:var(--surface)}
-.syllabus .wrap{max-width:900px}
-.syllabus h2{margin-bottom:2.5rem}
-.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
-.module-card{background:var(--bg);padding:1.3rem;border-radius:10px;border:1px solid var(--line)}
-.module-num{font:700 1.4rem 'Bricolage Grotesque',monospace;color:var(--accent);margin-bottom:.3rem}
-.module-title{font:600 .95rem var(--f-body);margin-bottom:.5rem}
-.module-desc{font-size:.85rem;color:var(--muted)}
+/* MARKET MONITOR */
+.monitor{padding:70px 0}
+.monitor h2{margin-bottom:2.5rem}
+.monitor .wrap{display:grid;gap:2rem}
+.watchlist{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.watchlist-header{background:var(--bg);padding:1.2rem 1.5rem;display:flex;gap:1rem;border-bottom:1px solid var(--line);font-weight:600;font:.9rem}
+.watchlist-row{padding:1rem 1.5rem;border-bottom:1px solid var(--line);display:flex;gap:1rem;justify-content:space-between;font:.85rem}
+.watchlist-row:last-child{border-bottom:none}
+.watchlist-sym{font-weight:600;color:var(--ink);min-width:80px}
+.watchlist-price{text-align:right;min-width:100px}
+.watchlist-chg{text-align:right;min-width:80px}
+.bull{color:var(--bull)}
+.bear{color:var(--bear)}
+.monitor-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem}
+@media(max-width:900px){.monitor-grid{grid-template-columns:1fr}}
 
-/* PRICING */
-.pricing{padding:70px 0}
-.pricing .wrap{max-width:900px}
-.pricing h2{margin-bottom:2.5rem}
-.price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.price-card{background:var(--surface);padding:2rem;border-radius:12px;border:1px solid var(--line)}
-.price-card.featured{border:2px solid var(--accent);transform:scale(1.02)}
-.price-badge{font:600 .7rem 'JetBrains Mono',monospace;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
-.price{font:800 2.2rem 'Bricolage Grotesque',monospace;color:var(--accent);margin-bottom:.3rem}
-.price-desc{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
-.price-features{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;margin-bottom:1.5rem}
-.price-features li{font-size:.95rem;display:flex;align-items:start;gap:.5rem}
-.price-features li::before{content:"✓";color:var(--accent);font-weight:700;flex:none}
-.price-card .btn{width:100%;justify-content:center}
+/* WHO & WHY */
+.who{padding:70px 0;background:var(--surface)}
+.who h2{margin-bottom:2.5rem}
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.who-card{background:var(--bg);padding:2rem;border-radius:10px;border:1px solid var(--line)}
+.who-card h3{color:var(--gold);margin-bottom:.8rem}
+.who-card p{color:var(--muted)}
+@media(max-width:768px){.who-grid{grid-template-columns:1fr}}
+
+.why{padding:70px 0}
+.why h2{margin-bottom:2.5rem}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+.why-card{padding:1.5rem;border-radius:10px}
+.why-card h3{color:var(--gold);margin-bottom:.8rem;font-size:1rem}
+.why-card p{font-size:.9rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{padding:50px 0;background:linear-gradient(135deg,rgba(255,165,0,.08) 0%,transparent 100%);text-align:center}
+.cta-section h3{font-size:1.3rem;margin-bottom:1.5rem}
+.cta-section .btn{font-size:1rem;padding:1rem 2.5rem}
+
+/* CURRICULUM */
+.curriculum{padding:70px 0;background:var(--surface)}
+.curriculum h2{margin-bottom:2.5rem}
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.module{background:var(--bg);padding:1.5rem;border-radius:10px;border:1px solid var(--line);cursor:pointer;transition:all .2s}
+.module:hover{border-color:var(--gold);background:rgba(255,165,0,.02)}
+.module-num{font:800 1.5rem 'Bricolage Grotesque',monospace;color:var(--gold)}
+.module-title{font:600 .95rem;margin-top:.5rem}
+
+/* OUTCOMES */
+.outcomes{padding:70px 0}
+.outcomes h2{margin-bottom:2.5rem}
+.outcomes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.outcome-item{padding:1.5rem;background:var(--surface);border-radius:10px;border-left:3px solid var(--gold)}
+.outcome-item h3{color:var(--gold);margin-bottom:.5rem}
+.outcome-item p{color:var(--muted);font-size:.95rem}
+
+/* TOOLS */
+.tools{padding:70px 0;background:var(--surface)}
+.tools h2{margin-bottom:2.5rem}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem}
+.tool{background:var(--bg);padding:1.5rem;border-radius:10px;border:1px solid var(--line);text-align:center;font:600 .9rem}
+.tool:hover{border-color:var(--gold)}
+
+/* HOW IT WORKS */
+.howitworks{padding:70px 0}
+.howitworks h2{margin-bottom:3rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
+.step{position:relative;text-align:center}
+.step-num{font:800 2.5rem 'Bricolage Grotesque',monospace;color:var(--gold);margin-bottom:.5rem}
+.step h3{margin-bottom:.8rem}
+.step p{color:var(--muted);font-size:.95rem}
 
 /* FAQ */
 .faq{padding:70px 0;background:var(--surface)}
-.faq .wrap{max-width:900px}
 .faq h2{margin-bottom:2.5rem}
-.faq-list{display:grid;gap:1rem}
-details{background:var(--bg);padding:1.2rem 1.5rem;border-radius:10px;border:1px solid var(--line)}
-summary{cursor:pointer;font:600 1rem 'Bricolage Grotesque',monospace;display:flex;justify-content:space-between;align-items:center;user-select:none}
-summary::marker{color:var(--accent)}
+.faq-list{display:grid;gap:.8rem}
+details{background:var(--bg);padding:1.2rem 1.5rem;border-radius:8px;border:1px solid var(--line);cursor:pointer}
+summary{font:600 1rem 'Bricolage Grotesque',monospace;display:flex;justify-content:space-between;user-select:none;outline:none}
+summary::marker{color:var(--gold)}
 details p{color:var(--muted);margin-top:.8rem;font-size:.95rem}
 
-/* CTA SECTION */
-.final-cta{padding:80px 0;text-align:center;background:linear-gradient(135deg,rgba(255,165,0,.15) 0%,rgba(255,165,0,0) 100%)}
-.final-cta .wrap{max-width:700px}
-.final-cta h2{margin-bottom:1.5rem}
-.final-cta p{font-size:1.1rem;color:var(--muted);margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto}
-.final-cta .ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+/* FOOTER CTA */
+.footer-cta{padding:60px 0;text-align:center;background:linear-gradient(135deg,rgba(255,165,0,.1) 0%,transparent 100%)}
+.footer-cta h2{margin-bottom:1.5rem}
+.footer-cta p{font-size:1.05rem;color:var(--muted);max-width:650px;margin:0 auto 2rem;font-size:1rem}
+.footer-cta .ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
-/* FOOTER */
-footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;font-size:.85rem;color:var(--muted)}
-footer .wrap{max-width:900px}
+footer{padding:2rem 0;border-top:1px solid var(--line);text-align:center;font-size:.8rem;color:var(--muted)}
 
-@media (max-width:768px){
-  .hero{padding:50px 0 40px}
-  .facts{grid-template-columns:1fr}
-  .price-card.featured{transform:scale(1)}
-  .final-cta .ctas{flex-direction:column}
-  .final-cta .btn{width:100%}
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr}
+  .modules{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .footer-cta .ctas{flex-direction:column}
+  .footer-cta .btn{width:100%}
 }
 </style>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span class="badge">FREE</span>
+      <span>Attend 3 free demo classes • <strong>Call 91213 84625</strong></span>
+    </div>
+  </div>
+</div>
 
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="badge">✓ LIVE · NEW BATCH OPEN</div>
-      <h1>Learn the Stock Market.<br><span class="gold">Trade with a Plan.</span></h1>
-      <p class="lede">From zero to ₹50,000/month. 8-week course covering chart reading, risk management, options trading, and live market sessions. Join 500+ students already trading profitably.</p>
+      <div class="hero-top">
+        <span class="badge">LIVE</span>
+        <span style="color:var(--muted);font:500 .9rem 'JetBrains Mono'">NEW BATCH OPEN · BOOK A FREE DEMO</span>
+      </div>
+      <h1>Learn the stock market.<br><span class="gold">Trade with a plan.</span></h1>
+      <p class="lede">From market basics to technical analysis, options and risk management — practical, mentor-led training with live market sessions.</p>
       <div class="ctas">
-        <button class="btn btn-primary" onclick="document.querySelector('.final-cta').scrollIntoView({behavior:'smooth'})">Book Free Demo Class →</button>
-        <button class="btn btn-secondary" onclick="alert('WhatsApp: +91 9876543210')">WhatsApp Us</button>
+        <button class="btn btn-primary" onclick="document.querySelector('.footer-cta').scrollIntoView({behavior:'smooth'})">BOOK FREE DEMO</button>
+        <button class="btn btn-secondary">WHATSAPP US</button>
       </div>
-      <div class="facts">
-        <div class="fact-item">
-          <div class="num">500+</div>
-          <div class="label">Students trained</div>
+      <div class="hero-grid">
+        <div class="hero-point"><span>✓ LIVE</span><p>Live market sessions</p></div>
+        <div class="hero-point"><span>✓ BEGINNER</span><p>Beginner friendly</p></div>
+        <div class="hero-point"><span>✓ LIFETIME</span><p>Lifetime mentorship</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape">
+    <div class="tape-content">
+      <div class="tape-item">Support & resistance</div>
+      <div class="tape-item">Volume confirmation</div>
+      <div class="tape-item">Gap-down open</div>
+      <div class="tape-item">Position sizing</div>
+      <div class="tape-item">Moving averages</div>
+      <div class="tape-item">RSI & MACD</div>
+      <div class="tape-item">Option Greeks</div>
+      <div class="tape-item">Risk : reward 1:2</div>
+      <div class="tape-item">Swing trading</div>
+      <div class="tape-item">Trading journal</div>
+      <div class="tape-content">
+        <div class="tape-item">Support & resistance</div>
+        <div class="tape-item">Volume confirmation</div>
+        <div class="tape-item">Gap-down open</div>
+        <div class="tape-item">Position sizing</div>
+        <div class="tape-item">Moving averages</div>
+        <div class="tape-item">RSI & MACD</div>
+        <div class="tape-item">Option Greeks</div>
+        <div class="tape-item">Risk : reward 1:2</div>
+        <div class="tape-item">Swing trading</div>
+        <div class="tape-item">Trading journal</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="chart-section">
+    <div class="wrap">
+      <div class="chart-content">
+        <h2>Practice chart</h2>
+        <p>Learn to read candlesticks, support & resistance, and technical patterns from real market charts.</p>
+      </div>
+      <div class="chart-mock">📊 Live practice chart with candlestick patterns</div>
+    </div>
+  </section>
+
+  <section class="monitor">
+    <div class="wrap">
+      <h2>Market monitor</h2>
+      <p style="color:var(--muted);margin-bottom:2rem">Learn on screens that look like a real trading desk. Watchlists, live candlestick charts, sector heatmaps.</p>
+      <div class="monitor-grid">
+        <div class="watchlist">
+          <div class="watchlist-header">
+            <span>SYMBOL</span>
+            <span>LAST</span>
+            <span>CHG</span>
+            <span>%</span>
+          </div>
+          <div class="watchlist-row">
+            <span class="watchlist-sym">NIFTY</span>
+            <span class="watchlist-price">24,812</span>
+            <span class="watchlist-chg bull">+118.82</span>
+            <span class="bull">+0.48%</span>
+          </div>
+          <div class="watchlist-row">
+            <span class="watchlist-sym">SENSEX</span>
+            <span class="watchlist-price">81,377</span>
+            <span class="watchlist-chg bear">-788</span>
+            <span class="bear">-0.96%</span>
+          </div>
+          <div class="watchlist-row">
+            <span class="watchlist-sym">RELIANCE</span>
+            <span class="watchlist-price">2,947</span>
+            <span class="watchlist-chg bear">-19.91</span>
+            <span class="bear">-0.67%</span>
+          </div>
+          <div class="watchlist-row">
+            <span class="watchlist-sym">TCS</span>
+            <span class="watchlist-price">4,114</span>
+            <span class="watchlist-chg bear">-14.54</span>
+            <span class="bear">-0.35%</span>
+          </div>
+          <div class="watchlist-row">
+            <span class="watchlist-sym">HDFCBANK</span>
+            <span class="watchlist-price">1,686</span>
+            <span class="watchlist-chg bear">-10.78</span>
+            <span class="bear">-0.64%</span>
+          </div>
         </div>
-        <div class="fact-item">
-          <div class="num">₹50K+</div>
-          <div class="label">Monthly income (avg)</div>
-        </div>
-        <div class="fact-item">
-          <div class="num">95%</div>
-          <div class="label">Course completion</div>
-        </div>
-        <div class="fact-item">
-          <div class="num">Live</div>
-          <div class="label">Market sessions</div>
+        <div style="display:grid;gap:2rem">
+          <div style="background:var(--surface);padding:2rem;border-radius:10px;border:1px solid var(--line);text-align:center">
+            <p style="color:var(--muted);margin-bottom:1rem">SECTOR HEATMAP</p>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;font-size:.9rem">
+              <div>BANK <span class="bull">+0.83%</span></div>
+              <div>IT <span class="bear">-1.19%</span></div>
+              <div>AUTO <span class="bull">+1.68%</span></div>
+              <div>PHARMA <span class="bull">+0.34%</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="social-proof">
+  <section class="who">
     <div class="wrap">
-      <h2>Our Students Are Earning</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p>"Stopped losing money in F&O. Now making ₹2-3K daily with proper risk management. Best investment of my life."</p>
-          <div class="testimonial-author">Rajesh M. • Bangalore</div>
-        </div>
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p>"Mentor explained Greeks better than 10 YouTube channels. I went from breakeven to 40% return in 3 months."</p>
-          <div class="testimonial-author">Priya S. • Mumbai</div>
-        </div>
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p>"Live market sessions changed everything. Real-time analysis and trade setups. Not a single 'tip' given — we learn to find trades."</p>
-          <div class="testimonial-author">Arjun K. • Hyderabad</div>
-        </div>
+      <h2>Who it's for</h2>
+      <p style="color:var(--muted);margin-bottom:2rem">Built for anyone who wants to understand money. No finance background needed.</p>
+      <div class="who-grid">
+        <div class="who-card"><h3>Students</h3><p>Build a valuable skill early and understand how markets really work.</p></div>
+        <div class="who-card"><h3>Working Professionals</h3><p>Grow your savings with a clear, disciplined approach to investing.</p></div>
+        <div class="who-card"><h3>Business Owners</h3><p>Understand markets to manage and grow your wealth wisely.</p></div>
+        <div class="who-card"><h3>Homemakers & Retirees</h3><p>Learn at a comfortable pace and make informed money decisions.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="benefits">
+  <section class="why">
     <div class="wrap">
-      <h2>What You'll Master</h2>
-      <div class="benefit-grid">
-        <div class="benefit">
-          <div class="benefit-icon">📊</div>
-          <h3>Chart Reading</h3>
-          <p>Candlesticks, support/resistance, trends, and patterns from real NSE/BSE charts.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">⚖️</div>
-          <h3>Risk First</h3>
-          <p>Position sizing, stop-loss placement, and the 1-2% rule that protects your capital.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">📈</div>
-          <h3>Technical Analysis</h3>
-          <p>Moving averages, RSI, volume, VWAP—when each works and when it lies.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">🎯</div>
-          <h3>F&O Trading</h3>
-          <p>Futures and options basics: Greeks, expiry behavior, premium decay, real trades.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">💡</div>
-          <h3>Psychology</h3>
-          <p>FOMO, revenge trading, journaling, and the mindset that separates winners from losers.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">🔴</div>
-          <h3>Live Sessions</h3>
-          <p>Watch real trades happen. Real questions answered. Real market discipline taught.</p>
-        </div>
+      <h2>Why choose us</h2>
+      <p style="color:var(--muted);margin-bottom:2rem">Seven reasons learners choose our academy.</p>
+      <div class="why-grid">
+        <div class="why-card"><h3>⚡ Live Trading</h3><p>Analyse real charts during market hours with mentors guiding every step.</p></div>
+        <div class="why-card"><h3>📊 Real Case Studies</h3><p>Learn from real stocks and real market events, not theoretical examples.</p></div>
+        <div class="why-card"><h3>🔧 Real Platforms</h3><p>Use the same tools professional traders use — TradingView, NSE, screeners.</p></div>
+        <div class="why-card"><h3>👥 Small Batches</h3><p>Personal attention from mentors in groups of 15-20 students max.</p></div>
+        <div class="why-card"><h3>📈 Lifetime Support</h3><p>Get guidance long after the course ends — updates and new strategies.</p></div>
+        <div class="why-card"><h3>💰 Affordable</h3><p>Flexible fees with installment options. Learning should be accessible.</p></div>
+        <div class="why-card"><h3>👨‍🏫 Experienced</h3><p>Mentors with 10+ years in markets, teaching for 5+ years.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="syllabus">
+  <section class="cta-section">
     <div class="wrap">
-      <h2>8-Week Syllabus</h2>
+      <h3>Attend a free demo class.</h3>
+      <p style="color:var(--muted);margin-bottom:1.5rem">See how we teach before you join — no commitment.</p>
+      <a href="#" class="btn btn-primary" style="text-align:center">CALL 91213 84625</a>
+    </div>
+  </section>
+
+  <section class="curriculum">
+    <div class="wrap">
+      <h2>Course curriculum</h2>
+      <p style="color:var(--muted);margin-bottom:2.5rem">Eight modules that take you from basics to confident, rule-based trading.</p>
       <div class="modules">
-        <div class="module-card"><div class="module-num">01</div><div class="module-title">Market Basics</div><div class="module-desc">NSE, BSE, demat, trading account setup, order types.</div></div>
-        <div class="module-card"><div class="module-num">02</div><div class="module-title">Fundamentals</div><div class="module-desc">P/E, P/B, balance sheets, promoter holding.</div></div>
-        <div class="module-card"><div class="module-num">03</div><div class="module-title">Candlesticks</div><div class="module-desc">Patterns, trends, support & resistance.</div></div>
-        <div class="module-card"><div class="module-num">04</div><div class="module-title">Indicators</div><div class="module-desc">EMA, RSI, volume, VWAP—when they work.</div></div>
-        <div class="module-card"><div class="module-num">05</div><div class="module-title">Risk Management</div><div class="module-desc">Position sizing, stop-loss, 1-2% rule.</div></div>
-        <div class="module-card"><div class="module-num">06</div><div class="module-title">Swing Setups</div><div class="module-desc">3 repeatable trade patterns + backtesting.</div></div>
-        <div class="module-card"><div class="module-num">07</div><div class="module-title">F&O Basics</div><div class="module-desc">Calls, puts, Greeks, expiry, margin.</div></div>
-        <div class="module-card"><div class="module-num">08</div><div class="module-title">Psychology</div><div class="module-desc">Journaling, discipline, trading plan template.</div></div>
+        <div class="module"><div class="module-num">01</div><div class="module-title">Stock Market Foundations</div></div>
+        <div class="module"><div class="module-num">02</div><div class="module-title">Fundamental Analysis</div></div>
+        <div class="module"><div class="module-num">03</div><div class="module-title">Technical Analysis</div></div>
+        <div class="module"><div class="module-num">04</div><div class="module-title">Indicators & Strategies</div></div>
+        <div class="module"><div class="module-num">05</div><div class="module-title">Futures & Options</div></div>
+        <div class="module"><div class="module-num">06</div><div class="module-title">Intraday & Swing Trading</div></div>
+        <div class="module"><div class="module-num">07</div><div class="module-title">Risk Management & Psychology</div></div>
+        <div class="module"><div class="module-num">08</div><div class="module-title">Long-term Investing</div></div>
       </div>
     </div>
   </section>
 
-  <section class="pricing">
+  <section class="outcomes">
     <div class="wrap">
-      <h2>Choose Your Path</h2>
-      <div class="price-cards">
-        <div class="price-card">
-          <div class="price-badge">Starter</div>
-          <div class="price">₹4,999</div>
-          <div class="price-desc">Weeks 1–4 + 4 live Q&As</div>
-          <ul class="price-features">
-            <li>Market basics & chart reading</li>
-            <li>Core indicators explained</li>
-            <li>Community group access</li>
-          </ul>
-          <button class="btn btn-secondary">Learn More</button>
-        </div>
-        <div class="price-card featured">
-          <div class="price-badge">⭐ Most Popular</div>
-          <div class="price">₹14,999</div>
-          <div class="price-desc">All 8 weeks + live trading</div>
-          <ul class="price-features">
-            <li>Complete syllabus + F&O</li>
-            <li>4 weeks guided paper trading</li>
-            <li>Weekly journal review</li>
-            <li>1-year access to recordings</li>
-            <li>Certificate of completion</li>
-          </ul>
-          <button class="btn btn-primary">Reserve Seat Now</button>
-        </div>
-        <div class="price-card">
-          <div class="price-badge">Premium</div>
-          <div class="price">₹29,999</div>
-          <div class="price-desc">Complete Trader + mentorship</div>
-          <ul class="price-features">
-            <li>Everything in Complete Trader</li>
-            <li>6 one-on-one sessions</li>
-            <li>Personal trading plan review</li>
-            <li>Priority support</li>
-          </ul>
-          <button class="btn btn-secondary">Book Consultation</button>
-        </div>
+      <h2>What you'll do</h2>
+      <p style="color:var(--muted);margin-bottom:2.5rem">By the end of the course, you'll make market decisions with a process — not tips or guesswork.</p>
+      <div class="outcomes-grid">
+        <div class="outcome-item"><h3>Read any chart</h3><p>Spot trends, patterns and key levels with confidence.</p></div>
+        <div class="outcome-item"><h3>Analyse a company</h3><p>Judge a business using its financials and valuation.</p></div>
+        <div class="outcome-item"><h3>Build a trading plan</h3><p>Define clear rules for entries, exits and position size.</p></div>
+        <div class="outcome-item"><h3>Manage risk</h3><p>Use stop-losses and risk-reward to protect your capital.</p></div>
+        <div class="outcome-item"><h3>Trade F&O</h3><p>Understand futures, options and how to hedge responsibly.</p></div>
+        <div class="outcome-item"><h3>Invest long-term</h3><p>Build a diversified portfolio that fits your goals.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools">
+    <div class="wrap">
+      <h2>Tools & platforms</h2>
+      <p style="color:var(--muted);margin-bottom:2.5rem">Get hands-on with real platforms used by traders every day.</p>
+      <div class="tools-grid">
+        <div class="tool">TradingView</div>
+        <div class="tool">NSE India</div>
+        <div class="tool">BSE India</div>
+        <div class="tool">Screener.in</div>
+        <div class="tool">Option Chain</div>
+        <div class="tool">Stock Screeners</div>
+        <div class="tool">Broker Platforms</div>
+        <div class="tool">Excel Modelling</div>
+        <div class="tool">AI Research</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="howitworks">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p style="color:var(--muted);margin-bottom:3rem">Your learning journey in 4 steps.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3>Free Demo</h3><p>Meet your mentor and see how we teach. No commitment.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Learn Foundations</h3><p>Build strong basics in fundamentals and charts.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Live Market Practice</h3><p>Apply strategies during real market hours with mentor.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Trade with a Plan</h3><p>Invest and trade with your own rules and risk limits.</p></div>
       </div>
     </div>
   </section>
 
   <section class="faq">
     <div class="wrap">
-      <h2>Common Questions</h2>
+      <h2>FAQ</h2>
       <div class="faq-list">
         <details open>
-          <summary>I'm a complete beginner. Can I join?</summary>
-          <p>Yes. Week 1 starts from "What is a share?" Most of our students are beginners. We teach chart reading before anything else.</p>
+          <summary>Do I need a finance background?<span>+</span></summary>
+          <p>No. We start from zero: what a stock is, how markets work, reading your first chart. 80% of our students are beginners.</p>
         </details>
         <details>
-          <summary>How much do I need to start?</summary>
-          <p>No money needed during the course. You paper-trade first (with fake money). After that, start with ₹25,000-50,000 and grow from there.</p>
+          <summary>How much capital do I need?<span>+</span></summary>
+          <p>Zero during the course — you paper-trade with fake money first. After, start with ₹25,000-50,000 and grow from there.</p>
         </details>
         <details>
-          <summary>Will you give me buy/sell tips?</summary>
-          <p>No. We teach you to find your own trades. A tip is gambling. A plan is trading. We give you the plan.</p>
+          <summary>Will you give me stock tips?<span>+</span></summary>
+          <p>No. A tip is gambling. A plan is trading. We teach you to find your own trades using a process.</p>
         </details>
         <details>
-          <summary>What if I miss a live class?</summary>
-          <p>Every live class is recorded and uploaded within 24 hours. You get lifetime access to all recordings.</p>
+          <summary>What if I miss a live class?<span>+</span></summary>
+          <p>Every class is recorded and uploaded within 24 hours. Lifetime access to all recordings included.</p>
         </details>
         <details>
-          <summary>Is there a refund policy?</summary>
-          <p>Attend the free demo first. If you join and leave within 7 days, full refund. No questions asked.</p>
-        </details>
-        <details>
-          <summary>What language are classes in?</summary>
-          <p>English with Hindi/Kannada explanations where helpful. Simple language, no jargon unless explained.</p>
+          <summary>Refund policy?<span>+</span></summary>
+          <p>Attend the free demo first. Join within 7 days and regret it? Full refund. No questions.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="final-cta">
+  <section class="footer-cta">
     <div class="wrap">
-      <h2>Start Your Trading Journey Today</h2>
-      <p>Join our next batch starting Nov 2026. Limited seats. The free demo shows you everything—then you decide.</p>
+      <h2>Start your trading journey</h2>
+      <p>Limited seats in the next batch. Attend the free demo first — see everything, then decide.</p>
       <div class="ctas">
-        <button class="btn btn-primary" onclick="alert('Demo form: Contact us at poornachandrawork@gmail.com or WhatsApp')">Book Free Demo →</button>
-        <button class="btn btn-secondary" onclick="alert('WhatsApp: +91 9876543210')">Chat on WhatsApp</button>
+        <button class="btn btn-primary">BOOK FREE DEMO</button>
+        <button class="btn btn-secondary">WHATSAPP US</button>
       </div>
     </div>
   </section>
@@ -316,7 +424,7 @@ footer .wrap{max-width:900px}
 
 <footer>
   <div class="wrap">
-    <p><strong>Disclaimer:</strong> Trading in equities and F&O involves substantial risk. A SEBI study found 9 out of 10 retail F&O traders lose money. This is education only, not investment advice or guaranteed returns.</p>
-    <p style="margin-top:1rem">© 2026 Poorna Market Academy • Bengaluru</p>
+    <p><strong>Risk Disclosure:</strong> Trading in stocks and derivatives carries substantial risk. A SEBI study found 9 out of 10 retail F&O traders lose money. This course is education only. Not investment advice or guaranteed returns.</p>
+    <p style="margin-top:.8rem">© 2026 Poorna Market Academy • Bengaluru, India</p>
   </div>
 </footer>
