@@ -11,24 +11,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: a trader's desk — chart-led hero, then a sequenced syllabus, a working risk calculator, batches, FAQ, enquiry. */
+/* Bloomberg terminal: dark background, bright green text, orange/amber accents */
 :root{
-  --bg:#f5f7f3; --surface:#ffffff; --ink:#13201b; --muted:#56665f; --line:#d9e1dc;
-  --bull:#0b8a5d; --bear:#c63f2c; --accent:#e39b2d; --cta:#13201b; --cta-ink:#f5f7f3;
-  --grid:rgba(19,32,27,.07);
-  --f-display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
-  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
-  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --bg:#0a0a0a; --surface:#141414; --ink:#00d966; --muted:#00a84d; --line:#1f1f1f;
+  --bull:#00ff4d; --bear:#ff6b35; --accent:#ffa500; --cta:#00d966; --cta-ink:#0a0a0a;
+  --grid:rgba(0,217,102,.05);
+  --f-display:"Bricolage Grotesque", "Courier New", monospace;
+  --f-body:"Figtree", "Courier New", monospace;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
   --wrap:1120px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0d1412; --surface:#141d1a; --ink:#e6eee9; --muted:#97a8a0; --line:#25322d;
-  --bull:#2fbf88; --bear:#ec6a55; --accent:#f0b450; --cta:#e6eee9; --cta-ink:#0d1412;
-  --grid:rgba(230,238,233,.06); color-scheme:dark }}
+  --bg:#0a0a0a; --surface:#141414; --ink:#00d966; --muted:#00a84d; --line:#1f1f1f;
+  --bull:#00ff4d; --bear:#ff6b35; --accent:#ffa500; --cta:#00d966; --cta-ink:#0a0a0a;
+  --grid:rgba(0,217,102,.05); color-scheme:dark }}
 :root[data-theme="dark"]{
-  --bg:#0d1412; --surface:#141d1a; --ink:#e6eee9; --muted:#97a8a0; --line:#25322d;
-  --bull:#2fbf88; --bear:#ec6a55; --accent:#f0b450; --cta:#e6eee9; --cta-ink:#0d1412;
-  --grid:rgba(230,238,233,.06); color-scheme:dark }
+  --bg:#0a0a0a; --surface:#141414; --ink:#00d966; --muted:#00a84d; --line:#1f1f1f;
+  --bull:#00ff4d; --bear:#ff6b35; --accent:#ffa500; --cta:#00d966; --cta-ink:#0a0a0a;
+  --grid:rgba(0,217,102,.05); color-scheme:dark }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
