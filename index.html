@@ -5,565 +5,654 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Poorna Market Academy</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Mentor-led stock market course: market basics, technical analysis, options and risk management, with live market sessions. Book a free demo class.">
+<meta name="description" content="8-week mentor-led stock market course in Bengaluru and online. Chart reading, risk management and F&O, practised during live market hours. Book a free demo class.">
+<meta property="og:title" content="Trade with rules, not tips | Poorna Market Academy">
+<meta property="og:description" content="8-week mentor-led stock market course. Book a free demo class.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-/* Layout: a trading-terminal landing page. Black desk, amber signal colour, mono headings, square panels. */
+/* Layout: a trader's ruled notebook. Graph-paper hero with the lead form in reach, navy ink bands for
+   proof and price, marigold only on the actions. One committed light look. */
 :root{
-  --bg:#000000; --panel:#0b0b0b; --panel-2:#121212; --line:#222222; --line-2:#2e2e2e;
-  --ink:#e8e8e8; --muted:#9a9a9a; --dim:#5f5f5f;
-  --amber:#ff9900; --amber-soft:#f4d27a; --on-amber:#1a1405;
-  --up:#2ecc71; --down:#ff4d4d; --wa:#25d366;
-  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-  --sans:"IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
-  --wrap:1180px;
-  color-scheme:dark;
+  --paper:#f6f8fc; --sheet:#ffffff; --grid:#dfe6f3;
+  --ink:#0d1838; --ink-2:#3f4a6b; --ink-3:#6b7593; --line:#dde2ee;
+  --navy:#0d1838; --navy-2:#16244d; --on-navy:#e9edf8; --on-navy-2:#a9b3d1;
+  --gold:#f5a524; --gold-deep:#d98a06; --on-gold:#1d1302;
+  --up:#0f9d58; --down:#d93a2b; --wa:#25d366;
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"Archivo", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:14px; --wrap:1160px;
+  color-scheme:light;
   padding-top:env(safe-area-inset-top,0px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
-@media (min-width:861px){body{padding-bottom:0}}
-img{max-width:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.02rem/1.65 var(--body);font-stretch:100%;-webkit-font-smoothing:antialiased;padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+@media (min-width:901px){body{padding-bottom:0}}
+img{max-width:100%;display:block}
 [hidden]{display:none!important}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--mono);margin:0;text-wrap:balance}
-h2{font-size:clamp(1.65rem,3.6vw,2.4rem);font-weight:700;letter-spacing:-.035em;line-height:1.15;color:var(--ink)}
-h3{font-size:1.08rem;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;color:inherit}
+h2{font-size:clamp(1.85rem,4vw,2.9rem);font-weight:850;font-stretch:118%;letter-spacing:-.03em;line-height:1.05}
+h3{font-size:1.12rem;font-weight:750;font-stretch:108%;letter-spacing:-.01em;line-height:1.25}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.up{color:var(--up)} .down{color:var(--down)} .amber{color:var(--amber)}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.label{font:700 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.sec{padding-block:clamp(64px,9vw,112px)}
+.head{display:grid;gap:.9rem;max-width:44rem;margin-bottom:clamp(2rem,4vw,3.2rem)}
+.head p{color:var(--ink-2);font-size:1.08rem}
+.center{text-align:center;margin-inline:auto;justify-items:center}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.sample{display:inline-block;font:700 .6rem/1 var(--mono);letter-spacing:.1em;color:#7a4a00;background:#fff1d6;border:1px dashed #e0a43a;padding:.25rem .4rem;border-radius:4px;vertical-align:middle;white-space:nowrap}
 
-.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:600 .75rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
-.eyebrow::before{content:"";width:18px;height:1px;background:var(--amber)}
-.sec{padding-block:clamp(64px,9vw,104px);border-top:1px solid var(--line)}
-.sec-head{display:grid;gap:1rem;max-width:44rem;margin-bottom:clamp(2rem,4vw,3rem)}
-.sec-head p{color:var(--muted);font-size:1.06rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.9rem 1.5rem;border-radius:10px;border:0;font:800 1rem/1 var(--display);font-stretch:110%;letter-spacing:.005em;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-gold{background:var(--gold);color:var(--on-gold);box-shadow:0 1px 0 var(--gold-deep),0 10px 24px -10px rgba(217,138,6,.7)}
+.btn-gold:hover{background:#ffb43c;transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-wa{background:var(--wa);color:#05290f}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1rem 1.6rem;font:600 .9rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--amber);cursor:pointer;transition:background .15s,color .15s,transform .15s;white-space:nowrap}
-.btn svg{width:18px;height:18px;flex:none}
-.btn-amber{background:var(--amber);color:var(--on-amber)}
-.btn-amber:hover{background:#ffad33}
-.btn-line{background:transparent;color:var(--amber)}
-.btn-line:hover{background:rgba(255,153,0,.1)}
-.btn-wa{background:var(--wa);border-color:var(--wa);color:#04210f}
+/* setup banner (only while details are missing) */
+.setup{background:#fff1d6;border-bottom:1px solid #f0c77a;color:#5c3800;font-size:.86rem}
+.setup .wrap{display:flex;gap:.8rem;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:.55rem}
+.setup b{font-weight:800}
+.setup button{font:700 .78rem var(--mono);background:none;border:1px solid #c98a1c;color:#5c3800;padding:.3rem .6rem;border-radius:6px;cursor:pointer}
 
-/* top strip + nav */
-.strip{background:#0a1128;border-bottom:1px solid #1a2342;font:500 .85rem var(--sans);color:#cbd5e1}
-.strip .wrap{display:flex;align-items:center;justify-content:center;gap:.8rem;padding-block:.6rem;flex-wrap:wrap;text-align:center}
-.pill{background:linear-gradient(180deg,#f4d27a,#c99a3a);color:var(--on-amber);font:700 .68rem/1 var(--mono);padding:.35rem .6rem;border-radius:999px;letter-spacing:.08em}
-.strip b{color:var(--amber-soft);font-weight:600}
-header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:#000}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
-.brand{display:flex;align-items:center;gap:.65rem;font:700 1rem var(--mono);letter-spacing:-.02em}
-.brand-mark{width:34px;height:34px;border:1px solid var(--amber);display:grid;place-items:center}
-.brand small{display:block;font:500 .62rem var(--mono);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.nav-links{display:flex;align-items:center;gap:1.6rem;font:500 .82rem var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-.nav-links a:hover{color:var(--ink)}
-.nav .btn{padding:.7rem 1rem;font-size:.78rem}
-@media (max-width:960px){.nav-links a{display:none}}
+/* offer bar */
+.offer{background:var(--navy);color:var(--on-navy);font-size:.9rem}
+.offer .wrap{display:flex;align-items:center;justify-content:center;gap:.4rem 1rem;flex-wrap:wrap;padding-block:.6rem;text-align:center}
+.offer b{color:var(--gold);font-weight:800}
+.clock{display:inline-flex;gap:.3rem;font:700 .82rem var(--mono)}
+.clock span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:.2rem .4rem;border-radius:5px;min-width:2.6em;text-align:center}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(246,248,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--paper)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:850 1.05rem/1 var(--display);font-stretch:115%;letter-spacing:-.02em}
+.logo small{display:block;font:500 .7rem/1.4 var(--body);font-stretch:100%;color:var(--ink-3);letter-spacing:0}
+.top-actions{display:flex;gap:.6rem;align-items:center}
+.top-actions .btn{min-height:42px;padding:.6rem 1rem;font-size:.9rem}
+.tel{font:700 .92rem var(--mono);text-decoration:none;display:flex;align-items:center;gap:.4rem}
+@media (max-width:720px){.tel,.top-actions .btn-ghost{display:none}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;background:
-  linear-gradient(var(--bg),transparent 30%,transparent 70%,var(--bg)),
-  repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 48px),
-  repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 48px),#000}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center;padding-block:clamp(48px,8vw,96px)}
-.live{display:inline-flex;align-items:stretch;border:1px solid var(--line-2);background:rgba(10,10,10,.8);font:600 .78rem/1 var(--mono);letter-spacing:.12em}
-.live span:first-child{background:var(--amber);color:var(--on-amber);padding:.55rem .7rem;display:flex;align-items:center;gap:.45rem}
-.live span:first-child::before{content:"";width:7px;height:7px;background:var(--on-amber);animation:blink 1.2s steps(2) infinite}
-.live span:last-child{padding:.55rem .85rem;color:var(--amber);display:flex;align-items:center}
-@keyframes blink{50%{opacity:0}}
-.hero h1{font-size:clamp(2.3rem,5.6vw,4.1rem);font-weight:700;letter-spacing:-.045em;line-height:1.08;margin-top:1.6rem;color:#fff}
-.hero h1 em{font-style:normal;color:var(--amber);display:block}
-.hero .lede{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:34rem;margin-top:1.4rem}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-.checks{display:flex;flex-wrap:wrap;gap:.9rem 1.6rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--line);font:500 .82rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#cfcfcf}
-.checks span{display:flex;align-items:center;gap:.5rem}
-.checks svg{width:16px;height:16px;color:var(--up)}
+  linear-gradient(180deg,rgba(246,248,252,0) 60%,var(--paper)),
+  repeating-linear-gradient(0deg,var(--grid) 0 1px,transparent 1px 32px),
+  repeating-linear-gradient(90deg,var(--grid) 0 1px,transparent 1px 32px),var(--paper)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(40px,6vw,80px) clamp(56px,7vw,96px)}
+.kicker{display:inline-flex;align-items:center;gap:.55rem;background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:.4rem .85rem .4rem .45rem;font-size:.86rem;font-weight:600;color:var(--ink-2);box-shadow:0 1px 2px rgba(13,24,56,.05)}
+.kicker i{width:22px;height:22px;border-radius:50%;background:var(--up);display:grid;place-items:center}
+.kicker i::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(.55);opacity:.6}}
+.hero h1{font-size:clamp(2.7rem,7.4vw,5.4rem);font-weight:900;font-stretch:122%;letter-spacing:-.045em;line-height:.95;margin-top:1.3rem}
+.hero h1 .strike{position:relative;color:var(--ink-3);white-space:nowrap}
+.hero h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:.09em;background:var(--down);transform:rotate(-4deg)}
+.hero h1 .mark{background:linear-gradient(transparent 62%,rgba(245,165,36,.55) 62%);padding:0 .05em}
+.hero .sub{font-size:clamp(1.05rem,1.7vw,1.22rem);color:var(--ink-2);max-width:36rem;margin-top:1.4rem}
+.ticks{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.55rem}
+.ticks li{display:flex;gap:.65rem;align-items:flex-start;font-weight:600}
+.ticks svg{flex:none;width:22px;height:22px;margin-top:.1rem;color:var(--up)}
+.proof{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.8rem;margin-top:2rem;padding-top:1.5rem;border-top:1px dashed #c7cfe0}
+.proof div{display:grid;gap:.1rem}
+.proof b{font:850 1.5rem/1 var(--display);font-stretch:115%;letter-spacing:-.02em}
+.proof span{font-size:.82rem;color:var(--ink-3)}
+.stars{color:var(--gold);letter-spacing:.05em}
+#heroTape{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px;z-index:0;opacity:.55;pointer-events:none}
 
-/* terminal panel */
-.term{background:var(--panel);border:1px solid var(--line-2);min-width:0;box-shadow:0 30px 80px -30px rgba(255,153,0,.18)}
-.term-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.65rem .9rem;border-bottom:1px solid var(--line);font:600 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.term-bar .ok{color:var(--up);display:flex;align-items:center;gap:.4rem}
-.term-bar .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--up);box-shadow:0 0 8px var(--up)}
-.quote{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;padding:.9rem .9rem .2rem}
-.quote .sym{font:700 .95rem var(--mono);color:var(--amber)}
-.quote .px{font:700 1.7rem var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.quote .chg{font:600 .9rem var(--mono);font-variant-numeric:tabular-nums}
-canvas.chart{display:block;width:100%;height:280px}
-.term-legend{display:flex;flex-wrap:wrap;gap:1rem;padding:.7rem .9rem;border-top:1px solid var(--line);font:500 .72rem var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.term-legend i{display:inline-block;width:9px;height:9px;margin-right:.4rem;vertical-align:-1px}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}canvas.chart{height:230px}}
+/* form card */
+.formcard{background:var(--sheet);border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 60px -28px rgba(13,24,56,.35),0 2px 6px rgba(13,24,56,.05);overflow:hidden;min-width:0}
+.formcard-top{background:var(--navy);color:var(--on-navy);padding:1.2rem 1.4rem;display:grid;gap:.3rem}
+.formcard-top h2{font-size:1.45rem;font-stretch:112%;color:#fff;letter-spacing:-.02em}
+.formcard-top p{font-size:.9rem;color:var(--on-navy-2)}
+.seats{display:flex;align-items:center;gap:.6rem;font:700 .78rem var(--mono);color:var(--gold);letter-spacing:.04em;margin-top:.35rem}
+.seatbar{flex:1;height:6px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}
+.seatbar i{display:block;height:100%;background:var(--gold);border-radius:9px}
+form.lead{padding:1.3rem 1.4rem 1.4rem;display:grid;gap:.9rem}
+.f{display:grid;gap:.35rem}
+.f label{font-size:.82rem;font-weight:700;color:var(--ink-2)}
+.f input,.f select{width:100%;font:500 1.02rem var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:.85rem .9rem;appearance:none;transition:border-color .15s,background .15s}
+.f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:2.4rem}
+.f input:focus,.f select:focus{outline:none;border-color:var(--ink);background:#fff}
+.f input[aria-invalid="true"]{border-color:var(--down);background:#fff7f6}
+.err{font-size:.8rem;color:var(--down);font-weight:600}
+.phone{display:flex;align-items:stretch}
+.phone span{display:grid;place-items:center;padding:0 .8rem;border:1.5px solid var(--line);border-right:0;border-radius:10px 0 0 10px;background:#eef1f8;font:700 .95rem var(--mono);color:var(--ink-2)}
+.phone input{border-radius:0 10px 10px 0}
+form.lead .btn{width:100%;min-height:56px;font-size:1.06rem}
+.micro{display:flex;gap:.5rem;align-items:center;justify-content:center;font-size:.8rem;color:var(--ink-3);text-align:center}
+.micro svg{width:14px;height:14px;flex:none}
+.or{display:flex;align-items:center;gap:.8rem;font-size:.78rem;color:var(--ink-3);font-weight:600}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.ok{border:1.5px solid var(--up);background:#effaf4;border-radius:10px;padding:1rem;display:grid;gap:.3rem}
+.ok b{font-family:var(--display);font-stretch:110%;font-size:1.05rem}
+.ok p{font-size:.9rem;color:var(--ink-2)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}#heroTape{height:110px}}
 
-/* tape */
-.tape{border-block:1px solid var(--line);background:var(--panel);overflow:hidden}
-.tape-track{display:flex;width:max-content;animation:tape 45s linear infinite}
-.tape-track span{display:flex;align-items:center;gap:.55rem;padding:.9rem 1.6rem;font:600 .8rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#cfcfcf;border-right:1px solid var(--line)}
-.tape-track b{font-weight:700}
-@keyframes tape{to{transform:translateX(-50%)}}
+/* platform strip */
+.strip{border-block:1px solid var(--line);background:var(--sheet)}
+.strip .wrap{display:flex;align-items:center;gap:1rem 2.2rem;flex-wrap:wrap;justify-content:center;padding-block:1.2rem}
+.strip small{font:700 .7rem var(--mono);letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
+.strip span{font:800 1rem var(--display);font-stretch:112%;color:#8a93ad;letter-spacing:-.01em}
 
-/* market monitor */
-.monitor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,.9fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.monitor > div{background:var(--panel);min-width:0}
-.wl{width:100%;border-collapse:collapse;font:500 .82rem var(--mono);font-variant-numeric:tabular-nums}
-.wl th{font-weight:600;font-size:.68rem;letter-spacing:.1em;color:var(--dim);text-align:right;padding:.55rem .8rem;border-bottom:1px solid var(--line)}
-.wl th:first-child,.wl td:first-child{text-align:left}
-.wl td{padding:.5rem .8rem;text-align:right;border-bottom:1px solid #161616;transition:background .4s}
-.wl td:first-child{color:var(--amber-soft);font-weight:600}
-.wl tr.flash-up td{background:rgba(46,204,113,.12)} .wl tr.flash-down td{background:rgba(255,77,77,.12)}
-.heat{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:.8rem}
-.heat div{padding:.75rem .5rem;font:600 .72rem/1.3 var(--mono);text-align:center;color:#fff;letter-spacing:.04em}
-.heat b{display:block;font-size:.8rem;font-variant-numeric:tabular-nums}
-.movers{padding:.2rem .8rem .9rem;display:grid;gap:.4rem;font:500 .8rem var(--mono)}
-.movers h4{margin:.6rem 0 .2rem;font:600 .68rem var(--mono);letter-spacing:.12em;color:var(--dim)}
-.movers div{display:flex;justify-content:space-between}
-.sim{margin-top:1rem;font:500 .72rem var(--mono);letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
-@media (max-width:960px){.monitor{grid-template-columns:1fr 1fr}.monitor .m-chart{grid-column:1/-1;order:-1}}
-@media (max-width:620px){.monitor{grid-template-columns:1fr}}
+/* problem / fix */
+.pf{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.stat-big{font:900 clamp(4.5rem,13vw,8.5rem)/.85 var(--display);font-stretch:125%;letter-spacing:-.06em;color:var(--down)}
+.stat-big small{font-size:.4em;letter-spacing:-.02em}
+.stat-cap{margin-top:1rem;font-size:1.06rem;color:var(--ink-2);max-width:26rem}
+.stat-cap cite{display:block;font:500 .78rem var(--mono);color:var(--ink-3);font-style:normal;margin-top:.5rem}
+.vs{display:grid;gap:.8rem}
+.vs-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.8rem;align-items:center}
+.vs-row > div{padding:1rem 1.1rem;border-radius:var(--r);font-weight:600;font-size:.98rem;line-height:1.4}
+.bad{background:#fff;border:1px solid #f1cfcb;color:#7a2219}
+.bad::before{content:"✕  ";color:var(--down);font-weight:800}
+.good{background:var(--navy);color:#fff}
+.good::before{content:"✓  ";color:var(--gold);font-weight:800}
+.vs-row svg{width:20px;height:20px;color:var(--ink-3)}
+.vs-head{display:grid;grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr);gap:.8rem;font:700 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width:860px){.pf{grid-template-columns:1fr}}
+@media (max-width:520px){.vs-row{grid-template-columns:1fr}.vs-row svg{transform:rotate(90deg);justify-self:center}.vs-head{display:none}}
 
-/* who */
-.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.who{background:var(--bg);padding:1.8rem 1.5rem;display:grid;gap:.7rem;align-content:start}
-.who .tag{font:600 .7rem var(--mono);letter-spacing:.12em;color:var(--dim)}
-.who p{color:var(--muted);font-size:.95rem}
-@media (max-width:900px){.grid4{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.grid4{grid-template-columns:1fr}}
+/* calculator */
+.calc{background:var(--sheet);border:1px solid var(--line);border-radius:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden}
+.calc-in{padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1rem;align-content:start}
+.calc-in .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.calc-out{background:var(--navy);color:var(--on-navy);padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1.2rem;align-content:start}
+.calc-out .q{font:900 clamp(3rem,8vw,4.6rem)/1 var(--display);font-stretch:120%;color:#fff;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.calc-out dl{margin:0;display:grid;gap:.6rem}
+.calc-out dl div{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(255,255,255,.12);font-size:.95rem}
+.calc-out dt{color:var(--on-navy-2)} .calc-out dd{margin:0;font:700 .98rem var(--mono);color:#fff}
+.calc-note{font-size:.88rem;color:var(--gold);min-height:1.3em}
+.calc-out .lbl{font:700 .7rem var(--mono);letter-spacing:.14em;color:var(--on-navy-2);text-transform:uppercase}
+@media (max-width:820px){.calc{grid-template-columns:1fr}}
+@media (max-width:400px){.calc-in .grid2{grid-template-columns:1fr}}
 
-/* why bento */
-.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.bento > div{background:var(--panel);padding:1.7rem 1.5rem;display:grid;gap:.6rem;align-content:start}
-.bento p{color:var(--muted);font-size:.95rem}
-.bento .big{grid-row:span 2;background:linear-gradient(160deg,rgba(255,153,0,.14),transparent 55%),var(--panel)}
-.bento .big h3{font-size:1.5rem}
-.bento .stat{font:700 3rem/1 var(--mono);color:var(--amber);letter-spacing:-.04em}
-.ico{width:38px;height:38px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--amber)}
-.ico svg{width:18px;height:18px}
-@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.bento .big{grid-row:auto;grid-column:1/-1}}
-@media (max-width:560px){.bento{grid-template-columns:1fr}}
+/* curriculum timeline */
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;counter-reset:w}
+.wk{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.2rem;display:grid;gap:.5rem;align-content:start;position:relative}
+.wk .n{font:700 .74rem var(--mono);letter-spacing:.12em;color:var(--ink-3)}
+.wk p{color:var(--ink-2);font-size:.93rem}
+.wk.key{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+.wk.key .n{color:var(--gold-deep)}
+@media (max-width:960px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.weeks{grid-template-columns:1fr}}
 
-/* demo band */
-.band{background:var(--amber);color:var(--on-amber)}
-.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding-block:2.2rem}
-.band h3{font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:700;letter-spacing:-.03em}
-.band p{font-weight:500;opacity:.8;margin-top:.3rem}
-.band .btn{background:#000;color:var(--amber);border-color:#000}
-.band .btn:hover{background:#1a1a1a}
+/* mentor */
+.navyband{background:var(--navy);color:var(--on-navy)}
+.navyband .head p{color:var(--on-navy-2)}
+.navyband .label{color:var(--gold)}
+.mentor{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.photo{aspect-ratio:4/5;max-width:100%;border-radius:20px;overflow:hidden;background:
+  repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px),var(--navy-2);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;text-align:center;color:var(--on-navy-2);font:600 .9rem var(--mono);padding:1.5rem;position:relative}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mentor h2{color:#fff}
+.mentor .role{font:700 .82rem var(--mono);color:var(--gold);letter-spacing:.06em;margin-top:.6rem}
+.mentor .bio{color:var(--on-navy-2);margin-top:1.2rem;font-size:1.05rem;max-width:36rem}
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden;margin-top:2rem}
+.creds div{background:var(--navy);padding:1.1rem 1rem;display:grid;gap:.2rem}
+.creds b{font:900 1.7rem/1 var(--display);font-stretch:118%;color:#fff;letter-spacing:-.03em}
+.creds span{font-size:.82rem;color:var(--on-navy-2)}
+.mentor blockquote{margin:1.8rem 0 0;padding-left:1rem;border-left:3px solid var(--gold);font:600 1.08rem/1.5 var(--display);font-stretch:104%;color:#fff;max-width:34rem}
+@media (max-width:820px){.mentor{grid-template-columns:1fr}.photo{max-width:320px}}
+@media (max-width:440px){.creds{grid-template-columns:1fr}}
 
-/* curriculum */
-.curr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 2rem;border-top:1px solid var(--line)}
-.curr details{border-bottom:1px solid var(--line)}
-.curr summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:3.2rem 1fr auto;align-items:center;gap:.8rem;padding:1.2rem 0}
-.curr summary::-webkit-details-marker{display:none}
-.curr .n{font:700 1.3rem var(--mono);color:var(--amber);font-variant-numeric:tabular-nums}
-.curr summary h3{font-size:1.02rem}
-.curr summary::after{content:"+";font:500 1.3rem var(--mono);color:var(--muted)}
-.curr details[open] summary::after{content:"−";color:var(--amber)}
-.curr ul{list-style:none;margin:0;padding:0 0 1.3rem 4rem;display:flex;flex-wrap:wrap;gap:.45rem}
-.curr li{font:500 .76rem var(--mono);padding:.35rem .6rem;border:1px solid var(--line-2);color:#cfcfcf}
-.curr-cta{margin-top:2.2rem;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;padding:1.4rem 1.5rem;border:1px dashed var(--line-2)}
-.curr-cta p{color:var(--muted)} .curr-cta b{color:var(--ink);display:block;font-family:var(--mono)}
-@media (max-width:820px){.curr{grid-template-columns:1fr}}
+/* reviews */
+.revhead{display:flex;align-items:end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.rating{display:flex;align-items:center;gap:.8rem;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:.8rem 1.1rem}
+.rating b{font:900 2rem/1 var(--display);font-stretch:118%}
+.rating small{display:block;font-size:.8rem;color:var(--ink-3)}
+.reviews{columns:3 280px;column-gap:1rem}
+.rev{break-inside:avoid;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem;margin-bottom:1rem;display:grid;gap:.8rem}
+.rev p{color:var(--ink);font-size:.98rem}
+.who{display:flex;align-items:center;gap:.7rem}
+.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:800 .95rem var(--display);color:#fff;flex:none}
+.who b{display:block;font-size:.92rem}
+.who small{color:var(--ink-3);font-size:.8rem}
+.rev .res{font:700 .76rem var(--mono);color:var(--up);background:#effaf4;border-radius:6px;padding:.35rem .55rem;width:fit-content}
 
-/* outcomes */
-.outs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.4rem 2rem}
-.outs div{display:grid;gap:.5rem;padding-top:1rem;border-top:2px solid var(--amber)}
-.outs p{color:var(--muted);font-size:.95rem}
-@media (max-width:820px){.outs{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.outs{grid-template-columns:1fr}}
+/* gallery */
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:.8rem}
+.gallery > div{border-radius:var(--r);overflow:hidden;position:relative;background:repeating-linear-gradient(135deg,#eaeef7 0 12px,#f3f5fa 12px 24px);border:1px dashed #c7cfe0;display:grid;place-items:center;color:var(--ink-3);font:600 .8rem var(--mono);text-align:center;padding:1rem}
+.gallery > div:first-child{grid-row:span 2}
+.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:700px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:180px 140px 140px}.gallery > div:first-child{grid-column:1/-1;grid-row:auto}}
 
-/* tools */
-.tools{display:flex;flex-wrap:wrap;gap:.6rem}
-.tools span{font:600 .82rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:.8rem 1.1rem;border:1px solid var(--line-2);background:var(--panel)}
-.tools span::before{content:"› ";color:var(--amber)}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line)}
-.steps div{padding:1.8rem 1.4rem;display:grid;gap:.6rem;align-content:start;border-right:1px solid var(--line);position:relative}
-.steps div:last-child{border-right:0}
-.steps .n{font:700 2.4rem/1 var(--mono);color:var(--amber);letter-spacing:-.04em}
-.steps p{color:var(--muted);font-size:.95rem}
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps div:nth-child(2){border-right:0}.steps div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-@media (max-width:520px){.steps{grid-template-columns:1fr}.steps div{border-right:0;border-bottom:1px solid var(--line)}.steps div:last-child{border-bottom:0}}
+/* pricing */
+.plans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:1.2rem;align-items:stretch;max-width:940px;margin-inline:auto}
+.plan{background:var(--sheet);border:1px solid var(--line);border-radius:22px;padding:clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;gap:1.1rem}
+.plan.best{background:var(--navy);color:var(--on-navy);border:0;position:relative}
+.plan.best h3{color:#fff}
+.flag{position:absolute;top:-13px;left:1.6rem;background:var(--gold);color:var(--on-gold);font:800 .72rem/1 var(--mono);letter-spacing:.1em;padding:.5rem .7rem;border-radius:7px}
+.price{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.price b{font:900 clamp(2.4rem,5vw,3rem)/1 var(--display);font-stretch:118%;letter-spacing:-.04em}
+.plan.best .price b{color:#fff}
+.price s{color:var(--ink-3);font:600 1rem var(--mono)}
+.plan.best .price s{color:var(--on-navy-2)}
+.emi{font:700 .86rem var(--mono);color:var(--up)}
+.plan.best .emi{color:var(--gold)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;flex:1}
+.plan li{display:flex;gap:.6rem;font-size:.97rem}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:.2rem;border-radius:50%;background:var(--up) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/11px no-repeat}
+.plan.best li::before{background-color:var(--gold)}
+.plan .btn{width:100%}
+.guarantee{max-width:940px;margin:1.5rem auto 0;display:flex;gap:1.1rem;align-items:center;background:#effaf4;border:1px solid #bfe6cf;border-radius:var(--r);padding:1.1rem 1.3rem}
+.guarantee svg{width:38px;height:38px;color:var(--up);flex:none}
+.guarantee b{font-family:var(--display);font-stretch:110%;font-size:1.05rem}
+.guarantee p{color:var(--ink-2);font-size:.94rem}
+@media (max-width:780px){.plans{grid-template-columns:1fr}.plan.best{order:-1}}
 
 /* faq */
-.faq{max-width:52rem;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;padding:1.25rem 0;font:600 1.02rem var(--mono);letter-spacing:-.01em}
+.faq{max-width:50rem;margin-inline:auto;display:grid;gap:.7rem}
+.faq details{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:0 1.2rem}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font:750 1.03rem var(--display);font-stretch:106%}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--muted);font-weight:500}
-.faq details[open] summary::after{content:"−";color:var(--amber)}
-.faq details p{color:var(--muted);padding-bottom:1.3rem;max-width:44rem}
+.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font:600 1.1rem var(--mono);color:var(--ink-2)}
+.faq details[open] summary::after{content:"−";background:var(--gold);color:var(--on-gold)}
+.faq details p{color:var(--ink-2);padding-bottom:1.2rem;max-width:44rem}
 
-/* lead form */
-.lead{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
-.contact{display:grid;gap:1rem;margin-top:2rem}
-.contact div{display:grid;gap:.2rem;padding:1rem 1.1rem;border:1px solid var(--line)}
-.contact small{font:600 .68rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.contact b{font:600 1rem var(--mono);user-select:all}
-form.card{background:var(--panel);border:1px solid var(--line-2);padding:clamp(1.3rem,3vw,2rem);display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.f{display:grid;gap:.4rem}
-.f.full{grid-column:1/-1}
-.f label{font:600 .7rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.f input,.f select{width:100%;font:500 1rem var(--sans);color:var(--ink);background:#000;border:1px solid var(--line-2);padding:.85rem .9rem;border-radius:0;appearance:none}
-.f select{background-image:linear-gradient(45deg,transparent 50%,var(--amber) 50%),linear-gradient(135deg,var(--amber) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:2.2rem}
-.f input:focus,.f select:focus{outline:none;border-color:var(--amber)}
-.f .err{font:500 .8rem var(--sans);color:var(--down)}
-form.card .btn{grid-column:1/-1;width:100%;padding-block:1.15rem}
-.fine{grid-column:1/-1;font-size:.8rem;color:var(--dim)}
-.done{grid-column:1/-1;border:1px solid var(--up);padding:1rem;color:var(--ink);font-size:.95rem}
-@media (max-width:860px){.lead{grid-template-columns:1fr}}
-@media (max-width:460px){form.card{grid-template-columns:1fr}}
+/* final */
+.final{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 32px),repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 32px)}
+.final .wrap{position:relative;display:grid;justify-items:center;text-align:center;gap:1.2rem;padding-block:clamp(72px,10vw,120px)}
+.final h2{color:#fff;font-size:clamp(2.1rem,5.4vw,3.8rem);max-width:16ch}
+.final p{color:var(--on-navy-2);max-width:34rem;font-size:1.08rem}
+.final .row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
 
-/* final + footer */
-.final{text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(255,153,0,.16),transparent 65%)}
-.final .wrap{display:grid;justify-items:center;gap:1.2rem;padding-block:clamp(70px,10vw,120px)}
-.final h2{font-size:clamp(1.9rem,4.4vw,3rem);max-width:20ch}
-.final p{color:var(--muted);max-width:36rem}
-.final .ctas{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem}
-footer{border-top:1px solid var(--line);padding-block:2.4rem;font-size:.82rem;color:var(--dim)}
-footer .wrap{display:grid;gap:1rem}
-footer b{color:var(--muted)}
+footer{background:#091129;color:#8f9abb;font-size:.86rem;padding-block:2.6rem}
+footer .wrap{display:grid;gap:1.4rem}
+footer .cols{display:flex;flex-wrap:wrap;gap:1.2rem 3rem;justify-content:space-between}
+footer b{color:#dfe5f5}
+footer a{color:#dfe5f5}
+.disc{border-top:1px solid rgba(255,255,255,.1);padding-top:1.4rem;font-size:.8rem;line-height:1.6}
 
 /* sticky mobile bar */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line-2);padding-bottom:env(safe-area-inset-bottom,0px)}
-.mbar a{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:1.05rem .5rem;font:700 .85rem var(--mono);letter-spacing:.06em;text-transform:uppercase}
-.mbar a svg{width:18px;height:18px}
-.mbar .c{background:#0a1128;color:#fff}
-.mbar .w{background:var(--wa);color:#04210f}
-@media (min-width:861px){.mbar{display:none}}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:auto auto 1fr;gap:.5rem;padding:.55rem max(12px,env(safe-area-inset-right,0px)) calc(.55rem + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -8px 24px -12px rgba(13,24,56,.25)}
+.mbar .btn{min-height:48px;padding:.6rem .9rem;font-size:.92rem}
+.mbar .ic{width:48px;padding:0}
+@media (min-width:901px){.mbar{display:none}}
 </style>
 </head>
 <body>
 
-<div class="strip"><div class="wrap"><span class="pill">FREE</span><span>Attend a free demo class before you join</span><span aria-hidden="true">·</span><b class="js-phone-text">Call +91 00000 00000</b></div></div>
+<div class="setup" id="setup" hidden><div class="wrap"><span><b>Preview mode.</b> Items marked <span class="sample">SAMPLE</span> are placeholders. Add your real phone, reviews, mentor and fees in the CONFIG block of this file before running ads.</span><button type="button" id="setupHide">Hide</button></div></div>
 
-<header class="nav">
+<div class="offer"><div class="wrap"><span>Next batch starts <b id="batchDate">10 Nov</b></span><span class="clock" id="clock" aria-label="Time left to enrol"></span><span>Free demo class this week</span></div></div>
+
+<header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Poorna Market Academy">
-      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="7" width="3" height="8" fill="#ff4d4d"/><rect x="3" y="4" width="1" height="14" fill="#ff4d4d"/><rect x="8.5" y="5" width="3" height="9" fill="#2ecc71"/><rect x="9.5" y="2" width="1" height="15" fill="#2ecc71"/><rect x="15" y="3" width="3" height="7" fill="#ff9900"/><rect x="16" y="1" width="1" height="12" fill="#ff9900"/></svg></span>
-      <span>Poorna Market<small>Academy · Stock market</small></span>
+    <a class="logo" href="#top">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#0d1838"/><rect x="8" y="14" width="4" height="10" rx="1" fill="#d93a2b"/><rect x="9.5" y="10" width="1" height="17" fill="#d93a2b"/><rect x="15" y="11" width="4" height="10" rx="1" fill="#0f9d58"/><rect x="16.5" y="7" width="1" height="17" fill="#0f9d58"/><rect x="22" y="8" width="4" height="9" rx="1" fill="#f5a524"/><rect x="23.5" y="5" width="1" height="15" fill="#f5a524"/></svg>
+      <span><span data-c="brand">Poorna Market Academy</span><small data-c="city">Bengaluru · Online across India</small></span>
     </a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#curriculum">Curriculum</a>
-      <a href="#why">Why us</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-amber" href="#demo">Book free demo</a>
-    </nav>
+    <div class="top-actions">
+      <a class="tel js-tel" href="#lead"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span data-c="phoneLabel">+91 00000 00000</span></a>
+      <a class="btn btn-gold" href="#lead">Book free demo</a>
+    </div>
   </div>
 </header>
 
 <main id="top">
+<!-- HERO -->
 <section class="hero">
+  <canvas id="heroTape" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <div class="live"><span>LIVE</span><span>NEW BATCH OPEN · BOOK A FREE DEMO</span></div>
-      <h1>Learn the stock market. <em>Trade with a plan.</em></h1>
-      <p class="lede">From market basics to technical analysis, options and risk management. Practical, mentor-led training with live market sessions.</p>
-      <div class="ctas">
-        <a class="btn btn-amber" href="#demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Book free demo</a>
-        <a class="btn btn-line js-wa" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg>WhatsApp us</a>
-      </div>
-      <div class="checks">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Live market sessions</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Beginner friendly</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>Lifetime mentorship</span>
-      </div>
+      <span class="kicker"><i></i>New batch open · <span data-c="seatsText">8 of 25 seats left</span></span>
+      <h1 id="headline">Trade with a <span class="mark">plan</span>, not <span class="strike">tips</span>.</h1>
+      <p class="sub">An 8-week, mentor-led stock market course in Bengaluru and online. Learn chart reading, risk management and F&amp;O, and practise them during live market hours.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>Starts from zero. No finance background needed.</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>Live sessions at 9:15 AM with a mentor beside you.</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>Paper-trade first. Real money only when you're ready.</li>
+      </ul>
+      <div class="proof" id="proof"></div>
     </div>
 
-    <figure class="term" style="margin:0" aria-label="Practice chart">
-      <div class="term-bar"><span>Practice chart · 15m</span><span class="ok">Market open</span></div>
-      <div class="quote"><span class="sym">NIFTY 50</span><span class="px num" id="hPx">24,792.28</span><span class="chg num up" id="hChg">+122.28 (+0.50%)</span></div>
-      <canvas class="chart" id="heroChart" aria-hidden="true"></canvas>
-      <figcaption class="term-legend"><span><i style="background:var(--up)"></i>Bullish</span><span><i style="background:var(--down)"></i>Bearish</span><span><i style="background:var(--amber)"></i>Moving average</span><span style="margin-left:auto">Simulated</span></figcaption>
-    </figure>
+    <div class="formcard" id="lead">
+      <div class="formcard-top">
+        <h2>Book your free demo class</h2>
+        <p>We'll call you within 2 hours with a slot that suits you.</p>
+        <div class="seats"><span data-c="seatsShort">8 seats left</span><span class="seatbar"><i id="seatFill" style="width:68%"></i></span></div>
+      </div>
+      <form class="lead" id="form1" novalidate data-form>
+        <div class="f"><label for="n1">Your name</label><input id="n1" name="name" autocomplete="name" placeholder="e.g. Rahul Sharma" required><span class="err" hidden></span></div>
+        <div class="f"><label for="p1">WhatsApp number</label><div class="phone"><span>+91</span><input id="p1" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="11" placeholder="98765 43210" required></div><span class="err" hidden></span></div>
+        <div class="f"><label for="m1">I'd prefer</label><select id="m1" name="mode"><option>Online classes</option><option>Classroom (Bengaluru)</option><option>Not sure yet</option></select></div>
+        <button class="btn btn-gold" type="submit">Get my free demo slot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="micro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>No spam. Your number is only used to arrange the demo.</p>
+        <div class="or">or</div>
+        <a class="btn btn-wa js-wa" href="#lead"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg>Chat on WhatsApp</a>
+      </form>
+    </div>
   </div>
 </section>
 
-<div class="tape" aria-hidden="true"><div class="tape-track" id="tape"></div></div>
+<div class="strip"><div class="wrap"><small>You'll practise on</small><span>TradingView</span><span>NSE India</span><span>Screener.in</span><span>Option chain</span><span>Zerodha Kite</span><span>Excel</span></div></div>
 
-<section class="sec" id="monitor">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Market monitor</span>
-      <h2>Learn on screens that look like a real trading desk.</h2>
-      <p>Watchlists ticking up and down, live candlestick charts and sector heatmaps. You'll learn to read all of it.</p>
+<!-- PROBLEM / FIX -->
+<section class="sec">
+  <div class="wrap pf">
+    <div>
+      <span class="label">The hard truth</span>
+      <div class="stat-big" style="margin-top:1rem">9<small>/10</small></div>
+      <p class="stat-cap">individual F&amp;O traders in India lost money in FY2022-24. Most of them traded on tips, with no plan and no stop-loss.<cite>Source: SEBI study, September 2024</cite></p>
     </div>
-    <div class="monitor">
-      <div>
-        <div class="term-bar"><span>Watchlist</span><span>NSE</span></div>
-        <table class="wl"><thead><tr><th>Symbol</th><th>Last</th><th>Chg%</th></tr></thead><tbody id="wl"></tbody></table>
+    <div>
+      <div class="head" style="margin-bottom:1.6rem"><h2>We teach the habits the other one in ten has.</h2></div>
+      <div class="vs-head"><span>What most beginners do</span><span></span><span>What you'll do</span></div>
+      <div class="vs">
+        <div class="vs-row"><div class="bad">Buy because a Telegram group said so</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Find your own setups on the chart</div></div>
+        <div class="vs-row"><div class="bad">Pick quantity by gut feeling</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Size every trade from the stop-loss</div></div>
+        <div class="vs-row"><div class="bad">Hold losers and hope</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Exit at a level decided before entry</div></div>
+        <div class="vs-row"><div class="bad">Jump into options on day one</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Paper-trade until your journal proves discipline</div></div>
       </div>
-      <div class="m-chart">
-        <div class="term-bar"><span class="amber">NIFTY 50 INDEX &lt;GO&gt;</span><span class="ok">Live</span></div>
-        <div class="quote"><span class="px num" id="mPx">24,792.28</span><span class="chg num up" id="mChg">+0.50%</span></div>
-        <canvas class="chart" id="monChart" style="height:300px" aria-hidden="true"></canvas>
-        <div class="term-legend"><span>O 24,670</span><span>H 24,855</span><span>L 24,674</span><span>VOL 312.4M</span><span style="margin-left:auto" class="amber">RSI · MACD · VWAP</span></div>
-      </div>
-      <div>
-        <div class="term-bar"><span>Sector heatmap</span><span>%CHG</span></div>
-        <div class="heat" id="heat"></div>
-        <div class="movers">
-          <h4>TOP GAINERS</h4><div><span>ICICIBANK</span><span class="up num">▲ +0.85%</span></div><div><span>TATAMOTR</span><span class="up num">▲ +0.82%</span></div>
-          <h4>TOP LOSERS</h4><div><span>INFY</span><span class="down num">▼ −0.86%</span></div><div><span>RELIANCE</span><span class="down num">▼ −0.67%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="label">Try a lesson now · Week 5</span><h2>How many shares should you buy?</h2><p>Our students never guess quantity. They work it out from the stop-loss. Change the numbers and see.</p></div>
+    <div class="calc">
+      <form class="calc-in" id="calc" novalidate>
+        <div class="grid2">
+          <div class="f"><label for="cCap">Trading capital (₹)</label><input id="cCap" type="number" inputmode="decimal" value="100000" min="0"></div>
+          <div class="f"><label for="cRisk">Risk per trade (%)</label><input id="cRisk" type="number" inputmode="decimal" value="1" min="0" step="0.1"></div>
+          <div class="f"><label for="cEntry">Entry price (₹)</label><input id="cEntry" type="number" inputmode="decimal" value="1450" min="0" step="0.05"></div>
+          <div class="f"><label for="cStop">Stop-loss (₹)</label><input id="cStop" type="number" inputmode="decimal" value="1420" min="0" step="0.05"></div>
         </div>
+        <p style="font-size:.9rem;color:var(--ink-3)">Professional rule of thumb: risk 1–2% of capital per trade, never more.</p>
+      </form>
+      <div class="calc-out" aria-live="polite">
+        <div><span class="lbl">Buy this many shares</span><div class="q" id="qOut">33</div></div>
+        <dl>
+          <div><dt>Most you can lose</dt><dd id="lossOut">₹990</dd></div>
+          <div><dt>Money needed</dt><dd id="capOut">₹47,850</dd></div>
+          <div><dt>Target for 1 : 2 reward</dt><dd id="tgtOut">₹1,510.00</dd></div>
+        </dl>
+        <p class="calc-note" id="cNote"></p>
+        <a class="btn btn-gold" href="#lead" style="justify-self:start">Learn the full method in the demo</a>
       </div>
     </div>
-    <p class="sim">Simulated prices for illustration only. Not live market data.</p>
   </div>
 </section>
 
-<section class="sec">
+<!-- CURRICULUM -->
+<section class="sec" style="background:var(--sheet);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Who it's for</span>
-      <h2>Built for anyone who wants to understand money.</h2>
-      <p>No finance background needed. We start from zero and build up step by step.</p>
-    </div>
-    <div class="grid4">
-      <div class="who"><span class="tag">01 / STUDENTS</span><h3>Students</h3><p>Build a valuable skill early and understand how markets really work.</p></div>
-      <div class="who"><span class="tag">02 / PROFESSIONALS</span><h3>Working professionals</h3><p>Grow your savings with a clear, disciplined approach to investing.</p></div>
-      <div class="who"><span class="tag">03 / OWNERS</span><h3>Business owners</h3><p>Understand markets to manage and grow your wealth wisely.</p></div>
-      <div class="who"><span class="tag">04 / HOME</span><h3>Homemakers &amp; retirees</h3><p>Learn at a comfortable pace and make informed money decisions.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="why">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Why choose us</span>
-      <h2>Learn from people who watch the market daily.</h2>
-    </div>
-    <div class="bento">
-      <div class="big">
-        <div class="live" style="width:fit-content"><span>LIVE</span><span>MARKET HOURS</span></div>
-        <h3>Live practical training</h3>
-        <p>Analyse real charts during market hours, with your mentor guiding every entry, exit and stop-loss.</p>
-        <div style="margin-top:auto;padding-top:1.5rem;display:grid;gap:.3rem"><span class="stat">9:15</span><span class="num" style="color:var(--muted);font-size:.8rem;letter-spacing:.1em">IST · WE START WHEN THE MARKET OPENS</span></div>
-      </div>
-      <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><h3>Real market case studies</h3><p>Learn from real stocks and real market events, not textbook examples.</p></div>
-      <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><h3>Modern research tools</h3><p>Use screeners and AI research tools to shortlist stocks faster.</p></div>
-      <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></span><h3>Small batches</h3><p>Personal attention, so every question gets answered.</p></div>
-      <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Lifetime support</h3><p>Keep getting guidance long after the course ends.</p></div>
-      <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13"/><path d="M2 10h20M6 15h4"/></svg></span><h3>Easy instalments</h3><p>Start learning now and pay the fee in instalments.</p></div>
+    <div class="head"><span class="label">8-week curriculum</span><h2>From "what is a share" to a written trading plan.</h2><p>Every week builds on the last. Live classes, recordings and weekly market practice.</p></div>
+    <div class="weeks">
+      <div class="wk"><span class="n">WEEK 01</span><h3>How the market works</h3><p>NSE, BSE, SEBI, demat accounts and order types.</p></div>
+      <div class="wk"><span class="n">WEEK 02</span><h3>Reading a company</h3><p>Financial statements, key ratios and valuation basics.</p></div>
+      <div class="wk"><span class="n">WEEK 03</span><h3>Charts &amp; price action</h3><p>Candlesticks, trends, support and resistance.</p></div>
+      <div class="wk"><span class="n">WEEK 04</span><h3>Indicators that matter</h3><p>Moving averages, RSI, MACD, VWAP and volume.</p></div>
+      <div class="wk key"><span class="n">WEEK 05 · MOST IMPORTANT</span><h3>Risk management</h3><p>Position sizing, stop-loss placement, risk : reward.</p></div>
+      <div class="wk"><span class="n">WEEK 06</span><h3>Swing &amp; intraday setups</h3><p>Three repeatable setups with entry and exit rules.</p></div>
+      <div class="wk"><span class="n">WEEK 07</span><h3>Futures &amp; options</h3><p>Lots, margins, Greeks and the option chain, risks first.</p></div>
+      <div class="wk"><span class="n">WEEK 08</span><h3>Psychology &amp; your plan</h3><p>Journaling, discipline and your written trading plan.</p></div>
     </div>
   </div>
 </section>
 
-<div class="band"><div class="wrap"><div><h3>Attend a free demo class.</h3><p>See how we teach before you join. No commitment.</p></div><a class="btn" href="#demo">Book my free demo</a></div></div>
-
-<section class="sec" id="curriculum">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Course curriculum</span>
-      <h2>Stock market course curriculum.</h2>
-      <p>Eight modules that take you from the basics to confident, rule-based trading and investing. Tap a module to see what's inside.</p>
-    </div>
-    <div class="curr">
-      <div>
-        <details open><summary><span class="n">01</span><h3>Stock market foundations</h3></summary><ul><li>How markets work</li><li>NSE &amp; BSE</li><li>Role of SEBI</li><li>Demat &amp; trading accounts</li><li>Order types</li><li>Market indices</li></ul></details>
-        <details><summary><span class="n">02</span><h3>Fundamental analysis</h3></summary><ul><li>Reading financial statements</li><li>Key ratios</li><li>Valuation basics</li><li>Sector analysis</li><li>Picking quality stocks</li></ul></details>
-        <details><summary><span class="n">03</span><h3>Technical analysis</h3></summary><ul><li>Candlesticks</li><li>Support &amp; resistance</li><li>Trends &amp; trendlines</li><li>Chart patterns</li><li>Price action</li></ul></details>
-        <details><summary><span class="n">04</span><h3>Indicators &amp; strategies</h3></summary><ul><li>Moving averages</li><li>RSI &amp; MACD</li><li>VWAP</li><li>Volume analysis</li><li>Backtesting a strategy</li></ul></details>
-      </div>
-      <div>
-        <details><summary><span class="n">05</span><h3>Futures &amp; options</h3></summary><ul><li>Lot size &amp; margin</li><li>Calls &amp; puts</li><li>Option Greeks</li><li>Option chain analysis</li><li>Hedging</li></ul></details>
-        <details><summary><span class="n">06</span><h3>Intraday &amp; swing trading</h3></summary><ul><li>Setups &amp; triggers</li><li>Entry and exit rules</li><li>Gap-up / gap-down opens</li><li>Swing positions</li></ul></details>
-        <details><summary><span class="n">07</span><h3>Risk management &amp; psychology</h3></summary><ul><li>Position sizing</li><li>Stop-loss placement</li><li>Risk : reward</li><li>Trading journal</li><li>Avoiding revenge trades</li></ul></details>
-        <details><summary><span class="n">08</span><h3>Long-term investing</h3></summary><ul><li>Asset allocation</li><li>Mutual funds &amp; ETFs</li><li>Building a portfolio</li><li>Rebalancing</li></ul></details>
-      </div>
-    </div>
-    <div class="curr-cta"><p><b>Want the detailed syllabus, timings and fees?</b>Message us on WhatsApp and we'll send everything over.</p><a class="btn btn-wa js-wa" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0zm0 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8z"/></svg>Get syllabus on WhatsApp</a></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Outcomes</span>
-      <h2>What you'll be able to do.</h2>
-      <p>By the end of the course you'll make market decisions with a process, not tips or guesswork.</p>
-    </div>
-    <div class="outs">
-      <div><h3>Read any chart</h3><p>Spot trends, patterns and key levels with confidence.</p></div>
-      <div><h3>Analyse a company</h3><p>Judge a business using its financials and valuation.</p></div>
-      <div><h3>Build a trading plan</h3><p>Define clear rules for entries, exits and position size.</p></div>
-      <div><h3>Manage risk</h3><p>Use stop-losses and risk-reward to protect your capital.</p></div>
-      <div><h3>Trade F&amp;O responsibly</h3><p>Understand futures, options and how to hedge.</p></div>
-      <div><h3>Invest for the long term</h3><p>Build a diversified portfolio that fits your goals.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Tools</span><h2>Get hands-on with real platforms.</h2><p>Practise on the same tools traders and investors use every day.</p></div>
-    <div class="tools"><span>TradingView</span><span>NSE India</span><span>BSE India</span><span>Screener.in</span><span>Option chain analysis</span><span>Stock screeners</span><span>Broker platforms</span><span>Excel for traders</span><span>AI research tools</span></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">How it works</span><h2>Your learning journey.</h2></div>
-    <div class="steps">
-      <div><span class="n">01</span><h3>Attend a free demo</h3><p>Meet your mentor and see how we teach.</p></div>
-      <div><span class="n">02</span><h3>Learn the foundations</h3><p>Build strong basics in fundamentals and charts.</p></div>
-      <div><span class="n">03</span><h3>Practise in live markets</h3><p>Apply strategies during real market hours.</p></div>
-      <div><span class="n">04</span><h3>Trade with a plan</h3><p>Invest and trade with your own rules and risk limits.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="faq">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Questions, answered.</h2></div>
-    <div class="faq">
-      <details open><summary>Do I need a finance or commerce background?</summary><p>No. The course starts from zero: what a share is, how the market works and how to open a demat account.</p></details>
-      <details><summary>Is the course online or offline?</summary><p>Both. Join classes in person or attend live online. Every class is recorded so you can revise later.</p></details>
-      <details><summary>How much money do I need to start trading?</summary><p>None during the course. You practise on paper first. After that, start small with money you can afford to lose.</p></details>
-      <details><summary>Will you give buy or sell tips?</summary><p>No. This is an education course. We teach you to analyse and plan trades yourself.</p></details>
-      <details><summary>Can I pay the fee in instalments?</summary><p>Yes. Ask us on WhatsApp or during the demo and we'll share the instalment options.</p></details>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="demo">
-  <div class="wrap lead">
+<!-- MENTOR -->
+<section class="sec navyband">
+  <div class="wrap mentor">
+    <div class="photo" id="mentorPhoto">Mentor photo<br>(add in CONFIG)</div>
     <div>
-      <span class="eyebrow">Get in touch</span>
-      <h2 style="margin-top:1rem">Book your free demo class.</h2>
-      <p style="color:var(--muted);margin-top:1rem;font-size:1.06rem">Fill in your details and we'll call you back with the next demo slot. It takes 30 seconds.</p>
-      <div class="contact">
-        <div><small>Call</small><b class="js-phone-text">+91 00000 00000</b></div>
-        <div><small>WhatsApp</small><b class="js-phone-text">+91 00000 00000</b></div>
-        <div><small>Location</small><b>Bengaluru · Online across India</b></div>
-      </div>
+      <span class="label">Your mentor</span>
+      <h2 style="margin-top:.8rem" id="mentorName">Poornachandra</h2>
+      <div class="role" id="mentorRole">Founder &amp; lead trainer</div>
+      <p class="bio" id="mentorBio">Add a short, specific bio: how long you've traded, what you trade, and why you started teaching.</p>
+      <div class="creds" id="creds"></div>
+      <blockquote id="mentorQuote">"I won't give you tips. I'll teach you to find your own trades and size them so one bad day never wipes you out."</blockquote>
     </div>
-    <form class="card" id="leadForm" novalidate>
-      <div class="f"><label for="lName">Full name</label><input id="lName" autocomplete="name" required><span class="err" hidden></span></div>
-      <div class="f"><label for="lPhone">Mobile number</label><input id="lPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required><span class="err" hidden></span></div>
-      <div class="f"><label for="lCity">City</label><input id="lCity" autocomplete="address-level2"></div>
-      <div class="f"><label for="lMode">Preferred mode</label><select id="lMode"><option>Online</option><option>Offline (classroom)</option><option>Either</option></select></div>
-      <div class="f full"><label for="lLevel">Your experience</label><select id="lLevel"><option>Complete beginner</option><option>I invest a little</option><option>I trade but lose money</option><option>I already trade F&amp;O</option></select></div>
-      <button class="btn btn-amber" type="submit">Book my free demo</button>
-      <p class="fine">We'll only use your number to contact you about the course.</p>
-      <div class="done" id="leadDone" hidden></div>
-    </form>
   </div>
 </section>
 
+<!-- REVIEWS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="revhead">
+      <div class="head" style="margin:0"><span class="label">Student reviews</span><h2>What our students say.</h2></div>
+      <div class="rating" id="ratingBox"></div>
+    </div>
+    <div class="reviews" id="reviews"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="label">Inside the classroom</span><h2>Real classes. Real screens. Real market hours.</h2></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" style="background:var(--sheet);border-block:1px solid var(--line)" id="fees">
+  <div class="wrap">
+    <div class="head center"><span class="label">Fees</span><h2>Simple fees. Easy instalments.</h2><p>Start with the free demo. Join only if you like how we teach.</p></div>
+    <div class="plans" id="plans"></div>
+    <div class="guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg><div><b id="refundTitle">7-day refund promise</b><p id="refundText">Attend the first week. If the course isn't right for you, tell us within 7 days and get a full refund.</p></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head center"><span class="label">Questions</span><h2>Before you book.</h2></div>
+    <div class="faq">
+      <details open><summary>I know nothing about the stock market. Is this for me?</summary><p>Yes. Week 1 starts with what a share is and how to open a demat account. Most students in each batch are complete beginners.</p></details>
+      <details><summary>How much money do I need to start trading?</summary><p>None during the course. You practise with paper trading first. When you start with real money, begin small with an amount you can afford to lose.</p></details>
+      <details><summary>Will you give buy or sell tips?</summary><p>No. This is an education course, not an advisory service. We teach you how to analyse and plan your own trades.</p></details>
+      <details><summary>Can I learn alongside a full-time job?</summary><p>Yes. Weekend and evening batches are available, and every live class is recorded so you can catch up.</p></details>
+      <details><summary>Will I make money after the course?</summary><p>Nobody can promise that, and you should avoid anyone who does. We teach a process that protects your capital and helps you make decisions on your own.</p></details>
+      <details><summary>What happens in the free demo?</summary><p>A one-hour class with the mentor. You'll see how we read a chart and plan a trade, and you can ask anything about the course, fees and timings.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
 <section class="final">
   <div class="wrap">
-    <span class="eyebrow">Start today</span>
-    <h2>Take the first step toward financial confidence.</h2>
-    <p>Seats in each batch are limited so mentors can give everyone attention. Start with a free demo.</p>
-    <div class="ctas"><a class="btn btn-amber" href="#demo">Book free demo</a><a class="btn btn-line js-wa" href="#demo">WhatsApp us</a></div>
+    <span class="label" style="color:var(--gold)">Next batch · <span data-c="batchLong">10 November 2026</span></span>
+    <h2>Your first trade should come with a plan.</h2>
+    <p>Book a free demo class. Meet the mentor, see a live chart lesson, then decide.</p>
+    <div class="row"><a class="btn btn-gold" href="#lead">Book my free demo</a><a class="btn btn-wa js-wa" href="#lead">WhatsApp us</a></div>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p><b>Disclaimer:</b> Investments in the securities market are subject to market risks. Read all related documents carefully before investing. A SEBI study found that about 9 out of 10 individual F&amp;O traders made losses. This course is for education only. We do not give investment advice, stock tips or guaranteed returns.</p>
-    <p>© 2026 Poorna Market Academy · Bengaluru, India</p>
+    <div class="cols">
+      <div><b data-c="brand">Poorna Market Academy</b><br><span data-c="address">Add your full address here</span></div>
+      <div><b>Call / WhatsApp</b><br><span data-c="phoneLabel">+91 00000 00000</span></div>
+      <div><a href="privacy.html">Privacy policy</a></div>
+    </div>
+    <p class="disc"><b>Disclaimer:</b> Investments in the securities market are subject to market risks. Read all related documents carefully before investing. <span data-c="brand">Poorna Market Academy</span> provides education only. We are not a SEBI-registered investment adviser or research analyst, and we do not give investment advice, stock tips or guaranteed returns. Past performance does not guarantee future results.<br><br>© 2026 <span data-c="brand">Poorna Market Academy</span></p>
   </div>
 </footer>
 
 <nav class="mbar" aria-label="Quick contact">
-  <a class="c js-tel" href="#demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call now</a>
-  <a class="w js-wa" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0zm0 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8z"/></svg>WhatsApp</a>
+  <a class="btn btn-navy ic js-tel" href="#lead" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <a class="btn btn-wa ic js-wa" href="#lead" aria-label="WhatsApp us"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0zm0 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8z"/></svg></a>
+  <a class="btn btn-gold" href="#lead">Book free demo</a>
 </nav>
 
 <script>
-/* ===== EDIT THESE: your real contact number (country code + number, digits only) ===== */
-const PHONE = "";            // e.g. "919876543210"
-const PHONE_LABEL = "+91 00000 00000";
+/* =====================================================================================
+   CONFIG: edit everything here. Set sample:false once a value is real.
+   ===================================================================================== */
+const CONFIG = {
+  brand: "Poorna Market Academy",
+  city: "Bengaluru · Online across India",
+  address: "Add your full address here",
+  phone: "",                       // WhatsApp/phone with country code, digits only, e.g. "919876543210"
+  phoneLabel: "+91 00000 00000",
+  batchStart: "2026-11-10T09:15:00+05:30",
+  seatsTotal: 25, seatsLeft: 8,
+
+  // Tracking (optional). Leave empty to switch off.
+  metaPixelId: "",                 // e.g. "123456789012345"
+  googleTagId: "",                 // GA4 "G-XXXX" or Google Ads "AW-XXXX"
+  googleAdsSendTo: "",             // e.g. "AW-123456789/AbCdEfGh" for the lead conversion
+  sheetUrl: "",                    // Google Apps Script web-app URL (see leads-to-sheet.gs)
+
+  proof: { sample:true, items:[ ["4.9★","Google rating"], ["1,200+","students trained"], ["10+ yrs","in the markets"] ] },
+
+  mentor: {
+    sample:true,
+    name:"Poornachandra", role:"Founder & lead trainer", photo:"",
+    bio:"Add a short, specific bio: how long you've traded, what you trade, and why you started teaching.",
+    creds:[ ["10+","years trading"], ["40+","batches taught"], ["NISM","certified"] ]
+  },
+
+  rating: { sample:true, score:"4.9", count:"312 Google reviews" },
+  reviews: { sample:true, items:[
+    { name:"Ananya R.", meta:"IT professional, Bengaluru", text:"I used to buy whatever was trending on YouTube. Now I don't place a trade without a stop-loss and a position size. Week 5 alone was worth the fee.", tag:"Now journals every trade" },
+    { name:"Mohammed S.", meta:"Business owner, Mysuru", text:"The live sessions at 9:15 made it click. Watching the mentor plan a trade and then exit at the stop without drama taught me more than any video.", tag:"Completed paper-trading month" },
+    { name:"Kavya P.", meta:"Homemaker, Online batch", text:"I had zero background. Classes were in simple language and every recording was there when I missed a day.", tag:"Started long-term SIP portfolio" },
+    { name:"Rohit K.", meta:"Engineering student", text:"Small batch, so I could ask doubts in every class. The option chain module finally made sense.", tag:"Understands F&O risks" },
+    { name:"Suresh N.", meta:"Retired, Bengaluru", text:"Patient teaching, no pressure to trade. I now understand my own portfolio instead of depending on an agent.", tag:"Rebuilt his portfolio" },
+    { name:"Divya M.", meta:"Chartered accountant", text:"Good balance of fundamentals and charts. The trading plan template is something I still use.", tag:"Uses the plan template" }
+  ]},
+
+  gallery: [ "", "", "", "", "" ],  // image paths, e.g. "img/class1.jpg"
+
+  plans: { sample:true, items:[
+    { name:"Foundation", price:"₹6,999", was:"", emi:"", desc:"Weeks 1–4, recorded + live Q&A", feats:["Market basics & account setup","Charts and indicators","4 live doubt sessions","Community group"], cta:"Book free demo" },
+    { name:"Complete Trader", best:true, price:"₹18,999", was:"₹24,999", emi:"or 3 × ₹6,333 no-cost EMI", desc:"All 8 weeks, live classes", feats:["Full 8-week curriculum incl. F&O","Live market sessions at 9:15 AM","4 weeks guided paper trading","Weekly trade-journal review","Lifetime recordings & mentor support","Certificate of completion"], cta:"Book free demo" }
+  ]},
+
+  refund: { title:"7-day refund promise", text:"Attend the first week. If the course isn't right for you, tell us within 7 days and get a full refund." }
+};
 /* ===================================================================================== */
 
 (function(){
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const S = on => on ? ' <span class="sample">SAMPLE</span>' : '';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const waMsg = encodeURIComponent("Hi, I'd like to book a free demo class for the stock market course.");
-  if (PHONE) {
-    document.querySelectorAll('.js-wa').forEach(a => { a.href = `https://wa.me/${PHONE}?text=${waMsg}`; a.target = "_blank"; a.rel = "noopener"; });
-    document.querySelectorAll('.js-tel').forEach(a => a.href = `tel:+${PHONE}`);
+
+  /* text fills */
+  const batch = new Date(CONFIG.batchStart);
+  const fills = { brand:CONFIG.brand, city:CONFIG.city, address:CONFIG.address, phoneLabel:CONFIG.phoneLabel,
+    seatsText:`${CONFIG.seatsLeft} of ${CONFIG.seatsTotal} seats left`, seatsShort:`${CONFIG.seatsLeft} seats left`,
+    batchLong: batch.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Kolkata'}) };
+  $$('[data-c]').forEach(el => { if (fills[el.dataset.c] != null) el.textContent = fills[el.dataset.c]; });
+  $('#batchDate').textContent = batch.toLocaleDateString('en-IN',{day:'numeric',month:'short',timeZone:'Asia/Kolkata'});
+  $('#seatFill').style.width = Math.round((1 - CONFIG.seatsLeft/CONFIG.seatsTotal)*100) + '%';
+
+  /* ad message-match: ?h=Your+headline overrides the hero headline */
+  try { const h = new URLSearchParams(location.search).get('h'); if (h) $('#headline').textContent = h.slice(0,90); } catch(e){}
+
+  /* contact links */
+  const waText = encodeURIComponent("Hi, I'd like to book a free demo class for the stock market course.");
+  if (CONFIG.phone) {
+    $$('.js-wa').forEach(a => { a.href = `https://wa.me/${CONFIG.phone}?text=${waText}`; a.target = "_blank"; a.rel = "noopener"; a.addEventListener('click', () => track('Contact')); });
+    $$('.js-tel').forEach(a => { a.href = `tel:+${CONFIG.phone}`; a.addEventListener('click', () => track('Contact')); });
   }
-  document.querySelectorAll('.js-phone-text').forEach(el => el.textContent = el.textContent.replace('+91 00000 00000', PHONE_LABEL));
 
-  /* tape */
-  const topics = ["Candlesticks","Support & resistance","Fundamental analysis","Option Greeks","Risk management","Price action","Moving averages","RSI & MACD","Futures & options","Swing trading","Portfolio building","Trading psychology"];
-  const tape = document.getElementById('tape');
-  tape.innerHTML = [...topics,...topics].map((t,i)=>`<span><b class="${i%3===2?'down':'up'}">${i%3===2?'▼':'▲'}</b>${t}</span>`).join('');
+  /* setup banner when anything is still sample */
+  const needsSetup = !CONFIG.phone || CONFIG.proof.sample || CONFIG.mentor.sample || CONFIG.reviews.sample || CONFIG.plans.sample;
+  let hidden = false; try { hidden = sessionStorage.getItem('setupHidden') === '1'; } catch(e){}
+  if (needsSetup && !hidden) { $('#setup').hidden = false; $('#setupHide').onclick = () => { $('#setup').hidden = true; try{ sessionStorage.setItem('setupHidden','1'); }catch(e){} }; }
 
-  /* candle generator */
-  function series(n, start, seed){
-    let s = seed, p = start; const r=()=> (s = (s*16807)%2147483647)/2147483647; const out=[];
-    for(let i=0;i<n;i++){ const drift = Math.sin(i/9)*3 + (i>n*.55?4:-1); const o=p, c=p+drift+(r()-.5)*28; out.push({o,c,h:Math.max(o,c)+r()*12,l:Math.min(o,c)-r()*12}); p=c; }
-    return out;
+  /* countdown */
+  function tick(){ let s = Math.max(0, (batch - Date.now())/1000|0); const d=s/86400|0; s%=86400; const h=s/3600|0; s%=3600; const m=s/60|0; s%=60;
+    $('#clock').innerHTML = [[d,'d'],[h,'h'],[m,'m'],[s,'s']].map(([v,u])=>`<span>${String(v).padStart(2,'0')}${u}</span>`).join(''); }
+  tick(); setInterval(tick, 1000);
+
+  /* proof row */
+  $('#proof').innerHTML = CONFIG.proof.items.map(([b,l],i)=>`<div><b>${esc(b)}</b><span>${esc(l)}${i===0?S(CONFIG.proof.sample):''}</span></div>`).join('');
+
+  /* mentor */
+  const M = CONFIG.mentor;
+  $('#mentorName').innerHTML = esc(M.name) + S(M.sample);
+  $('#mentorRole').textContent = M.role; $('#mentorBio').textContent = M.bio;
+  if (M.photo) $('#mentorPhoto').innerHTML = `<img src="${esc(M.photo)}" alt="${esc(M.name)}">`;
+  $('#creds').innerHTML = M.creds.map(([b,l])=>`<div><b>${esc(b)}</b><span>${esc(l)}</span></div>`).join('');
+
+  /* reviews */
+  const R = CONFIG.rating;
+  $('#ratingBox').innerHTML = `<b>${esc(R.score)}</b><div><span class="stars">★★★★★</span><small>${esc(R.count)}${S(R.sample)}</small></div>`;
+  const tones = ['#0d1838','#0f9d58','#d98a06','#5a4fcf','#d93a2b','#1f7a8c'];
+  $('#reviews').innerHTML = CONFIG.reviews.items.map((r,i)=>`<article class="rev"><span class="stars">★★★★★</span><p>${esc(r.text)}</p>${r.tag?`<span class="res">✓ ${esc(r.tag)}</span>`:''}<div class="who"><span class="avatar" style="background:${tones[i%tones.length]}">${esc(r.name[0])}</span><div><b>${esc(r.name)}${S(CONFIG.reviews.sample)}</b><small>${esc(r.meta)}</small></div></div></article>`).join('');
+
+  /* gallery */
+  const labels = ['Live market session','Chart lesson','Small batch','Doubt clearing','Certificate day'];
+  $('#gallery').innerHTML = CONFIG.gallery.map((src,i)=> src ? `<div><img src="${esc(src)}" alt="${labels[i]||'Classroom'}"></div>` : `<div>Add photo: ${labels[i]||'Classroom'}</div>`).join('');
+
+  /* plans */
+  $('#plans').innerHTML = CONFIG.plans.items.map(p=>`<div class="plan${p.best?' best':''}">${p.best?'<span class="flag">MOST CHOSEN</span>':''}<div><h3>${esc(p.name)}${S(CONFIG.plans.sample)}</h3><p style="opacity:.75;font-size:.92rem;margin-top:.3rem">${esc(p.desc)}</p></div><div><div class="price"><b>${esc(p.price)}</b>${p.was?`<s>${esc(p.was)}</s>`:''}</div>${p.emi?`<div class="emi">${esc(p.emi)}</div>`:''}</div><ul>${p.feats.map(f=>`<li>${esc(f)}</li>`).join('')}</ul><a class="btn ${p.best?'btn-gold':'btn-ghost'}" href="#lead">${esc(p.cta)}</a></div>`).join('');
+  $('#refundTitle').textContent = CONFIG.refund.title; $('#refundText').textContent = CONFIG.refund.text;
+
+  /* tracking */
+  function loadScript(src){ const s=document.createElement('script'); s.async=true; s.src=src; document.head.appendChild(s); }
+  if (CONFIG.metaPixelId) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];}(window,document);
+    loadScript('https://connect.facebook.net/en_US/fbevents.js'); fbq('init', CONFIG.metaPixelId); fbq('track','PageView');
   }
-  function drawChart(cv, data, opts={}){
-    const dpr = devicePixelRatio||1, w=cv.clientWidth, h=cv.clientHeight; if(!w) return;
-    cv.width=w*dpr; cv.height=h*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
-    const padR=56, padT=12, padB=14, hi=Math.max(...data.map(d=>d.h)), lo=Math.min(...data.map(d=>d.l));
-    const Y=v=>padT+(hi-v)/(hi-lo)*(h-padT-padB), cw=(w-padR)/data.length;
-    x.font='500 10px "IBM Plex Mono", monospace'; x.textBaseline='middle';
-    const step = Math.ceil((hi-lo)/5/10)*10;
-    for(let v=Math.ceil(lo/step)*step; v<hi; v+=step){ x.fillStyle='rgba(255,255,255,.05)'; x.fillRect(0,Math.round(Y(v)),w-padR,1); x.fillStyle='#5f5f5f'; x.fillText(Math.round(v).toLocaleString('en-IN'), w-padR+6, Y(v)); }
-    if(opts.volume){ const vmax=1; data.forEach((d,i)=>{ const vh=(Math.abs(d.c-d.o)+6)/50*(h*.18); x.fillStyle=d.c>=d.o?'rgba(46,204,113,.18)':'rgba(255,77,77,.18)'; x.fillRect(i*cw+cw*.2,h-padB-vh,cw*.6,vh); }); }
-    data.forEach((d,i)=>{ const col=d.c>=d.o?'#2ecc71':'#ff4d4d', cx=Math.round(i*cw+cw/2)+.5; x.strokeStyle=col; x.lineWidth=1; x.beginPath(); x.moveTo(cx,Y(d.h)); x.lineTo(cx,Y(d.l)); x.stroke(); x.fillStyle=col; const t=Y(Math.max(d.o,d.c)); x.fillRect(cx-cw*.32,t,cw*.64,Math.max(1.5,Math.abs(Y(d.o)-Y(d.c)))); });
-    x.strokeStyle='#ff9900'; x.lineWidth=1.6; x.beginPath(); data.forEach((d,i)=>{ const a=data.slice(Math.max(0,i-9),i+1); const m=a.reduce((s,k)=>s+k.c,0)/a.length; const px=i*cw+cw/2; i?x.lineTo(px,Y(m)):x.moveTo(px,Y(m)); }); x.stroke();
-    const last=data[data.length-1], ly=Y(last.c); x.setLineDash([3,3]); x.strokeStyle='rgba(255,153,0,.6)'; x.beginPath(); x.moveTo(0,ly); x.lineTo(w-padR,ly); x.stroke(); x.setLineDash([]);
-    x.fillStyle='#ff9900'; x.fillRect(w-padR+1,ly-9,padR-2,18); x.fillStyle='#1a1405'; x.font='700 10px "IBM Plex Mono", monospace'; x.fillText(Math.round(last.c).toLocaleString('en-IN'), w-padR+5, ly);
+  if (CONFIG.googleTagId) { window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', CONFIG.googleTagId); loadScript('https://www.googletagmanager.com/gtag/js?id=' + CONFIG.googleTagId); }
+  function track(ev){
+    try { if (window.fbq) fbq('track', ev); } catch(e){}
+    try { if (window.gtag) { gtag('event', ev === 'Lead' ? 'generate_lead' : 'contact'); if (ev === 'Lead' && CONFIG.googleAdsSendTo) gtag('event','conversion',{send_to:CONFIG.googleAdsSendTo}); } } catch(e){}
   }
-  const heroData = series(48, 24670, 11), monData = series(64, 24600, 29);
-  const heroCv = document.getElementById('heroChart'), monCv = document.getElementById('monChart');
-  const fmt = v => v.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
-  function redraw(){ drawChart(heroCv, heroData); drawChart(monCv, monData, {volume:true}); }
-  function setQuote(data, pxEl, chgEl, pctOnly){ const last=data[data.length-1].c, base=data[0].o, d=last-base, pct=d/base*100; pxEl.textContent=fmt(last); chgEl.textContent = pctOnly ? `${d>=0?'+':'−'}${Math.abs(pct).toFixed(2)}%` : `${d>=0?'+':'−'}${fmt(Math.abs(d))} (${d>=0?'+':'−'}${Math.abs(pct).toFixed(2)}%)`; chgEl.className='chg num '+(d>=0?'up':'down'); }
-  redraw(); setQuote(heroData,hPx,hChg); setQuote(monData,mPx,mChg,true);
-  addEventListener('resize', redraw);
-  document.fonts && document.fonts.ready.then(redraw);
-
-  /* watchlist */
-  const wl = [["NIFTY",24812.35],["SENSEX",81377.92],["BANKNIFTY",52325.75],["RELIANCE",2947.20],["TCS",4114.02],["HDFCBANK",1686.30],["INFY",1873.12],["ICICIBANK",1254.81],["SBIN",812.56],["TATAMOTR",967.80],["ITC",497.51],["LT",3669.48]].map(([s,p])=>({s,base:p*(1-(Math.random()-.45)*.015),p}));
-  const tbody = document.getElementById('wl');
-  tbody.innerHTML = wl.map((r,i)=>`<tr id="r${i}"><td>${r.s}</td><td></td><td></td></tr>`).join('');
-  function paintRow(i, dir){ const r=wl[i], tr=document.getElementById('r'+i), pct=(r.p-r.base)/r.base*100; tr.children[1].textContent=fmt(r.p); tr.children[2].textContent=`${pct>=0?'+':'−'}${Math.abs(pct).toFixed(2)}%`; tr.children[2].className=pct>=0?'up':'down'; if(dir){ tr.className='flash-'+dir; setTimeout(()=>tr.className='',450); } }
-  wl.forEach((_,i)=>paintRow(i));
-
-  /* heatmap */
-  const sectors=[["BANK",.83],["IT",-1.19],["AUTO",1.68],["PHARMA",.34],["FMCG",-.19],["METAL",1.80],["ENERGY",-.60],["REALTY",.95],["MEDIA",-1.63],["INFRA",.65],["PSU",1.54],["FIN",-.36]];
-  const heat=document.getElementById('heat');
-  function paintHeat(){ heat.innerHTML = sectors.map(([n,v])=>{ const a=Math.min(1,Math.abs(v)/2)*.75+.15; const bg=v>=0?`rgba(46,204,113,${a})`:`rgba(255,77,77,${a})`; return `<div style="background:${bg}">${n}<b>${v>=0?'+':'−'}${Math.abs(v).toFixed(2)}%</b></div>`; }).join(''); }
-  paintHeat();
-
-  if(!reduce){
-    setInterval(()=>{ const i=Math.floor(Math.random()*wl.length), r=wl[i], old=r.p; r.p = +(r.p*(1+(Math.random()-.5)*.0016)).toFixed(2); paintRow(i, r.p>=old?'up':'down'); }, 700);
-    setInterval(()=>{ [heroData,monData].forEach(d=>{ const l=d[d.length-1], c=l.c+(Math.random()-.48)*6; l.c=c; l.h=Math.max(l.h,c); l.l=Math.min(l.l,c); }); redraw(); setQuote(heroData,hPx,hChg); setQuote(monData,mPx,mChg,true); }, 900);
-    setInterval(()=>{ const i=Math.floor(Math.random()*sectors.length); sectors[i][1]=+(sectors[i][1]+(Math.random()-.5)*.2).toFixed(2); paintHeat(); }, 2200);
-  }
+  const utm = (()=>{ try { const q=new URLSearchParams(location.search); return ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].reduce((o,k)=>(q.get(k)&&(o[k]=q.get(k)),o),{}); } catch(e){ return {}; } })();
 
   /* lead form */
-  const form=document.getElementById('leadForm');
-  function fieldErr(input,msg){ const e=input.parentElement.querySelector('.err'); if(!e) return; e.textContent=msg||''; e.hidden=!msg; input.setAttribute('aria-invalid', msg?'true':'false'); }
-  form.addEventListener('submit', e=>{
-    e.preventDefault();
-    const name=lName.value.trim(), phone=lPhone.value.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,'');
-    fieldErr(lName, name?'':'Enter your name.');
-    fieldErr(lPhone, /^[6-9]\d{9}$/.test(phone)?'':'Enter a valid 10-digit Indian mobile number.');
-    if(!name || !/^[6-9]\d{9}$/.test(phone)){ (name?lPhone:lName).focus(); return; }
-    const msg = `Hi, I'd like to book a free demo class.%0AName: ${encodeURIComponent(name)}%0AMobile: ${phone}%0ACity: ${encodeURIComponent(lCity.value.trim()||'-')}%0AMode: ${encodeURIComponent(lMode.value)}%0AExperience: ${encodeURIComponent(lLevel.value)}`;
-    const done=document.getElementById('leadDone');
-    if(PHONE){ window.location.href = `https://wa.me/${PHONE}?text=${msg}`; done.textContent = `Thanks, ${name}. Opening WhatsApp to send your request…`; }
-    else { done.textContent = `Thanks, ${name}. Your details are valid. (Setup needed: add your WhatsApp number in the page settings so requests reach you.)`; }
-    done.hidden=false;
+  $$('form[data-form]').forEach(form => {
+    const name = form.querySelector('[name=name]'), phone = form.querySelector('[name=phone]'), mode = form.querySelector('[name=mode]');
+    const err = (inp,msg) => { const e = inp.closest('.f').querySelector('.err'); e.textContent = msg||''; e.hidden = !msg; inp.setAttribute('aria-invalid', msg?'true':'false'); };
+    phone.addEventListener('input', () => { phone.value = phone.value.replace(/[^\d ]/g,''); });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const n = name.value.trim(), p = phone.value.replace(/\D/g,'').replace(/^0/,'');
+      const okN = n.length >= 2, okP = /^[6-9]\d{9}$/.test(p);
+      err(name, okN ? '' : 'Please enter your name.');
+      err(phone, okP ? '' : 'Enter a valid 10-digit mobile number.');
+      if (!okN || !okP) { (okN ? phone : name).focus(); return; }
+      const lead = { name:n, phone:'+91'+p, mode:mode ? mode.value : '', page:location.href.split('?')[0], time:new Date().toISOString(), ...utm };
+      if (CONFIG.sheetUrl) { try { fetch(CONFIG.sheetUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify(lead) }); } catch(e){} }
+      track('Lead');
+      const waLead = CONFIG.phone ? `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(`Hi, I just booked a free demo.\nName: ${n}\nMobile: +91 ${p}\nPreference: ${lead.mode}`)}` : '';
+      form.innerHTML = `<div class="ok"><b>Thanks, ${esc(n.split(' ')[0])}! Your demo request is in.</b><p>We'll call you on +91 ${esc(p)} within 2 hours (10 AM – 7 PM).${CONFIG.sheetUrl ? '' : ' <span class="sample">SETUP</span> Add a Google Sheet URL in CONFIG so requests are saved.'}</p></div>${waLead ? `<a class="btn btn-wa" href="${waLead}" target="_blank" rel="noopener">Confirm on WhatsApp (faster)</a>` : ''}`;
+    });
   });
+
+  /* calculator */
+  const inr = (v,d=0) => '₹' + v.toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  function calc(){
+    const cap=+cCap.value, rp=+cRisk.value, en=+cEntry.value, sl=+cStop.value, note=$('#cNote');
+    const set=(q,l,c,t)=>{ qOut.textContent=q; lossOut.textContent=l; capOut.textContent=c; tgtOut.textContent=t; };
+    if(!(cap>0&&rp>0&&en>0&&sl>0)){ set('—','—','—','—'); note.textContent='Fill in all four boxes.'; return; }
+    const per=en-sl; if(per<=0){ set('—','—','—','—'); note.textContent='For a buy trade, the stop-loss must be below the entry price.'; return; }
+    let q=Math.floor(cap*rp/100/per), capped=false; if(q*en>cap){ q=Math.floor(cap/en); capped=true; }
+    set(q.toLocaleString('en-IN'), inr(q*per), inr(q*en), inr(en+2*per,2));
+    note.textContent = capped ? 'Quantity is limited by your capital. Your stop is very tight.' : rp>2 ? 'Above 2% per trade, a short losing streak can do serious damage.' : '';
+  }
+  $('#calc').addEventListener('input', calc); $('#calc').addEventListener('submit', e=>e.preventDefault()); calc();
+
+  /* hero candle tape */
+  const cv = $('#heroTape'); let seed=7; const rnd=()=> (seed=(seed*16807)%2147483647)/2147483647;
+  const candles=[]; let p=100; for(let i=0;i<90;i++){ const o=p, c=p+Math.sin(i/7)*1.2+(rnd()-.42)*3; candles.push({o,c,h:Math.max(o,c)+rnd()*1.6,l:Math.min(o,c)-rnd()*1.6}); p=c; }
+  function draw(){
+    const dpr=devicePixelRatio||1, w=cv.clientWidth, h=cv.clientHeight; if(!w) return;
+    cv.width=w*dpr; cv.height=h*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.min(candles.length, Math.max(30, Math.floor(w/14))), d=candles.slice(-n);
+    const hi=Math.max(...d.map(k=>k.h)), lo=Math.min(...d.map(k=>k.l)), Y=v=>8+(hi-v)/(hi-lo)*(h-16), cw=w/n;
+    d.forEach((k,i)=>{ const col=k.c>=k.o?'rgba(15,157,88,.5)':'rgba(217,58,43,.45)', cx=i*cw+cw/2; x.strokeStyle=col; x.beginPath(); x.moveTo(cx,Y(k.h)); x.lineTo(cx,Y(k.l)); x.stroke(); x.fillStyle=col; x.fillRect(cx-cw*.3,Y(Math.max(k.o,k.c)),cw*.6,Math.max(1,Math.abs(Y(k.o)-Y(k.c)))); });
+  }
+  draw(); addEventListener('resize', draw);
+  if(!reduce) setInterval(()=>{ const l=candles[candles.length-1]; const c=l.c+(rnd()-.45)*2.2; candles.push({o:l.c,c,h:Math.max(l.c,c)+rnd(),l:Math.min(l.c,c)-rnd()}); candles.shift(); draw(); }, 1400);
 })();
 </script>
 </body>
