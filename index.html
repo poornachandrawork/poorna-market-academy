@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Poorna Market Academy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Stock market training for Indian traders and investors: chart reading, risk management, options and live market practice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a trader's desk — chart-led hero, then a sequenced syllabus, a working risk calculator, batches, FAQ, enquiry. */
+:root{
+  --bg:#f5f7f3; --surface:#ffffff; --ink:#13201b; --muted:#56665f; --line:#d9e1dc;
+  --bull:#0b8a5d; --bear:#c63f2c; --accent:#e39b2d; --cta:#13201b; --cta-ink:#f5f7f3;
+  --grid:rgba(19,32,27,.07);
+  --f-display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1412; --surface:#141d1a; --ink:#e6eee9; --muted:#97a8a0; --line:#25322d;
+  --bull:#2fbf88; --bear:#ec6a55; --accent:#f0b450; --cta:#e6eee9; --cta-ink:#0d1412;
+  --grid:rgba(230,238,233,.06); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0d1412; --surface:#141d1a; --ink:#e6eee9; --muted:#97a8a0; --line:#25322d;
+  --bull:#2fbf88; --bear:#ec6a55; --accent:#f0b450; --cta:#e6eee9; --cta-ink:#0d1412;
+  --grid:rgba(230,238,233,.06); color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font:600 .75rem/1 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.3rem;border-radius:999px;font:600 .98rem var(--f-body);text-decoration:none;border:1.5px solid var(--cta);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--cta);color:var(--cta-ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.8rem}
+.logo{display:flex;align-items:center;gap:.55rem;font:800 1.1rem var(--f-display);text-decoration:none;letter-spacing:-.01em}
+.logo svg{flex:none}
+.navlinks{display:flex;gap:1.6rem;align-items:center}
+.navlinks a{text-decoration:none;font-weight:500;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+.navlinks .btn{padding:.55rem 1rem;font-size:.9rem;color:var(--cta-ink)}
+@media (max-width:760px){.navlinks a:not(.btn){display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center;padding-block:4rem 3rem}
+.hero h1{font-size:clamp(2.6rem,6.2vw,4.6rem);font-weight:800}
+.hero h1 .up{color:var(--bull)}
+.hero h1 .dn{color:var(--bear);text-decoration:line-through;text-decoration-thickness:.08em}
+.hero .lede{font-size:1.15rem;color:var(--muted);max-width:34rem;margin-top:1.3rem}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.facts{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.facts div{display:grid;gap:.2rem}
+.facts b{font:700 1.35rem var(--f-display)}
+.facts span{font-size:.85rem;color:var(--muted)}
+.chartcard{position:relative;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1rem 1rem .6rem}
+.chartcard header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.5rem}
+.chartcard header .sym{font:600 .95rem var(--f-mono)}
+.chartcard header .tag{font:500 .72rem var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+#chart{display:block;width:100%;height:320px}
+.legend{display:flex;flex-wrap:wrap;gap:1rem;font:500 .75rem var(--f-mono);color:var(--muted);padding-top:.5rem;border-top:1px dashed var(--line)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.35rem;vertical-align:-1px}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;padding-block:2.5rem 2rem}#chart{height:260px}}
+
+/* tape */
+.tape{border-block:1px solid var(--line);overflow:hidden;background:var(--surface)}
+.tape-track{display:flex;gap:2.5rem;width:max-content;padding-block:.75rem;animation:tape 40s linear infinite;font:500 .85rem var(--f-mono);color:var(--muted)}
+.tape-track span::before{content:"▲ ";color:var(--bull)}
+.tape-track span:nth-child(3n)::before{content:"▼ ";color:var(--bear)}
+@keyframes tape{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.tape-track{animation:none}}
+
+section{padding-block:5rem}
+.head{display:grid;gap:.9rem;max-width:42rem;margin-bottom:2.8rem}
+.head p{color:var(--muted);font-size:1.08rem}
+
+/* syllabus */
+.syllabus{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.mod{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;padding:1.8rem 1.4rem 1.8rem 0;border-bottom:1px solid var(--line)}
+.mod:nth-child(odd){border-right:1px solid var(--line)}
+.mod:nth-child(even){padding-left:1.6rem}
+.mod .wk{font:600 .78rem var(--f-mono);color:var(--muted);white-space:nowrap;padding-top:.25rem}
+.mod .wk b{display:block;font:800 2rem/1 var(--f-display);color:var(--ink);margin-bottom:.3rem}
+.mod p{color:var(--muted);margin-top:.5rem}
+.mod ul{margin:.8rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.mod li{font:500 .76rem var(--f-mono);padding:.25rem .55rem;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+@media (max-width:760px){.syllabus{grid-template-columns:1fr}.mod:nth-child(odd){border-right:0}.mod:nth-child(even){padding-left:0}}
+
+/* calculator */
+.calcband{background:var(--surface);border-block:1px solid var(--line)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.calc form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:grid;gap:.35rem}
+.field label{font:600 .78rem var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;font:500 1.05rem var(--f-mono);padding:.7rem .8rem;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.result{border:1.5px solid var(--ink);border-radius:16px;padding:1.6rem;display:grid;gap:1.2rem}
+.result .big{font:800 clamp(2.6rem,6vw,3.6rem)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.rows{display:grid;gap:.6rem}
+.rows div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed var(--line);padding-bottom:.5rem;font-size:.95rem}
+.rows dt{color:var(--muted)}
+.rows dd{margin:0;font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums}
+.warn{font-size:.88rem;color:var(--bear)}
+.rule{font-size:.9rem;color:var(--muted);border-left:3px solid var(--accent);padding-left:.8rem}
+@media (max-width:880px){.calc{grid-template-columns:1fr;gap:2rem}}
+@media (max-width:420px){.calc form{grid-template-columns:1fr}}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;align-items:stretch}
+.plan{display:flex;flex-direction:column;gap:1.1rem;padding:1.8rem;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.plan.featured{border:2px solid var(--ink)}
+.plan .badge{align-self:flex-start;font:600 .7rem var(--f-mono);text-transform:uppercase;letter-spacing:.1em;background:var(--accent);color:#1b1305;padding:.3rem .6rem;border-radius:6px}
+.plan .price{font:800 2.4rem/1 var(--f-display);font-variant-numeric:tabular-nums}
+.plan .price small{font:500 .85rem var(--f-body);color:var(--muted);margin-left:.3rem}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;flex:1}
+.plan li{padding-left:1.4rem;position:relative;font-size:.96rem}
+.plan li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:2px;background:var(--bull)}
+.plan .meta{font:500 .8rem var(--f-mono);color:var(--muted)}
+.plan .btn{justify-content:center}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* mentor */
+.mentor{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:18px;border:1px dashed var(--muted);display:grid;place-items:center;color:var(--muted);font:500 .85rem var(--f-mono);text-align:center;padding:1rem;background:repeating-linear-gradient(135deg,var(--grid) 0 10px,transparent 10px 20px)}
+.mentor .bio{display:grid;gap:1rem;max-width:40rem}
+.mentor .bio p{color:var(--muted)}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:.6rem}
+.principles div{border-top:2px solid var(--ink);padding-top:.7rem;font-size:.92rem}
+.principles b{display:block;font-family:var(--f-display);font-size:1.05rem;margin-bottom:.2rem}
+@media (max-width:760px){.mentor{grid-template-columns:1fr}.portrait{max-width:240px}.principles{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;max-width:52rem}
+.faq details{border-bottom:1px solid var(--line);padding-block:1.1rem}
+.faq summary{cursor:pointer;font:700 1.08rem var(--f-display);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);color:var(--muted)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--muted);margin-top:.7rem;max-width:44rem}
+
+/* enquiry */
+.enquire{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
+.enquire form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.6rem}
+.enquire .full{grid-column:1/-1}
+.contact{display:grid;gap:.8rem;margin-top:1.6rem}
+.contact div{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.contact span{font:600 .75rem var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;min-width:5.5rem}
+.contact b{font-family:var(--f-mono);font-weight:600;user-select:all}
+.note{font-size:.85rem;color:var(--muted)}
+.ok{grid-column:1/-1;font-weight:600;color:var(--bull)}
+@media (max-width:880px){.enquire{grid-template-columns:1fr}}
+@media (max-width:420px){.enquire form{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:2.5rem;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:grid;gap:1.2rem}
+.risk{border:1px solid var(--bear);border-radius:12px;padding:1rem 1.2rem;color:var(--ink);background:color-mix(in srgb,var(--bear) 7%,transparent)}
+.risk b{color:var(--bear)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Poorna Market Academy home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="3" y="9" width="5" height="10" rx="1" fill="var(--bear)"/><rect x="5" y="5" width="1" height="18" fill="var(--bear)"/><rect x="11" y="6" width="5" height="12" rx="1" fill="var(--bull)"/><rect x="13" y="3" width="1" height="19" fill="var(--bull)"/><rect x="19" y="4" width="5" height="9" rx="1" fill="var(--bull)"/><rect x="21" y="1" width="1" height="15" fill="var(--bull)"/></svg>
+      Poorna Market Academy
+    </a>
+    <div class="navlinks">
+      <a href="#syllabus">Syllabus</a>
+      <a href="#calculator">Risk calculator</a>
+      <a href="#batches">Batches</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#enquire">Book a free demo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">NSE · BSE · Equity &amp; F&amp;O · English / Hindi / Kannada</p>
+      <h1 style="margin-top:1rem">Trade with a <span class="up">plan</span>, not a <span class="dn">tip</span>.</h1>
+      <p class="lede">A practical stock market course for Indian beginners and part-time traders. Learn to read charts, size every position, and protect your capital before you chase returns.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#enquire">Book a free demo class →</a>
+        <a class="btn btn-ghost" href="#syllabus">See the 8-week syllabus</a>
+      </div>
+      <div class="facts">
+        <div><b>8 weeks</b><span>live classes</span></div>
+        <div><b>40+ hrs</b><span>recorded lessons</span></div>
+        <div><b>Paper trading</b><span>before real money</span></div>
+      </div>
+    </div>
+    <figure class="chartcard" style="margin:0">
+      <header>
+        <span class="sym">PRACTICE CHART · 15-min</span>
+        <span class="tag">Illustrative, not live data</span>
+      </header>
+      <canvas id="chart" role="img" aria-label="Illustrative candlestick chart with a support zone, a breakout entry and a stop-loss level marked"></canvas>
+      <figcaption class="legend">
+        <span><i style="background:var(--bull)"></i>Entry on breakout</span>
+        <span><i style="background:var(--bear)"></i>Stop-loss</span>
+        <span><i style="background:var(--accent)"></i>Support zone</span>
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="tape" aria-hidden="true">
+  <div class="tape-track">
+    <span>Support &amp; resistance</span><span>Volume confirmation</span><span>Gap-down open</span><span>Position sizing</span><span>Moving averages</span><span>Overtrading</span><span>Option Greeks</span><span>Risk : reward 1 : 2</span><span>FOMO entries</span><span>Trading journal</span><span>Swing setups</span><span>Revenge trades</span>
+    <span>Support &amp; resistance</span><span>Volume confirmation</span><span>Gap-down open</span><span>Position sizing</span><span>Moving averages</span><span>Overtrading</span><span>Option Greeks</span><span>Risk : reward 1 : 2</span><span>FOMO entries</span><span>Trading journal</span><span>Swing setups</span><span>Revenge trades</span>
+  </div>
+</div>
+
+<section id="syllabus">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The syllabus</p>
+      <h2>Eight weeks, in the order you'll actually need it.</h2>
+      <p>Each week builds on the last. You open a demat account only after week 2, and you don't touch options until your paper-trading journal shows discipline.</p>
+    </div>
+    <div class="syllabus">
+      <article class="mod"><div class="wk"><b>01</b>Week 1</div><div><h3>How the market works</h3><p>Exchanges, brokers, depositories and what really happens when you click Buy.</p><ul><li>NSE vs BSE</li><li>Demat &amp; trading a/c</li><li>Order types</li><li>T+1 settlement</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>02</b>Week 2</div><div><h3>Reading a company</h3><p>Fundamentals for people who aren't accountants. Enough to avoid obvious traps.</p><ul><li>P/E &amp; P/B</li><li>Balance sheet basics</li><li>Promoter holding</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>03</b>Week 3</div><div><h3>Candlesticks &amp; chart structure</h3><p>Trends, ranges, support and resistance drawn from real Nifty 50 charts.</p><ul><li>Candle patterns</li><li>Trendlines</li><li>Timeframes</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>04</b>Week 4</div><div><h3>Indicators that earn their place</h3><p>Moving averages, RSI and volume, and when each one lies to you.</p><ul><li>EMA 20/50/200</li><li>RSI divergence</li><li>VWAP</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>05</b>Week 5</div><div><h3>Risk management</h3><p>The week that decides whether you survive. Position size, stop-loss and risk-reward on every trade.</p><ul><li>1–2% rule</li><li>Stop placement</li><li>Drawdown math</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>06</b>Week 6</div><div><h3>Swing &amp; positional setups</h3><p>Three repeatable setups with entry, exit and invalidation rules written down.</p><ul><li>Breakout retest</li><li>Pullback to EMA</li><li>Range trading</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>07</b>Week 7</div><div><h3>Futures &amp; options basics</h3><p>Lot sizes, margins, premiums and the Greeks, taught with the risks stated up front.</p><ul><li>Calls &amp; puts</li><li>Delta, theta</li><li>Expiry behaviour</li></ul></div></article>
+      <article class="mod"><div class="wk"><b>08</b>Week 8</div><div><h3>Psychology &amp; your trading plan</h3><p>Journaling, reviewing losses, and leaving with a written plan you'll follow.</p><ul><li>Trading journal</li><li>Revenge trading</li><li>Plan template</li></ul></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="calcband" id="calculator">
+  <div class="wrap calc">
+    <div class="head" style="margin:0">
+      <p class="eyebrow">Week 5, preview</p>
+      <h2>How many shares should you buy?</h2>
+      <p>Most beginners decide quantity by gut feeling. Our students decide it from the stop-loss. Try the same calculator we use in class.</p>
+      <p class="rule">Rule of thumb: never risk more than 1–2% of your trading capital on a single trade.</p>
+    </div>
+    <div style="display:grid;gap:1.4rem;min-width:0">
+      <form id="calcForm" autocomplete="off">
+        <div class="field"><label for="cap">Capital (₹)</label><input id="cap" type="number" inputmode="decimal" min="0" value="200000"></div>
+        <div class="field"><label for="riskp">Risk per trade (%)</label><input id="riskp" type="number" inputmode="decimal" min="0" step="0.1" value="1"></div>
+        <div class="field"><label for="entry">Entry price (₹)</label><input id="entry" type="number" inputmode="decimal" min="0" step="0.05" value="1450"></div>
+        <div class="field"><label for="sl">Stop-loss (₹)</label><input id="sl" type="number" inputmode="decimal" min="0" step="0.05" value="1420"></div>
+      </form>
+      <div class="result" aria-live="polite">
+        <div><p class="eyebrow">Quantity to buy</p><p class="big" id="qty">66</p></div>
+        <dl class="rows" style="margin:0">
+          <div><dt>Max loss if stop hits</dt><dd id="maxloss">₹1,980</dd></div>
+          <div><dt>Capital deployed</dt><dd id="deployed">₹95,700</dd></div>
+          <div><dt>Target at 1 : 2 risk-reward</dt><dd id="target">₹1,510.00</dd></div>
+        </dl>
+        <p class="warn" id="warn" hidden></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="batches">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Batches &amp; fees</p>
+      <h2>Pick the depth that fits your goal.</h2>
+      <p>All fees include GST. Weekend and weekday-evening batches available.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Foundation</h3>
+        <p class="price">₹4,999<small>one-time</small></p>
+        <p class="meta">Weeks 1–4 · Recorded + 4 live Q&amp;As</p>
+        <ul><li>Market basics and account setup</li><li>Candlesticks and chart reading</li><li>Core indicators</li><li>Community group access</li></ul>
+        <a class="btn btn-ghost" href="#enquire">Enquire</a>
+      </article>
+      <article class="plan featured">
+        <span class="badge">Most chosen</span>
+        <h3>Complete Trader</h3>
+        <p class="price">₹14,999<small>one-time</small></p>
+        <p class="meta">All 8 weeks · Live classes · Next batch: Nov 2026</p>
+        <ul><li>Full syllabus including F&amp;O basics</li><li>4 weeks of guided paper trading</li><li>Weekly journal review</li><li>Recordings for 1 year</li><li>Certificate of completion</li></ul>
+        <a class="btn btn-primary" href="#enquire">Reserve a seat</a>
+      </article>
+      <article class="plan">
+        <h3>1-on-1 Mentorship</h3>
+        <p class="price">₹29,999<small>3 months</small></p>
+        <p class="meta">Complete Trader + personal sessions</p>
+        <ul><li>Everything in Complete Trader</li><li>6 one-on-one sessions</li><li>Personal trading plan review</li><li>Priority doubt support</li></ul>
+        <a class="btn btn-ghost" href="#enquire">Talk to us</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="mentor" style="padding-top:1rem">
+  <div class="wrap mentor">
+    <div class="portrait">Mentor photo<br>(add yours here)</div>
+    <div class="bio">
+      <p class="eyebrow">Your mentor</p>
+      <h2>Poornachandra</h2>
+      <p>Add your story here: how long you've been in the markets, what you trade, and why you started teaching. Keep it specific and factual. Students trust real numbers and real experience over promises.</p>
+      <div class="principles">
+        <div><b>No tips</b>We teach you to find trades yourself.</div>
+        <div><b>No guarantees</b>Anyone promising fixed returns is selling something.</div>
+        <div><b>Risk first</b>Capital protection comes before profit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:2rem">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Questions</p><h2>Before you join</h2></div>
+    <div class="faq">
+      <details open><summary>I have zero knowledge of the stock market. Can I join?</summary><p>Yes. Week 1 starts from what a share is and how to open a demat account. Most of our students are complete beginners.</p></details>
+      <details><summary>How much money do I need to start trading?</summary><p>None during the course. You practise with paper trading first. After that, start small with money you can afford to lose while you're still learning.</p></details>
+      <details><summary>Will you give buy/sell calls or tips?</summary><p>No. This is an education course. We teach you how to analyse and plan trades on your own.</p></details>
+      <details><summary>What language are classes in?</summary><p>Classes are taught in simple English with Hindi and Kannada explanations where helpful.</p></details>
+      <details><summary>What if I miss a live class?</summary><p>Every live class is recorded and available in your dashboard within 24 hours.</p></details>
+      <details><summary>Is there a refund policy?</summary><p>Attend the free demo class first. If you join and leave within the first 7 days, we refund the full fee.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="enquire" class="calcband">
+  <div class="wrap enquire">
+    <div class="head" style="margin:0">
+      <p class="eyebrow">Free demo class</p>
+      <h2>Sit in on one class before you pay anything.</h2>
+      <p>Leave your details and we'll call you with the next demo slot.</p>
+      <div class="contact">
+        <div><span>WhatsApp</span><b>+91 00000 00000</b></div>
+        <div><span>Email</span><b>poornachandrawork@gmail.com</b></div>
+        <div><span>Location</span><b>Bengaluru · Online across India</b></div>
+      </div>
+    </div>
+    <form id="enqForm" novalidate>
+      <div class="field"><label for="ename">Name</label><input id="ename" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="ephone">Phone</label><input id="ephone" type="tel" required autocomplete="tel" placeholder="98xxxxxxxx"></div>
+      <div class="field full"><label for="elevel">Your experience</label>
+        <select id="elevel"><option>Complete beginner</option><option>Invested a little, never traded</option><option>Trading, but losing money</option><option>Trading F&amp;O already</option></select></div>
+      <div class="field full"><label for="eplan">Interested in</label>
+        <select id="eplan"><option>Complete Trader (₹14,999)</option><option>Foundation (₹4,999)</option><option>1-on-1 Mentorship (₹29,999)</option><option>Not sure yet</option></select></div>
+      <div class="field full"><label for="emsg">Anything you'd like us to know? (optional)</label><textarea id="emsg" rows="3"></textarea></div>
+      <button class="btn btn-primary full" type="submit" style="justify-content:center">Request a demo slot</button>
+      <p class="ok" id="enqOk" hidden></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="risk"><b>Risk disclosure:</b> Trading in equity and derivatives involves substantial risk of loss. A SEBI study found that about 9 out of 10 individual F&amp;O traders lost money. This course is for education only and does not provide investment advice, stock recommendations or guaranteed returns.</p>
+    <p>© 2026 Poorna Market Academy · Bengaluru, India</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---- Candlestick chart (illustrative) ----
+  const cv = document.getElementById('chart');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let seed = 7; const rnd = () => (seed = (seed*16807) % 2147483647) / 2147483647;
+  // Scripted path: downtrend → base on support → breakout
+  const candles = []; let p = 1520;
+  for (let i=0;i<42;i++){
+    let drift = i<14 ? -6 : i<30 ? (1460-p)*0.25 : 7;
+    const o = p, c = p + drift + (rnd()-0.5)*18;
+    const h = Math.max(o,c) + rnd()*9, l = Math.min(o,c) - rnd()*9;
+    candles.push({o,c,h,l}); p = c;
+  }
+  const support = [1440,1452], entryIdx = 31, entry = Math.max(...candles.slice(14,30).map(k=>k.h));
+  const stop = support[0]-4;
+  let shown = reduce ? candles.length : candles.length; // complete at rest
+  let tick = 0;
+
+  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+  function draw(){
+    const dpr = window.devicePixelRatio||1, w = cv.clientWidth, h = cv.clientHeight;
+    cv.width = w*dpr; cv.height = h*dpr;
+    const x = cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); x.clearRect(0,0,w,h);
+    const bull=css('--bull'), bear=css('--bear'), acc=css('--accent'), grid=css('--grid'), muted=css('--muted');
+    const data = candles.slice();
+    if(!reduce){ const last=data[data.length-1]; const wob=Math.sin(tick/9)*4; data[data.length-1]={...last,c:last.c+wob,h:Math.max(last.h,last.c+wob)}; }
+    const padR=58, padT=10, padB=18;
+    const hi=Math.max(...data.map(k=>k.h))+6, lo=Math.min(...data.map(k=>k.l), stop)-6;
+    const Y=v=>padT+(hi-v)/(hi-lo)*(h-padT-padB);
+    const cw=(w-padR)/data.length;
+    // grid + price labels
+    x.font='500 10px "JetBrains Mono", monospace'; x.textBaseline='middle';
+    const step = 25;
+    for(let v=Math.ceil(lo/step)*step; v<hi; v+=step){
+      x.strokeStyle=grid; x.lineWidth=1; x.beginPath(); x.moveTo(0,Y(v)); x.lineTo(w-padR,Y(v)); x.stroke();
+      x.fillStyle=muted; x.fillText('₹'+v, w-padR+6, Y(v));
+    }
+    // support zone
+    x.fillStyle=acc; x.globalAlpha=.18; x.fillRect(0,Y(support[1]),w-padR,Y(support[0])-Y(support[1])); x.globalAlpha=1;
+    // levels
+    function level(v,col,label){x.setLineDash([5,4]);x.strokeStyle=col;x.lineWidth=1.2;x.beginPath();x.moveTo(entryIdx*cw-cw*2,Y(v));x.lineTo(w-padR,Y(v));x.stroke();x.setLineDash([]);
+      x.fillStyle=col; x.fillRect(w-padR+2,Y(v)-8,padR-4,16); x.fillStyle=css('--surface'); x.font='600 10px "JetBrains Mono", monospace'; x.fillText(label, w-padR+6, Y(v)); x.font='500 10px "JetBrains Mono", monospace';}
+    // candles
+    data.forEach((k,i)=>{
+      const col = k.c>=k.o?bull:bear, cx=i*cw+cw/2;
+      x.strokeStyle=col; x.lineWidth=1; x.beginPath(); x.moveTo(cx,Y(k.h)); x.lineTo(cx,Y(k.l)); x.stroke();
+      x.fillStyle=col; const top=Y(Math.max(k.o,k.c)), bh=Math.max(1.5,Math.abs(Y(k.o)-Y(k.c)));
+      x.fillRect(cx-cw*0.32, top, cw*0.64, bh);
+    });
+    level(entry,bull,Math.round(entry)+'');
+    level(stop,bear,Math.round(stop)+'');
+    // entry marker
+    const ex=entryIdx*cw+cw/2; x.fillStyle=bull; x.beginPath(); x.moveTo(ex,Y(candles[entryIdx].l)+16); x.lineTo(ex-6,Y(candles[entryIdx].l)+26); x.lineTo(ex+6,Y(candles[entryIdx].l)+26); x.fill();
+  }
+  draw();
+  addEventListener('resize', draw);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
+  new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  if(!reduce){ setInterval(()=>{tick++; draw();}, 120); }
+
+  // ---- Position size calculator ----
+  const $=id=>document.getElementById(id);
+  const inr=(n,d=0)=>'₹'+n.toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  function calc(){
+    const cap=+$('cap').value, rp=+$('riskp').value, en=+$('entry').value, sl=+$('sl').value;
+    const warn=$('warn'); warn.hidden=true;
+    const perShare = en - sl;
+    if(!(cap>0&&rp>0&&en>0&&sl>0)){ $('qty').textContent='—'; warn.textContent='Fill in all four values to calculate.'; warn.hidden=false; return; }
+    if(perShare<=0){ $('qty').textContent='—'; ['maxloss','deployed','target'].forEach(i=>$(i).textContent='—'); warn.textContent='For a buy trade, the stop-loss must be below the entry price.'; warn.hidden=false; return; }
+    const riskAmt = cap*rp/100;
+    let q = Math.floor(riskAmt/perShare);
+    let capped=false;
+    if(q*en>cap){ q=Math.floor(cap/en); capped=true; }
+    $('qty').textContent = q.toLocaleString('en-IN');
+    $('maxloss').textContent = inr(q*perShare);
+    $('deployed').textContent = inr(q*en);
+    $('target').textContent = inr(en+2*perShare,2);
+    if(capped){ warn.textContent='Quantity is limited by your capital, not your risk. Your stop-loss is very tight.'; warn.hidden=false; }
+    else if(rp>2){ warn.textContent='Risking more than 2% per trade can wipe out an account after a short losing streak.'; warn.hidden=false; }
+  }
+  $('calcForm').addEventListener('input', calc); $('calcForm').addEventListener('submit', e=>e.preventDefault()); calc();
+
+  // ---- Enquiry form (not yet connected to a backend) ----
+  $('enqForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const ok=$('enqOk'), name=$('ename').value.trim(), ph=$('ephone').value.replace(/\D/g,'');
+    if(!name){ ok.style.color='var(--bear)'; ok.textContent='Please enter your name.'; ok.hidden=false; $('ename').focus(); return; }
+    if(ph.length<10){ ok.style.color='var(--bear)'; ok.textContent='Enter a 10-digit mobile number so we can call you.'; ok.hidden=false; $('ephone').focus(); return; }
+    ok.style.color=''; ok.textContent='Thanks, '+name+'! Your details are noted on this page. (Preview only: this form isn\'t connected to email or a database yet.)'; ok.hidden=false;
+  });
+})();
+</script>
+</body>
+</html>
