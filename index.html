@@ -6,466 +6,443 @@
 <title>Poorna Market Academy</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="8-week mentor-led stock market course in Bengaluru and online. Chart reading, risk management and F&O, practised during live market hours. Book a free demo class.">
-<meta property="og:title" content="Trade with rules, not tips | Poorna Market Academy">
+<meta property="og:title" content="Stop trading on tips. Start trading on a plan.">
 <meta property="og:description" content="8-week mentor-led stock market course. Book a free demo class.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a trader's ruled notebook. Graph-paper hero with the lead form in reach, navy ink bands for
-   proof and price, marigold only on the actions. One committed light look. */
+/* Layout: Dalal Street after hours. Deep market-green ground, saffron for every action, a wide display face.
+   Signature: the hero's interactive "trade plan ticket" that works out a real position size. */
 :root{
-  --paper:#f6f8fc; --sheet:#ffffff; --grid:#dfe6f3;
-  --ink:#0d1838; --ink-2:#3f4a6b; --ink-3:#6b7593; --line:#dde2ee;
-  --navy:#0d1838; --navy-2:#16244d; --on-navy:#e9edf8; --on-navy-2:#a9b3d1;
-  --gold:#f5a524; --gold-deep:#d98a06; --on-gold:#1d1302;
-  --up:#0f9d58; --down:#d93a2b; --wa:#25d366;
-  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
-  --body:"Archivo", -apple-system, "Segoe UI", Roboto, sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
-  --r:14px; --wrap:1160px;
-  color-scheme:light;
+  --bg:#05211a; --bg-2:#082a21; --panel:#0c3428; --panel-2:#114033;
+  --line:rgba(226,240,232,.12); --line-2:rgba(226,240,232,.2);
+  --ink:#f1f5f2; --muted:#a6bdb2; --dim:#6f8a7e;
+  --saffron:#ff8a1f; --saffron-2:#ffa24a; --on-saffron:#1f0d00;
+  --up:#5be49b; --down:#ff6b5e; --wa:#25d366;
+  --display:"Unbounded", "Arial Black", sans-serif;
+  --body:"Hanken Grotesk", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:18px; --wrap:1180px;
+  color-scheme:dark;
   padding-top:env(safe-area-inset-top,0px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.02rem/1.65 var(--body);font-stretch:100%;-webkit-font-smoothing:antialiased;padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.04rem/1.65 var(--body);-webkit-font-smoothing:antialiased;padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))}
 @media (min-width:901px){body{padding-bottom:0}}
 img{max-width:100%;display:block}
 [hidden]{display:none!important}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;color:inherit}
-h2{font-size:clamp(1.85rem,4vw,2.9rem);font-weight:850;font-stretch:118%;letter-spacing:-.03em;line-height:1.05}
-h3{font-size:1.12rem;font-weight:750;font-stretch:108%;letter-spacing:-.01em;line-height:1.25}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1,h2{font-family:var(--display);font-weight:800;letter-spacing:-.035em}
+h2{font-size:clamp(1.7rem,3.8vw,2.7rem);line-height:1.08}
+h3{font:700 1.14rem/1.3 var(--body);letter-spacing:-.01em}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.label{font:700 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
-.sec{padding-block:clamp(64px,9vw,112px)}
-.head{display:grid;gap:.9rem;max-width:44rem;margin-bottom:clamp(2rem,4vw,3.2rem)}
-.head p{color:var(--ink-2);font-size:1.08rem}
-.center{text-align:center;margin-inline:auto;justify-items:center}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.sample{display:inline-block;font:700 .6rem/1 var(--mono);letter-spacing:.1em;color:#7a4a00;background:#fff1d6;border:1px dashed #e0a43a;padding:.25rem .4rem;border-radius:4px;vertical-align:middle;white-space:nowrap}
+.tag{display:inline-flex;align-items:center;gap:.5rem;font:500 .74rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--saffron)}
+.tag::before{content:"";width:8px;height:8px;background:var(--saffron);transform:rotate(45deg)}
+.sec{padding-block:clamp(68px,9vw,116px)}
+.head{display:grid;gap:1rem;max-width:46rem;margin-bottom:clamp(2rem,4vw,3.2rem)}
+.head p{color:var(--muted);font-size:1.1rem}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.sample{display:inline-block;font:500 .6rem/1 var(--mono);letter-spacing:.1em;color:#ffd7a8;background:rgba(255,138,31,.14);border:1px dashed rgba(255,138,31,.6);padding:.25rem .4rem;border-radius:4px;vertical-align:middle;white-space:nowrap;font-weight:500}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.9rem 1.5rem;border-radius:10px;border:0;font:800 1rem/1 var(--display);font-stretch:110%;letter-spacing:.005em;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:54px;padding:.9rem 1.5rem;border-radius:999px;border:0;font:700 1rem/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s;white-space:nowrap}
 .btn svg{width:19px;height:19px;flex:none}
-.btn-gold{background:var(--gold);color:var(--on-gold);box-shadow:0 1px 0 var(--gold-deep),0 10px 24px -10px rgba(217,138,6,.7)}
-.btn-gold:hover{background:#ffb43c;transform:translateY(-1px)}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-2)}
-.btn-wa{background:var(--wa);color:#05290f}
-.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-s{background:var(--saffron);color:var(--on-saffron);box-shadow:0 12px 28px -12px rgba(255,138,31,.8)}
+.btn-s:hover{background:var(--saffron-2);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.btn-o:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-wa{background:var(--wa);color:#04260e}
 
-/* setup banner (only while details are missing) */
-.setup{background:#fff1d6;border-bottom:1px solid #f0c77a;color:#5c3800;font-size:.86rem}
+/* setup + offer */
+.setup{background:#3a2500;color:#ffd9a8;font-size:.86rem;border-bottom:1px solid #6b4500}
 .setup .wrap{display:flex;gap:.8rem;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:.55rem}
-.setup b{font-weight:800}
-.setup button{font:700 .78rem var(--mono);background:none;border:1px solid #c98a1c;color:#5c3800;padding:.3rem .6rem;border-radius:6px;cursor:pointer}
+.setup button{font:500 .78rem var(--mono);background:none;border:1px solid #a86d10;color:#ffd9a8;padding:.3rem .6rem;border-radius:6px;cursor:pointer}
+.offer{background:var(--saffron);color:var(--on-saffron);font-weight:600;font-size:.92rem}
+.offer .wrap{display:flex;align-items:center;justify-content:center;gap:.4rem 1rem;flex-wrap:wrap;padding-block:.55rem;text-align:center}
+.clock{display:inline-flex;gap:.25rem;font:500 .85rem var(--mono)}
+.clock span{background:rgba(31,13,0,.12);padding:.15rem .4rem;border-radius:5px;min-width:2.7em;text-align:center}
 
-/* offer bar */
-.offer{background:var(--navy);color:var(--on-navy);font-size:.9rem}
-.offer .wrap{display:flex;align-items:center;justify-content:center;gap:.4rem 1rem;flex-wrap:wrap;padding-block:.6rem;text-align:center}
-.offer b{color:var(--gold);font-weight:800}
-.clock{display:inline-flex;gap:.3rem;font:700 .82rem var(--mono)}
-.clock span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:.2rem .4rem;border-radius:5px;min-width:2.6em;text-align:center}
-
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(246,248,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--paper)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(5,33,26,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
-.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:850 1.05rem/1 var(--display);font-stretch:115%;letter-spacing:-.02em}
-.logo small{display:block;font:500 .7rem/1.4 var(--body);font-stretch:100%;color:var(--ink-3);letter-spacing:0}
-.top-actions{display:flex;gap:.6rem;align-items:center}
-.top-actions .btn{min-height:42px;padding:.6rem 1rem;font-size:.9rem}
-.tel{font:700 .92rem var(--mono);text-decoration:none;display:flex;align-items:center;gap:.4rem}
-@media (max-width:720px){.tel,.top-actions .btn-ghost{display:none}}
+.logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.logo b{display:block;font:700 .98rem/1.1 var(--display);letter-spacing:-.02em}
+.logo small{display:block;font-size:.74rem;color:var(--muted)}
+.top-r{display:flex;align-items:center;gap:1.2rem}
+.top-r nav{display:flex;gap:1.4rem;font-weight:600;font-size:.93rem;color:var(--muted)}
+.top-r nav a{text-decoration:none}.top-r nav a:hover{color:var(--ink)}
+.top-r .btn{min-height:44px;padding:.6rem 1.1rem;font-size:.92rem}
+@media (max-width:900px){.top-r nav{display:none}}
 
 /* hero */
-.hero{position:relative;overflow:hidden;background:
-  linear-gradient(180deg,rgba(246,248,252,0) 60%,var(--paper)),
-  repeating-linear-gradient(0deg,var(--grid) 0 1px,transparent 1px 32px),
-  repeating-linear-gradient(90deg,var(--grid) 0 1px,transparent 1px 32px),var(--paper)}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(40px,6vw,80px) clamp(56px,7vw,96px)}
-.kicker{display:inline-flex;align-items:center;gap:.55rem;background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:.4rem .85rem .4rem .45rem;font-size:.86rem;font-weight:600;color:var(--ink-2);box-shadow:0 1px 2px rgba(13,24,56,.05)}
-.kicker i{width:22px;height:22px;border-radius:50%;background:var(--up);display:grid;place-items:center}
-.kicker i::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(.55);opacity:.6}}
-.hero h1{font-size:clamp(2.7rem,7.4vw,5.4rem);font-weight:900;font-stretch:122%;letter-spacing:-.045em;line-height:.95;margin-top:1.3rem}
-.hero h1 .strike{position:relative;color:var(--ink-3);white-space:nowrap}
-.hero h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:.09em;background:var(--down);transform:rotate(-4deg)}
-.hero h1 .mark{background:linear-gradient(transparent 62%,rgba(245,165,36,.55) 62%);padding:0 .05em}
-.hero .sub{font-size:clamp(1.05rem,1.7vw,1.22rem);color:var(--ink-2);max-width:36rem;margin-top:1.4rem}
-.ticks{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.55rem}
-.ticks li{display:flex;gap:.65rem;align-items:flex-start;font-weight:600}
-.ticks svg{flex:none;width:22px;height:22px;margin-top:.1rem;color:var(--up)}
-.proof{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.8rem;margin-top:2rem;padding-top:1.5rem;border-top:1px dashed #c7cfe0}
-.proof div{display:grid;gap:.1rem}
-.proof b{font:850 1.5rem/1 var(--display);font-stretch:115%;letter-spacing:-.02em}
-.proof span{font-size:.82rem;color:var(--ink-3)}
-.stars{color:var(--gold);letter-spacing:.05em}
-#heroTape{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px;z-index:0;opacity:.55;pointer-events:none}
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,138,31,.16),transparent 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 80px);pointer-events:none;mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(44px,7vw,92px)}
+.live{display:inline-flex;align-items:center;gap:.6rem;padding:.42rem .9rem .42rem .5rem;border-radius:999px;background:rgba(91,228,155,.08);border:1px solid rgba(91,228,155,.25);font-size:.88rem;font-weight:600;color:#cdeedd}
+.live i{width:20px;height:20px;border-radius:50%;background:rgba(91,228,155,.2);display:grid;place-items:center}
+.live i::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 10px var(--up);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{font-size:clamp(2.1rem,5.2vw,4rem);line-height:1.02;margin-top:1.4rem}
+.hero h1 .x{color:var(--dim);text-decoration:line-through;text-decoration-color:var(--down);text-decoration-thickness:.08em}
+.hero h1 .s{color:var(--saffron)}
+.hero .sub{color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.22rem);max-width:36rem;margin-top:1.3rem}
 
-/* form card */
-.formcard{background:var(--sheet);border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 60px -28px rgba(13,24,56,.35),0 2px 6px rgba(13,24,56,.05);overflow:hidden;min-width:0}
-.formcard-top{background:var(--navy);color:var(--on-navy);padding:1.2rem 1.4rem;display:grid;gap:.3rem}
-.formcard-top h2{font-size:1.45rem;font-stretch:112%;color:#fff;letter-spacing:-.02em}
-.formcard-top p{font-size:.9rem;color:var(--on-navy-2)}
-.seats{display:flex;align-items:center;gap:.6rem;font:700 .78rem var(--mono);color:var(--gold);letter-spacing:.04em;margin-top:.35rem}
-.seatbar{flex:1;height:6px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}
-.seatbar i{display:block;height:100%;background:var(--gold);border-radius:9px}
-form.lead{padding:1.3rem 1.4rem 1.4rem;display:grid;gap:.9rem}
-.f{display:grid;gap:.35rem}
-.f label{font-size:.82rem;font-weight:700;color:var(--ink-2)}
-.f input,.f select{width:100%;font:500 1.02rem var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:.85rem .9rem;appearance:none;transition:border-color .15s,background .15s}
-.f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:2.4rem}
-.f input:focus,.f select:focus{outline:none;border-color:var(--ink);background:#fff}
-.f input[aria-invalid="true"]{border-color:var(--down);background:#fff7f6}
-.err{font-size:.8rem;color:var(--down);font-weight:600}
-.phone{display:flex;align-items:stretch}
-.phone span{display:grid;place-items:center;padding:0 .8rem;border:1.5px solid var(--line);border-right:0;border-radius:10px 0 0 10px;background:#eef1f8;font:700 .95rem var(--mono);color:var(--ink-2)}
-.phone input{border-radius:0 10px 10px 0}
-form.lead .btn{width:100%;min-height:56px;font-size:1.06rem}
-.micro{display:flex;gap:.5rem;align-items:center;justify-content:center;font-size:.8rem;color:var(--ink-3);text-align:center}
-.micro svg{width:14px;height:14px;flex:none}
-.or{display:flex;align-items:center;gap:.8rem;font-size:.78rem;color:var(--ink-3);font-weight:600}
-.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
-.ok{border:1.5px solid var(--up);background:#effaf4;border-radius:10px;padding:1rem;display:grid;gap:.3rem}
-.ok b{font-family:var(--display);font-stretch:110%;font-size:1.05rem}
-.ok p{font-size:.9rem;color:var(--ink-2)}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}#heroTape{height:110px}}
+form.inline{margin-top:2rem;background:var(--panel);border:1px solid var(--line-2);border-radius:22px;padding:.55rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;gap:.5rem;max-width:40rem}
+.fld{position:relative;min-width:0}
+.fld input,.fld select{width:100%;height:54px;border-radius:14px;border:1px solid transparent;background:var(--bg);color:var(--ink);font:500 1rem var(--body);padding:1.15rem .95rem .3rem;appearance:none}
+.fld label{position:absolute;left:.95rem;top:.48rem;font:500 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);pointer-events:none}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--saffron)}
+.fld input[aria-invalid="true"]{border-color:var(--down)}
+.fld.ph input{padding-left:3.1rem}
+.fld.ph::after{content:"+91";position:absolute;left:.95rem;bottom:.62rem;font:500 1rem var(--mono);color:var(--muted)}
+form.inline .btn{height:54px;border-radius:14px}
+.ferr{grid-column:1/-1;color:var(--down);font-size:.85rem;font-weight:600;padding:0 .4rem .2rem}
+.fnote{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-size:.84rem;color:var(--dim)}
+.fnote svg{width:14px;height:14px}
+.ok{grid-column:1/-1;padding:1rem 1.1rem;border-radius:14px;background:rgba(91,228,155,.1);border:1px solid rgba(91,228,155,.35);display:grid;gap:.25rem}
+.ok b{font-size:1.05rem}.ok p{color:var(--muted);font-size:.92rem}
+.ok .btn{justify-self:start;margin-top:.5rem;min-height:46px}
+@media (max-width:640px){form.inline{grid-template-columns:1fr}}
 
-/* platform strip */
-.strip{border-block:1px solid var(--line);background:var(--sheet)}
-.strip .wrap{display:flex;align-items:center;gap:1rem 2.2rem;flex-wrap:wrap;justify-content:center;padding-block:1.2rem}
-.strip small{font:700 .7rem var(--mono);letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
-.strip span{font:800 1rem var(--display);font-stretch:112%;color:#8a93ad;letter-spacing:-.01em}
+.proofrow{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.chip{display:flex;align-items:center;gap:.5rem;padding:.5rem .85rem;border-radius:999px;border:1px solid var(--line);font-size:.88rem;color:var(--muted)}
+.chip b{color:var(--ink);font-family:var(--mono);font-weight:500}
 
-/* problem / fix */
-.pf{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
-.stat-big{font:900 clamp(4.5rem,13vw,8.5rem)/.85 var(--display);font-stretch:125%;letter-spacing:-.06em;color:var(--down)}
-.stat-big small{font-size:.4em;letter-spacing:-.02em}
-.stat-cap{margin-top:1rem;font-size:1.06rem;color:var(--ink-2);max-width:26rem}
-.stat-cap cite{display:block;font:500 .78rem var(--mono);color:var(--ink-3);font-style:normal;margin-top:.5rem}
-.vs{display:grid;gap:.8rem}
-.vs-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:.8rem;align-items:center}
-.vs-row > div{padding:1rem 1.1rem;border-radius:var(--r);font-weight:600;font-size:.98rem;line-height:1.4}
-.bad{background:#fff;border:1px solid #f1cfcb;color:#7a2219}
-.bad::before{content:"✕  ";color:var(--down);font-weight:800}
-.good{background:var(--navy);color:#fff}
-.good::before{content:"✓  ";color:var(--gold);font-weight:800}
-.vs-row svg{width:20px;height:20px;color:var(--ink-3)}
-.vs-head{display:grid;grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr);gap:.8rem;font:700 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-@media (max-width:860px){.pf{grid-template-columns:1fr}}
-@media (max-width:520px){.vs-row{grid-template-columns:1fr}.vs-row svg{transform:rotate(90deg);justify-self:center}.vs-head{display:none}}
+/* trade ticket */
+.ticket{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);border-radius:26px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.7);min-width:0;transform:rotate(1.2deg)}
+@media (max-width:900px){.ticket{transform:none}}
+.t-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.25rem;border-bottom:1px dashed var(--line-2)}
+.t-top b{font:700 .9rem var(--display);letter-spacing:-.01em}
+.t-top span{font:500 .72rem var(--mono);color:var(--saffron);letter-spacing:.1em;text-transform:uppercase}
+.t-body{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:1rem;padding:1.1rem 1.25rem}
+.t-in{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.t-in .fld input{height:52px;background:rgba(0,0,0,.25);font-family:var(--mono)}
+.ladder{position:relative;border-left:1px solid var(--line-2);margin-left:.4rem}
+.lv{position:absolute;left:-1px;right:0;display:flex;align-items:center;gap:.35rem;font:500 .64rem/1 var(--mono);transform:translateY(-50%);transition:top .35s}
+.lv::before{content:"";width:16px;height:2px;background:currentColor}
+.lv.t{color:var(--up)}.lv.e{color:var(--ink)}.lv.st{color:var(--down)}
+.zone{position:absolute;left:0;width:10px;transition:top .35s,height .35s}
+.zone.g{background:rgba(91,228,155,.25)}.zone.r{background:rgba(255,107,94,.3)}
+.t-out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px dashed var(--line-2)}
+.t-out div{padding:1rem 1.1rem;display:grid;gap:.25rem;border-right:1px dashed var(--line-2)}
+.t-out div:last-child{border-right:0}
+.t-out small{font:500 .64rem var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+.t-out b{font:500 1.15rem var(--mono);font-variant-numeric:tabular-nums}
+.t-out .big b{font:800 1.9rem/1 var(--display);color:var(--saffron);letter-spacing:-.03em}
+.t-foot{padding:.85rem 1.25rem;background:rgba(0,0,0,.2);font-size:.86rem;color:var(--muted);display:flex;gap:.6rem;align-items:flex-start;min-height:3.2rem}
+.t-foot svg{width:16px;height:16px;flex:none;margin-top:.15rem;color:var(--saffron)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+@media (max-width:420px){.t-body{grid-template-columns:1fr}.ladder{display:none}.t-out{grid-template-columns:1fr 1fr}.t-out .big{grid-column:1/-1;border-right:0;border-bottom:1px dashed var(--line-2)}}
 
-/* calculator */
-.calc{background:var(--sheet);border:1px solid var(--line);border-radius:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden}
-.calc-in{padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1rem;align-content:start}
-.calc-in .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.calc-out{background:var(--navy);color:var(--on-navy);padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1.2rem;align-content:start}
-.calc-out .q{font:900 clamp(3rem,8vw,4.6rem)/1 var(--display);font-stretch:120%;color:#fff;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.calc-out dl{margin:0;display:grid;gap:.6rem}
-.calc-out dl div{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(255,255,255,.12);font-size:.95rem}
-.calc-out dt{color:var(--on-navy-2)} .calc-out dd{margin:0;font:700 .98rem var(--mono);color:#fff}
-.calc-note{font-size:.88rem;color:var(--gold);min-height:1.3em}
-.calc-out .lbl{font:700 .7rem var(--mono);letter-spacing:.14em;color:var(--on-navy-2);text-transform:uppercase}
-@media (max-width:820px){.calc{grid-template-columns:1fr}}
-@media (max-width:400px){.calc-in .grid2{grid-template-columns:1fr}}
+/* marquee */
+.marq{border-block:1px solid var(--line);background:var(--bg-2);overflow:hidden}
+.marq-track{display:flex;width:max-content;animation:mq 50s linear infinite}
+.marq-track span{display:flex;align-items:center;gap:.9rem;padding:1rem 1.4rem;font:700 .95rem var(--display);letter-spacing:-.01em;color:var(--muted);white-space:nowrap}
+.marq-track span::after{content:"";width:7px;height:7px;background:var(--saffron);transform:rotate(45deg);margin-left:1.4rem}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-/* curriculum timeline */
-.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;counter-reset:w}
-.wk{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem 1.2rem;display:grid;gap:.5rem;align-content:start;position:relative}
-.wk .n{font:700 .74rem var(--mono);letter-spacing:.12em;color:var(--ink-3)}
-.wk p{color:var(--ink-2);font-size:.93rem}
-.wk.key{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
-.wk.key .n{color:var(--gold-deep)}
-@media (max-width:960px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.weeks{grid-template-columns:1fr}}
+/* problem */
+.prob{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.giant{font:800 clamp(5rem,15vw,10rem)/.85 var(--display);letter-spacing:-.07em;color:var(--down)}
+.giant small{font-size:.38em;letter-spacing:-.03em}
+.prob cite{display:block;font:500 .78rem var(--mono);color:var(--dim);font-style:normal;margin-top:.8rem}
+.mistakes{display:grid;gap:.8rem}
+.mk{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1.15rem 1.2rem;border-radius:var(--r);background:var(--panel);border:1px solid var(--line)}
+.mk .n{font:500 .78rem var(--mono);color:var(--dim);padding-top:.2rem}
+.mk p{color:var(--muted);font-size:.96rem;margin-top:.2rem}
+.mk p b{color:var(--up);font-weight:600}
+@media (max-width:860px){.prob{grid-template-columns:1fr}}
+
+/* curriculum tabs */
+.curr{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1.2rem;align-items:start}
+.wk-list{display:grid;gap:.4rem}
+.wk-btn{display:grid;grid-template-columns:4.2rem 1fr auto;align-items:center;gap:.6rem;width:100%;text-align:left;padding:.95rem 1.1rem;border-radius:14px;border:1px solid transparent;background:transparent;color:var(--muted);font:600 1rem var(--body);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.wk-btn .n{font:500 .74rem var(--mono);letter-spacing:.08em;color:var(--dim)}
+.wk-btn::after{content:"→";color:var(--dim)}
+.wk-btn:hover{background:var(--bg-2);color:var(--ink)}
+.wk-btn[aria-selected="true"]{background:var(--panel);border-color:var(--line-2);color:var(--ink)}
+.wk-btn[aria-selected="true"] .n,.wk-btn[aria-selected="true"]::after{color:var(--saffron)}
+.wk-panel{position:sticky;top:96px;background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);border-radius:24px;padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1rem;min-height:360px;align-content:start}
+.wk-panel .big{font:800 clamp(3rem,7vw,4.6rem)/1 var(--display);letter-spacing:-.05em;color:var(--saffron)}
+.wk-panel h3{font:700 clamp(1.3rem,2.4vw,1.7rem)/1.15 var(--display);letter-spacing:-.025em}
+.wk-panel p{color:var(--muted)}
+.wk-panel ul{list-style:none;margin:.4rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.wk-panel li{font:500 .82rem var(--mono);padding:.42rem .7rem;border-radius:999px;background:rgba(0,0,0,.22);border:1px solid var(--line)}
+.wk-panel .imp{justify-self:start;font:500 .72rem var(--mono);letter-spacing:.1em;color:var(--on-saffron);background:var(--saffron);padding:.35rem .6rem;border-radius:6px}
+@media (max-width:820px){.curr{grid-template-columns:1fr}.wk-panel{position:static;order:-1;min-height:0}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;counter-reset:s}
+.step{padding:1.5rem 1.3rem;border-radius:var(--r);border:1px solid var(--line);display:grid;gap:.6rem;align-content:start;position:relative}
+.step .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:700 .95rem var(--display);background:var(--panel-2);color:var(--saffron);border:1px solid var(--line-2)}
+.step:first-child{background:var(--saffron);color:var(--on-saffron);border-color:var(--saffron)}
+.step:first-child .n{background:var(--on-saffron);color:var(--saffron);border-color:transparent}
+.step:first-child p{color:rgba(31,13,0,.75)}
+.step p{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
 
 /* mentor */
-.navyband{background:var(--navy);color:var(--on-navy)}
-.navyband .head p{color:var(--on-navy-2)}
-.navyband .label{color:var(--gold)}
-.mentor{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,4rem);align-items:center}
-.photo{aspect-ratio:4/5;max-width:100%;border-radius:20px;overflow:hidden;background:
-  repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px),var(--navy-2);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;text-align:center;color:var(--on-navy-2);font:600 .9rem var(--mono);padding:1.5rem;position:relative}
+.mentor{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.photo{aspect-ratio:4/5;max-width:100%;border-radius:28px;overflow:hidden;position:relative;background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 14px,transparent 14px 28px),var(--panel);border:1px solid var(--line-2);display:grid;place-items:center;text-align:center;color:var(--dim);font:500 .85rem var(--mono);padding:1.5rem}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mentor h2{color:#fff}
-.mentor .role{font:700 .82rem var(--mono);color:var(--gold);letter-spacing:.06em;margin-top:.6rem}
-.mentor .bio{color:var(--on-navy-2);margin-top:1.2rem;font-size:1.05rem;max-width:36rem}
-.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden;margin-top:2rem}
-.creds div{background:var(--navy);padding:1.1rem 1rem;display:grid;gap:.2rem}
-.creds b{font:900 1.7rem/1 var(--display);font-stretch:118%;color:#fff;letter-spacing:-.03em}
-.creds span{font-size:.82rem;color:var(--on-navy-2)}
-.mentor blockquote{margin:1.8rem 0 0;padding-left:1rem;border-left:3px solid var(--gold);font:600 1.08rem/1.5 var(--display);font-stretch:104%;color:#fff;max-width:34rem}
-@media (max-width:820px){.mentor{grid-template-columns:1fr}.photo{max-width:320px}}
+.photo .badge{position:absolute;left:1rem;bottom:1rem;right:1rem;background:rgba(5,33,26,.85);backdrop-filter:blur(8px);border:1px solid var(--line-2);border-radius:14px;padding:.8rem 1rem;text-align:left;color:var(--ink);font:600 .92rem var(--body)}
+.photo .badge small{display:block;color:var(--saffron);font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.mentor .role{color:var(--saffron);font:500 .85rem var(--mono);margin-top:.7rem}
+.mentor .bio{color:var(--muted);margin-top:1.1rem;font-size:1.08rem;max-width:38rem}
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin-top:1.8rem}
+.creds div{border:1px solid var(--line);border-radius:14px;padding:1rem;display:grid;gap:.25rem}
+.creds b{font:800 1.6rem/1 var(--display);letter-spacing:-.04em}
+.creds span{font-size:.84rem;color:var(--muted)}
+.quote{margin:1.8rem 0 0;font:500 1.12rem/1.55 var(--body);color:var(--ink);padding-left:1.1rem;border-left:3px solid var(--saffron);max-width:36rem}
+@media (max-width:820px){.mentor{grid-template-columns:1fr}.photo{max-width:340px}}
 @media (max-width:440px){.creds{grid-template-columns:1fr}}
 
 /* reviews */
-.revhead{display:flex;align-items:end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.2rem}
-.rating{display:flex;align-items:center;gap:.8rem;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:.8rem 1.1rem}
-.rating b{font:900 2rem/1 var(--display);font-stretch:118%}
-.rating small{display:block;font-size:.8rem;color:var(--ink-3)}
-.reviews{columns:3 280px;column-gap:1rem}
-.rev{break-inside:avoid;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem;margin-bottom:1rem;display:grid;gap:.8rem}
-.rev p{color:var(--ink);font-size:.98rem}
-.who{display:flex;align-items:center;gap:.7rem}
-.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:800 .95rem var(--display);color:#fff;flex:none}
-.who b{display:block;font-size:.92rem}
-.who small{color:var(--ink-3);font-size:.8rem}
-.rev .res{font:700 .76rem var(--mono);color:var(--up);background:#effaf4;border-radius:6px;padding:.35rem .55rem;width:fit-content}
+.rv-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.score{display:flex;align-items:center;gap:1rem;padding:.9rem 1.2rem;border-radius:var(--r);background:var(--panel);border:1px solid var(--line)}
+.score b{font:800 2.2rem/1 var(--display);letter-spacing:-.04em}
+.score small{display:block;color:var(--muted);font-size:.84rem}
+.stars{color:var(--saffron);letter-spacing:.08em}
+.revs{columns:3 300px;column-gap:1rem}
+.rev{break-inside:avoid;margin-bottom:1rem;padding:1.4rem;border-radius:var(--r);background:var(--panel);border:1px solid var(--line);display:grid;gap:.9rem}
+.rev p{font-size:1rem}
+.rev .res{font:500 .76rem var(--mono);color:var(--up);width:fit-content;padding:.3rem .55rem;border-radius:6px;background:rgba(91,228,155,.1)}
+.who{display:flex;gap:.7rem;align-items:center}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 .9rem var(--display);color:var(--on-saffron);flex:none}
+.who b{display:block;font-size:.93rem}.who small{color:var(--dim);font-size:.82rem}
 
 /* gallery */
-.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:.8rem}
-.gallery > div{border-radius:var(--r);overflow:hidden;position:relative;background:repeating-linear-gradient(135deg,#eaeef7 0 12px,#f3f5fa 12px 24px);border:1px dashed #c7cfe0;display:grid;place-items:center;color:var(--ink-3);font:600 .8rem var(--mono);text-align:center;padding:1rem}
-.gallery > div:first-child{grid-row:span 2}
-.gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (max-width:700px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:180px 140px 140px}.gallery > div:first-child{grid-column:1/-1;grid-row:auto}}
+.gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-auto-rows:190px;gap:.8rem;margin-top:2.5rem}
+.gal div{border-radius:var(--r);overflow:hidden;position:relative;border:1px dashed var(--line-2);background:var(--bg-2);display:grid;place-items:center;text-align:center;color:var(--dim);font:500 .8rem var(--mono);padding:1rem}
+.gal div:first-child{grid-row:span 2}
+.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:700px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal div:first-child{grid-column:1/-1}}
 
-/* pricing */
-.plans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:1.2rem;align-items:stretch;max-width:940px;margin-inline:auto}
-.plan{background:var(--sheet);border:1px solid var(--line);border-radius:22px;padding:clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;gap:1.1rem}
-.plan.best{background:var(--navy);color:var(--on-navy);border:0;position:relative}
-.plan.best h3{color:#fff}
-.flag{position:absolute;top:-13px;left:1.6rem;background:var(--gold);color:var(--on-gold);font:800 .72rem/1 var(--mono);letter-spacing:.1em;padding:.5rem .7rem;border-radius:7px}
-.price{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
-.price b{font:900 clamp(2.4rem,5vw,3rem)/1 var(--display);font-stretch:118%;letter-spacing:-.04em}
-.plan.best .price b{color:#fff}
-.price s{color:var(--ink-3);font:600 1rem var(--mono)}
-.plan.best .price s{color:var(--on-navy-2)}
-.emi{font:700 .86rem var(--mono);color:var(--up)}
-.plan.best .emi{color:var(--gold)}
+/* fees */
+.plans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:1.2rem;max-width:960px;margin-inline:auto;align-items:stretch}
+.plan{border-radius:26px;padding:clamp(1.5rem,3vw,2.1rem);display:flex;flex-direction:column;gap:1.2rem;border:1px solid var(--line-2);background:var(--panel)}
+.plan.best{background:var(--ink);color:#0a1f18;border-color:var(--ink);position:relative}
+.plan.best .muted{color:#4a5f56}
+.plan .muted{color:var(--muted);font-size:.93rem;margin-top:.3rem}
+.ribbon{position:absolute;top:1.3rem;right:1.3rem;font:500 .7rem var(--mono);letter-spacing:.1em;background:var(--saffron);color:var(--on-saffron);padding:.4rem .6rem;border-radius:6px}
+.price{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.price b{font:800 clamp(2.3rem,5vw,3rem)/1 var(--display);letter-spacing:-.05em}
+.price s{font:500 1rem var(--mono);opacity:.55}
+.emi{font:500 .88rem var(--mono);color:var(--up)}
+.plan.best .emi{color:#0b7a43}
 .plan ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;flex:1}
-.plan li{display:flex;gap:.6rem;font-size:.97rem}
-.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:.2rem;border-radius:50%;background:var(--up) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/11px no-repeat}
-.plan.best li::before{background-color:var(--gold)}
+.plan li{display:flex;gap:.65rem;font-size:.98rem}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:.22rem;border-radius:50%;background:var(--up) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2305211a' stroke-width='4'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center/11px no-repeat}
+.plan.best li::before{background-color:#0b7a43;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E")}
 .plan .btn{width:100%}
-.guarantee{max-width:940px;margin:1.5rem auto 0;display:flex;gap:1.1rem;align-items:center;background:#effaf4;border:1px solid #bfe6cf;border-radius:var(--r);padding:1.1rem 1.3rem}
-.guarantee svg{width:38px;height:38px;color:var(--up);flex:none}
-.guarantee b{font-family:var(--display);font-stretch:110%;font-size:1.05rem}
-.guarantee p{color:var(--ink-2);font-size:.94rem}
+.plan.best .btn-o{box-shadow:inset 0 0 0 1.5px #0a1f18;color:#0a1f18}
+.promise{max-width:960px;margin:1.3rem auto 0;display:flex;gap:1rem;align-items:center;padding:1.1rem 1.3rem;border-radius:var(--r);border:1px solid rgba(91,228,155,.3);background:rgba(91,228,155,.07)}
+.promise svg{width:36px;height:36px;color:var(--up);flex:none}
+.promise p{color:var(--muted);font-size:.95rem}
 @media (max-width:780px){.plans{grid-template-columns:1fr}.plan.best{order:-1}}
 
 /* faq */
-.faq{max-width:50rem;margin-inline:auto;display:grid;gap:.7rem}
-.faq details{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:0 1.2rem}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font:750 1.03rem var(--display);font-stretch:106%}
+.faqw{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.faq{display:grid;gap:.6rem}
+.faq details{border-radius:16px;background:var(--panel);border:1px solid var(--line);padding:0 1.2rem}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 0;font-weight:700;font-size:1.03rem}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font:600 1.1rem var(--mono);color:var(--ink-2)}
-.faq details[open] summary::after{content:"−";background:var(--gold);color:var(--on-gold)}
-.faq details p{color:var(--ink-2);padding-bottom:1.2rem;max-width:44rem}
+.faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);font:500 1.05rem var(--mono);color:var(--muted)}
+.faq details[open] summary::after{content:"−";background:var(--saffron);border-color:var(--saffron);color:var(--on-saffron)}
+.faq details p{color:var(--muted);padding-bottom:1.2rem}
+@media (max-width:820px){.faqw{grid-template-columns:1fr}}
 
 /* final */
-.final{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
-.final::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 32px),repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 32px)}
-.final .wrap{position:relative;display:grid;justify-items:center;text-align:center;gap:1.2rem;padding-block:clamp(72px,10vw,120px)}
-.final h2{color:#fff;font-size:clamp(2.1rem,5.4vw,3.8rem);max-width:16ch}
-.final p{color:var(--on-navy-2);max-width:34rem;font-size:1.08rem}
-.final .row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
+.final{position:relative;overflow:hidden;background:var(--saffron);color:var(--on-saffron)}
+.final::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(31,13,0,.06) 0 1px,transparent 1px 80px)}
+.final .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,5vw,4rem);align-items:center;padding-block:clamp(64px,9vw,104px)}
+.final h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1}
+.final p{margin-top:1rem;font-size:1.1rem;font-weight:500;opacity:.8}
+.final form.inline{grid-template-columns:1fr;background:var(--bg);margin-top:0;max-width:none}
+@media (max-width:820px){.final .wrap{grid-template-columns:1fr}}
 
-footer{background:#091129;color:#8f9abb;font-size:.86rem;padding-block:2.6rem}
+footer{background:#03160f;color:var(--dim);font-size:.86rem;padding-block:2.6rem}
 footer .wrap{display:grid;gap:1.4rem}
 footer .cols{display:flex;flex-wrap:wrap;gap:1.2rem 3rem;justify-content:space-between}
-footer b{color:#dfe5f5}
-footer a{color:#dfe5f5}
-.disc{border-top:1px solid rgba(255,255,255,.1);padding-top:1.4rem;font-size:.8rem;line-height:1.6}
+footer b,footer a{color:var(--muted)}
+.disc{border-top:1px solid var(--line);padding-top:1.4rem;font-size:.8rem;line-height:1.65}
 
-/* sticky mobile bar */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:auto auto 1fr;gap:.5rem;padding:.55rem max(12px,env(safe-area-inset-right,0px)) calc(.55rem + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);box-shadow:0 -8px 24px -12px rgba(13,24,56,.25)}
-.mbar .btn{min-height:48px;padding:.6rem .9rem;font-size:.92rem}
-.mbar .ic{width:48px;padding:0}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:auto auto 1fr;gap:.5rem;padding:.55rem max(12px,env(safe-area-inset-right,0px)) calc(.55rem + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(3,22,15,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line-2)}
+.mbar .btn{min-height:50px;padding:.6rem 1rem}
+.mbar .ic{width:50px;padding:0}
+.mbar .tel{background:var(--panel-2);color:var(--ink)}
 @media (min-width:901px){.mbar{display:none}}
 </style>
 </head>
 <body>
 
-<div class="setup" id="setup" hidden><div class="wrap"><span><b>Preview mode.</b> Items marked <span class="sample">SAMPLE</span> are placeholders. Add your real phone, reviews, mentor and fees in the CONFIG block of this file before running ads.</span><button type="button" id="setupHide">Hide</button></div></div>
+<div class="setup" id="setup" hidden><div class="wrap"><span><b>Preview mode.</b> Items marked <span class="sample">SAMPLE</span> are placeholders. Add your real phone, reviews, mentor and fees in the CONFIG block before running ads.</span><button type="button" id="setupHide">Hide</button></div></div>
 
-<div class="offer"><div class="wrap"><span>Next batch starts <b id="batchDate">10 Nov</b></span><span class="clock" id="clock" aria-label="Time left to enrol"></span><span>Free demo class this week</span></div></div>
+<div class="offer"><div class="wrap"><span>Next batch starts <b id="batchShort">10 Nov</b>. Enrolment closes in</span><span class="clock" id="clock"></span></div></div>
 
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#top">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#0d1838"/><rect x="8" y="14" width="4" height="10" rx="1" fill="#d93a2b"/><rect x="9.5" y="10" width="1" height="17" fill="#d93a2b"/><rect x="15" y="11" width="4" height="10" rx="1" fill="#0f9d58"/><rect x="16.5" y="7" width="1" height="17" fill="#0f9d58"/><rect x="22" y="8" width="4" height="9" rx="1" fill="#f5a524"/><rect x="23.5" y="5" width="1" height="15" fill="#f5a524"/></svg>
-      <span><span data-c="brand">Poorna Market Academy</span><small data-c="city">Bengaluru · Online across India</small></span>
+      <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="11" fill="#ff8a1f"/><path d="M8 26l7-8 5 5 10-11" fill="none" stroke="#1f0d00" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="12" r="2.6" fill="#1f0d00"/></svg>
+      <span><b data-c="brand">Poorna Market Academy</b><small data-c="city">Bengaluru · Online across India</small></span>
     </a>
-    <div class="top-actions">
-      <a class="tel js-tel" href="#lead"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span data-c="phoneLabel">+91 00000 00000</span></a>
-      <a class="btn btn-gold" href="#lead">Book free demo</a>
+    <div class="top-r">
+      <nav aria-label="Sections"><a href="#course">Course</a><a href="#mentor">Mentor</a><a href="#fees">Fees</a><a href="#faq">FAQ</a></nav>
+      <a class="btn btn-s" href="#start">Free demo</a>
     </div>
   </div>
 </header>
 
 <main id="top">
-<!-- HERO -->
-<section class="hero">
-  <canvas id="heroTape" aria-hidden="true"></canvas>
+<section class="hero" id="start">
   <div class="wrap">
     <div>
-      <span class="kicker"><i></i>New batch open · <span data-c="seatsText">8 of 25 seats left</span></span>
-      <h1 id="headline">Trade with a <span class="mark">plan</span>, not <span class="strike">tips</span>.</h1>
-      <p class="sub">An 8-week, mentor-led stock market course in Bengaluru and online. Learn chart reading, risk management and F&amp;O, and practise them during live market hours.</p>
-      <ul class="ticks">
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>Starts from zero. No finance background needed.</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>Live sessions at 9:15 AM with a mentor beside you.</li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>Paper-trade first. Real money only when you're ready.</li>
-      </ul>
-      <div class="proof" id="proof"></div>
-    </div>
-
-    <div class="formcard" id="lead">
-      <div class="formcard-top">
-        <h2>Book your free demo class</h2>
-        <p>We'll call you within 2 hours with a slot that suits you.</p>
-        <div class="seats"><span data-c="seatsShort">8 seats left</span><span class="seatbar"><i id="seatFill" style="width:68%"></i></span></div>
-      </div>
-      <form class="lead" id="form1" novalidate data-form>
-        <div class="f"><label for="n1">Your name</label><input id="n1" name="name" autocomplete="name" placeholder="e.g. Rahul Sharma" required><span class="err" hidden></span></div>
-        <div class="f"><label for="p1">WhatsApp number</label><div class="phone"><span>+91</span><input id="p1" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="11" placeholder="98765 43210" required></div><span class="err" hidden></span></div>
-        <div class="f"><label for="m1">I'd prefer</label><select id="m1" name="mode"><option>Online classes</option><option>Classroom (Bengaluru)</option><option>Not sure yet</option></select></div>
-        <button class="btn btn-gold" type="submit">Get my free demo slot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        <p class="micro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>No spam. Your number is only used to arrange the demo.</p>
-        <div class="or">or</div>
-        <a class="btn btn-wa js-wa" href="#lead"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg>Chat on WhatsApp</a>
+      <span class="live"><i></i>New batch open · <span data-c="seatsText">8 of 25 seats left</span></span>
+      <h1 id="headline">Stop trading on <span class="x">tips</span>. Start trading on a <span class="s">plan</span>.</h1>
+      <p class="sub">An 8-week, mentor-led stock market course in Bengaluru and online. Learn to read charts, size every trade and manage risk, then practise it all during live market hours.</p>
+      <form class="inline" data-form novalidate>
+        <div class="fld"><label for="n1">Your name</label><input id="n1" name="name" autocomplete="name" required></div>
+        <div class="fld ph"><label for="p1">WhatsApp no.</label><input id="p1" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="11" required></div>
+        <button class="btn btn-s" type="submit">Book free demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="ferr" hidden></p>
       </form>
+      <p class="fnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>We call within 2 hours. No spam, no tips, no pressure.</p>
+      <div class="proofrow" id="proof"></div>
     </div>
-  </div>
-</section>
 
-<div class="strip"><div class="wrap"><small>You'll practise on</small><span>TradingView</span><span>NSE India</span><span>Screener.in</span><span>Option chain</span><span>Zerodha Kite</span><span>Excel</span></div></div>
-
-<!-- PROBLEM / FIX -->
-<section class="sec">
-  <div class="wrap pf">
-    <div>
-      <span class="label">The hard truth</span>
-      <div class="stat-big" style="margin-top:1rem">9<small>/10</small></div>
-      <p class="stat-cap">individual F&amp;O traders in India lost money in FY2022-24. Most of them traded on tips, with no plan and no stop-loss.<cite>Source: SEBI study, September 2024</cite></p>
-    </div>
-    <div>
-      <div class="head" style="margin-bottom:1.6rem"><h2>We teach the habits the other one in ten has.</h2></div>
-      <div class="vs-head"><span>What most beginners do</span><span></span><span>What you'll do</span></div>
-      <div class="vs">
-        <div class="vs-row"><div class="bad">Buy because a Telegram group said so</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Find your own setups on the chart</div></div>
-        <div class="vs-row"><div class="bad">Pick quantity by gut feeling</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Size every trade from the stop-loss</div></div>
-        <div class="vs-row"><div class="bad">Hold losers and hope</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Exit at a level decided before entry</div></div>
-        <div class="vs-row"><div class="bad">Jump into options on day one</div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><div class="good">Paper-trade until your journal proves discipline</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CALCULATOR -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="head"><span class="label">Try a lesson now · Week 5</span><h2>How many shares should you buy?</h2><p>Our students never guess quantity. They work it out from the stop-loss. Change the numbers and see.</p></div>
-    <div class="calc">
-      <form class="calc-in" id="calc" novalidate>
-        <div class="grid2">
-          <div class="f"><label for="cCap">Trading capital (₹)</label><input id="cCap" type="number" inputmode="decimal" value="100000" min="0"></div>
-          <div class="f"><label for="cRisk">Risk per trade (%)</label><input id="cRisk" type="number" inputmode="decimal" value="1" min="0" step="0.1"></div>
-          <div class="f"><label for="cEntry">Entry price (₹)</label><input id="cEntry" type="number" inputmode="decimal" value="1450" min="0" step="0.05"></div>
-          <div class="f"><label for="cStop">Stop-loss (₹)</label><input id="cStop" type="number" inputmode="decimal" value="1420" min="0" step="0.05"></div>
+    <aside class="ticket" aria-label="Try it: trade plan calculator">
+      <div class="t-top"><b>Trade plan ticket</b><span>Try lesson 5</span></div>
+      <form class="t-body" id="calc" novalidate>
+        <div class="t-in">
+          <div class="fld"><label for="cCap">Capital ₹</label><input id="cCap" type="number" inputmode="decimal" value="100000" min="0"></div>
+          <div class="fld"><label for="cRisk">Risk %</label><input id="cRisk" type="number" inputmode="decimal" value="1" min="0" step="0.1"></div>
+          <div class="fld"><label for="cEntry">Entry ₹</label><input id="cEntry" type="number" inputmode="decimal" value="1450" min="0" step="0.05"></div>
+          <div class="fld"><label for="cStop">Stop-loss ₹</label><input id="cStop" type="number" inputmode="decimal" value="1420" min="0" step="0.05"></div>
         </div>
-        <p style="font-size:.9rem;color:var(--ink-3)">Professional rule of thumb: risk 1–2% of capital per trade, never more.</p>
+        <div class="ladder" aria-hidden="true">
+          <span class="zone g" id="zG"></span><span class="zone r" id="zR"></span>
+          <span class="lv t" id="lT">TGT</span><span class="lv e" id="lE">ENTRY</span><span class="lv st" id="lS">SL</span>
+        </div>
       </form>
-      <div class="calc-out" aria-live="polite">
-        <div><span class="lbl">Buy this many shares</span><div class="q" id="qOut">33</div></div>
-        <dl>
-          <div><dt>Most you can lose</dt><dd id="lossOut">₹990</dd></div>
-          <div><dt>Money needed</dt><dd id="capOut">₹47,850</dd></div>
-          <div><dt>Target for 1 : 2 reward</dt><dd id="tgtOut">₹1,510.00</dd></div>
-        </dl>
-        <p class="calc-note" id="cNote"></p>
-        <a class="btn btn-gold" href="#lead" style="justify-self:start">Learn the full method in the demo</a>
+      <div class="t-out" aria-live="polite">
+        <div class="big"><small>Buy qty</small><b id="qOut">33</b></div>
+        <div><small>Max loss</small><b id="lossOut" class="num">₹990</b></div>
+        <div><small>Target 1:2</small><b id="tgtOut" class="num">₹1,510</b></div>
+      </div>
+      <div class="t-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span id="cNote">Change any number. Our students size every trade like this, from the stop-loss, not from a gut feeling.</span></div>
+    </aside>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="marq-track" id="marq"></div></div>
+
+<section class="sec">
+  <div class="wrap prob">
+    <div>
+      <span class="tag">The hard truth</span>
+      <div class="giant" style="margin-top:1.2rem">93<small>%</small></div>
+      <p style="color:var(--muted);font-size:1.1rem;margin-top:1rem;max-width:26rem">of individual F&amp;O traders in India lost money between FY22 and FY24.</p>
+      <cite>Source: SEBI study, September 2024</cite>
+    </div>
+    <div>
+      <div class="head" style="margin-bottom:1.6rem"><h2>Most losses come from three habits. We train them out of you.</h2></div>
+      <div class="mistakes">
+        <div class="mk"><span class="n">01</span><div><h3>Buying on tips</h3><p>A Telegram group or a YouTube video picks the stock. <b>You'll find your own setups on the chart.</b></p></div></div>
+        <div class="mk"><span class="n">02</span><div><h3>Guessing the quantity</h3><p>Too big on the wrong trade wipes out ten good ones. <b>You'll size every trade from the stop-loss.</b></p></div></div>
+        <div class="mk"><span class="n">03</span><div><h3>Holding losers and hoping</h3><p>No exit plan turns a small loss into a big one. <b>You'll decide your exit before you enter.</b></p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CURRICULUM -->
-<section class="sec" style="background:var(--sheet);border-block:1px solid var(--line)">
+<section class="sec" id="course" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="head"><span class="label">8-week curriculum</span><h2>From "what is a share" to a written trading plan.</h2><p>Every week builds on the last. Live classes, recordings and weekly market practice.</p></div>
-    <div class="weeks">
-      <div class="wk"><span class="n">WEEK 01</span><h3>How the market works</h3><p>NSE, BSE, SEBI, demat accounts and order types.</p></div>
-      <div class="wk"><span class="n">WEEK 02</span><h3>Reading a company</h3><p>Financial statements, key ratios and valuation basics.</p></div>
-      <div class="wk"><span class="n">WEEK 03</span><h3>Charts &amp; price action</h3><p>Candlesticks, trends, support and resistance.</p></div>
-      <div class="wk"><span class="n">WEEK 04</span><h3>Indicators that matter</h3><p>Moving averages, RSI, MACD, VWAP and volume.</p></div>
-      <div class="wk key"><span class="n">WEEK 05 · MOST IMPORTANT</span><h3>Risk management</h3><p>Position sizing, stop-loss placement, risk : reward.</p></div>
-      <div class="wk"><span class="n">WEEK 06</span><h3>Swing &amp; intraday setups</h3><p>Three repeatable setups with entry and exit rules.</p></div>
-      <div class="wk"><span class="n">WEEK 07</span><h3>Futures &amp; options</h3><p>Lots, margins, Greeks and the option chain, risks first.</p></div>
-      <div class="wk"><span class="n">WEEK 08</span><h3>Psychology &amp; your plan</h3><p>Journaling, discipline and your written trading plan.</p></div>
+    <div class="head"><span class="tag">8-week curriculum</span><h2>From "what is a share" to your own written trading plan.</h2><p>Live classes, recordings of every session and weekly practice in real market hours.</p></div>
+    <div class="curr">
+      <div class="wk-list" role="tablist" aria-label="Course weeks" id="wkList"></div>
+      <div class="wk-panel" role="tabpanel" id="wkPanel" aria-live="polite"></div>
     </div>
   </div>
 </section>
 
-<!-- MENTOR -->
-<section class="sec navyband">
+<section class="sec">
+  <div class="wrap">
+    <div class="head"><span class="tag">How it works</span><h2>Four steps. The first one is free.</h2></div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Free demo class</h3><p>Meet the mentor, see a live chart lesson, ask anything.</p></div>
+      <div class="step"><span class="n">2</span><h3>Learn the basics</h3><p>Weeks 1–4: markets, companies, charts and indicators.</p></div>
+      <div class="step"><span class="n">3</span><h3>Practise live</h3><p>Paper-trade during market hours with the mentor reviewing.</p></div>
+      <div class="step"><span class="n">4</span><h3>Trade your plan</h3><p>Leave with written rules for entries, exits and risk.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="mentor" style="padding-top:0">
   <div class="wrap mentor">
     <div class="photo" id="mentorPhoto">Mentor photo<br>(add in CONFIG)</div>
     <div>
-      <span class="label">Your mentor</span>
-      <h2 style="margin-top:.8rem" id="mentorName">Poornachandra</h2>
+      <span class="tag">Your mentor</span>
+      <h2 style="margin-top:1rem" id="mentorName">Poornachandra</h2>
       <div class="role" id="mentorRole">Founder &amp; lead trainer</div>
-      <p class="bio" id="mentorBio">Add a short, specific bio: how long you've traded, what you trade, and why you started teaching.</p>
+      <p class="bio" id="mentorBio"></p>
       <div class="creds" id="creds"></div>
-      <blockquote id="mentorQuote">"I won't give you tips. I'll teach you to find your own trades and size them so one bad day never wipes you out."</blockquote>
+      <p class="quote" id="mentorQuote"></p>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="sec">
+<section class="sec" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="revhead">
-      <div class="head" style="margin:0"><span class="label">Student reviews</span><h2>What our students say.</h2></div>
-      <div class="rating" id="ratingBox"></div>
+    <div class="rv-head">
+      <div class="head" style="margin:0"><span class="tag">Student reviews</span><h2>What students say after the course.</h2></div>
+      <div class="score" id="score"></div>
     </div>
-    <div class="reviews" id="reviews"></div>
+    <div class="revs" id="reviews"></div>
+    <div class="gal" id="gallery"></div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="sec" style="padding-top:0">
+<section class="sec" id="fees">
   <div class="wrap">
-    <div class="head"><span class="label">Inside the classroom</span><h2>Real classes. Real screens. Real market hours.</h2></div>
-    <div class="gallery" id="gallery"></div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="sec" style="background:var(--sheet);border-block:1px solid var(--line)" id="fees">
-  <div class="wrap">
-    <div class="head center"><span class="label">Fees</span><h2>Simple fees. Easy instalments.</h2><p>Start with the free demo. Join only if you like how we teach.</p></div>
+    <div class="head" style="text-align:center;margin-inline:auto;justify-items:center"><span class="tag">Fees</span><h2>Simple fees. Easy instalments.</h2><p>Start with the free demo. Join only if you like how we teach.</p></div>
     <div class="plans" id="plans"></div>
-    <div class="guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg><div><b id="refundTitle">7-day refund promise</b><p id="refundText">Attend the first week. If the course isn't right for you, tell us within 7 days and get a full refund.</p></div></div>
+    <div class="promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg><div><b id="refundTitle"></b><p id="refundText"></p></div></div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="head center"><span class="label">Questions</span><h2>Before you book.</h2></div>
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faqw">
+    <div class="head"><span class="tag">Questions</span><h2>Before you book.</h2><p>Anything else? Ask us on WhatsApp. A real person replies.</p><a class="btn btn-o js-wa" href="#start" style="justify-self:start">Ask on WhatsApp</a></div>
     <div class="faq">
       <details open><summary>I know nothing about the stock market. Is this for me?</summary><p>Yes. Week 1 starts with what a share is and how to open a demat account. Most students in each batch are complete beginners.</p></details>
-      <details><summary>How much money do I need to start trading?</summary><p>None during the course. You practise with paper trading first. When you start with real money, begin small with an amount you can afford to lose.</p></details>
-      <details><summary>Will you give buy or sell tips?</summary><p>No. This is an education course, not an advisory service. We teach you how to analyse and plan your own trades.</p></details>
-      <details><summary>Can I learn alongside a full-time job?</summary><p>Yes. Weekend and evening batches are available, and every live class is recorded so you can catch up.</p></details>
-      <details><summary>Will I make money after the course?</summary><p>Nobody can promise that, and you should avoid anyone who does. We teach a process that protects your capital and helps you make decisions on your own.</p></details>
-      <details><summary>What happens in the free demo?</summary><p>A one-hour class with the mentor. You'll see how we read a chart and plan a trade, and you can ask anything about the course, fees and timings.</p></details>
+      <details><summary>How much money do I need to start?</summary><p>None during the course. You paper-trade first. When you move to real money, start small with an amount you can afford to lose.</p></details>
+      <details><summary>Will you give buy or sell tips?</summary><p>No. This is an education course, not an advisory service. We teach you to analyse and plan your own trades.</p></details>
+      <details><summary>Can I do this alongside a job?</summary><p>Yes. Weekend and evening batches are available, and every live class is recorded.</p></details>
+      <details><summary>Will I make money after the course?</summary><p>Nobody can promise that, and you should avoid anyone who does. We teach a process that protects your capital and lets you decide on your own.</p></details>
+      <details><summary>What happens in the free demo?</summary><p>A one-hour class with the mentor. You'll see how we read a chart and plan a trade, and you can ask about fees, timings and batches.</p></details>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final">
   <div class="wrap">
-    <span class="label" style="color:var(--gold)">Next batch · <span data-c="batchLong">10 November 2026</span></span>
-    <h2>Your first trade should come with a plan.</h2>
-    <p>Book a free demo class. Meet the mentor, see a live chart lesson, then decide.</p>
-    <div class="row"><a class="btn btn-gold" href="#lead">Book my free demo</a><a class="btn btn-wa js-wa" href="#lead">WhatsApp us</a></div>
+    <div>
+      <h2>Your first trade deserves a plan.</h2>
+      <p>Book a free demo class. Meet the mentor, see a live lesson, then decide. Next batch: <b data-c="batchLong">10 November 2026</b>.</p>
+    </div>
+    <form class="inline" data-form novalidate>
+      <div class="fld"><label for="n2">Your name</label><input id="n2" name="name" autocomplete="name" required></div>
+      <div class="fld ph"><label for="p2">WhatsApp no.</label><input id="p2" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="11" required></div>
+      <button class="btn btn-s" type="submit">Book my free demo</button>
+      <p class="ferr" hidden></p>
+    </form>
   </div>
 </section>
 </main>
@@ -477,14 +454,14 @@ footer a{color:#dfe5f5}
       <div><b>Call / WhatsApp</b><br><span data-c="phoneLabel">+91 00000 00000</span></div>
       <div><a href="privacy.html">Privacy policy</a></div>
     </div>
-    <p class="disc"><b>Disclaimer:</b> Investments in the securities market are subject to market risks. Read all related documents carefully before investing. <span data-c="brand">Poorna Market Academy</span> provides education only. We are not a SEBI-registered investment adviser or research analyst, and we do not give investment advice, stock tips or guaranteed returns. Past performance does not guarantee future results.<br><br>© 2026 <span data-c="brand">Poorna Market Academy</span></p>
+    <p class="disc"><b>Disclaimer:</b> Investments in the securities market are subject to market risks. Read all related documents carefully before investing. <span data-c="brand">Poorna Market Academy</span> provides education only. We are not a SEBI-registered investment adviser or research analyst, and we do not give investment advice, stock tips or guaranteed returns.<br><br>© 2026 <span data-c="brand">Poorna Market Academy</span></p>
   </div>
 </footer>
 
 <nav class="mbar" aria-label="Quick contact">
-  <a class="btn btn-navy ic js-tel" href="#lead" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
-  <a class="btn btn-wa ic js-wa" href="#lead" aria-label="WhatsApp us"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0zm0 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8z"/></svg></a>
-  <a class="btn btn-gold" href="#lead">Book free demo</a>
+  <a class="btn tel ic js-tel" href="#start" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <a class="btn btn-wa ic js-wa" href="#start" aria-label="WhatsApp us"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0zm0 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8z"/></svg></a>
+  <a class="btn btn-s" href="#start">Book free demo</a>
 </nav>
 
 <script>
@@ -500,159 +477,164 @@ const CONFIG = {
   batchStart: "2026-11-10T09:15:00+05:30",
   seatsTotal: 25, seatsLeft: 8,
 
-  // Tracking (optional). Leave empty to switch off.
-  metaPixelId: "",                 // e.g. "123456789012345"
+  metaPixelId: "",                 // Meta Pixel ID
   googleTagId: "",                 // GA4 "G-XXXX" or Google Ads "AW-XXXX"
-  googleAdsSendTo: "",             // e.g. "AW-123456789/AbCdEfGh" for the lead conversion
+  googleAdsSendTo: "",             // Google Ads lead conversion, e.g. "AW-123456789/AbCdEf"
   sheetUrl: "",                    // Google Apps Script web-app URL (see leads-to-sheet.gs)
 
-  proof: { sample:true, items:[ ["4.9★","Google rating"], ["1,200+","students trained"], ["10+ yrs","in the markets"] ] },
+  proof: { sample:true, items:[ ["4.9★","Google rating"], ["1,200+","students"], ["10+ yrs","teaching"], ["Live","9:15 AM sessions"] ] },
 
-  mentor: {
-    sample:true,
-    name:"Poornachandra", role:"Founder & lead trainer", photo:"",
+  mentor: { sample:true, name:"Poornachandra", role:"Founder & lead trainer", photo:"",
     bio:"Add a short, specific bio: how long you've traded, what you trade, and why you started teaching.",
-    creds:[ ["10+","years trading"], ["40+","batches taught"], ["NISM","certified"] ]
-  },
+    quote:"I won't give you tips. I'll teach you to find your own trades, and to size them so one bad day never wipes you out.",
+    creds:[ ["10+","years trading"], ["40+","batches taught"], ["NISM","certified"] ] },
 
   rating: { sample:true, score:"4.9", count:"312 Google reviews" },
   reviews: { sample:true, items:[
-    { name:"Ananya R.", meta:"IT professional, Bengaluru", text:"I used to buy whatever was trending on YouTube. Now I don't place a trade without a stop-loss and a position size. Week 5 alone was worth the fee.", tag:"Now journals every trade" },
-    { name:"Mohammed S.", meta:"Business owner, Mysuru", text:"The live sessions at 9:15 made it click. Watching the mentor plan a trade and then exit at the stop without drama taught me more than any video.", tag:"Completed paper-trading month" },
-    { name:"Kavya P.", meta:"Homemaker, Online batch", text:"I had zero background. Classes were in simple language and every recording was there when I missed a day.", tag:"Started long-term SIP portfolio" },
-    { name:"Rohit K.", meta:"Engineering student", text:"Small batch, so I could ask doubts in every class. The option chain module finally made sense.", tag:"Understands F&O risks" },
-    { name:"Suresh N.", meta:"Retired, Bengaluru", text:"Patient teaching, no pressure to trade. I now understand my own portfolio instead of depending on an agent.", tag:"Rebuilt his portfolio" },
-    { name:"Divya M.", meta:"Chartered accountant", text:"Good balance of fundamentals and charts. The trading plan template is something I still use.", tag:"Uses the plan template" }
+    { name:"Ananya R.", meta:"IT professional, Bengaluru", text:"I used to buy whatever was trending on YouTube. Now I don't place a trade without a stop-loss and a position size. Week 5 alone was worth the fee.", tag:"Journals every trade" },
+    { name:"Mohammed S.", meta:"Business owner, Mysuru", text:"The 9:15 live sessions made it click. Watching the mentor plan a trade and exit at the stop without drama taught me more than any video.", tag:"Finished paper-trading month" },
+    { name:"Kavya P.", meta:"Homemaker, online batch", text:"I had zero background. Classes were in simple language and every recording was there when I missed a day.", tag:"Built a long-term portfolio" },
+    { name:"Rohit K.", meta:"Engineering student", text:"Small batch, so I could ask doubts in every class. The option chain module finally made sense.", tag:"Understands F&O risk" },
+    { name:"Suresh N.", meta:"Retired, Bengaluru", text:"Patient teaching and no pressure to trade. I now understand my own portfolio instead of relying on an agent.", tag:"Manages his own portfolio" },
+    { name:"Divya M.", meta:"Chartered accountant", text:"Good balance of fundamentals and charts. I still use the trading plan template every week.", tag:"Uses the plan template" }
   ]},
 
   gallery: [ "", "", "", "", "" ],  // image paths, e.g. "img/class1.jpg"
 
   plans: { sample:true, items:[
-    { name:"Foundation", price:"₹6,999", was:"", emi:"", desc:"Weeks 1–4, recorded + live Q&A", feats:["Market basics & account setup","Charts and indicators","4 live doubt sessions","Community group"], cta:"Book free demo" },
-    { name:"Complete Trader", best:true, price:"₹18,999", was:"₹24,999", emi:"or 3 × ₹6,333 no-cost EMI", desc:"All 8 weeks, live classes", feats:["Full 8-week curriculum incl. F&O","Live market sessions at 9:15 AM","4 weeks guided paper trading","Weekly trade-journal review","Lifetime recordings & mentor support","Certificate of completion"], cta:"Book free demo" }
+    { name:"Foundation", price:"₹6,999", was:"", emi:"", desc:"Weeks 1–4 · recorded + live Q&A", feats:["Market basics & account setup","Charts and indicators","4 live doubt sessions","Student community"], cta:"Book free demo" },
+    { name:"Complete Trader", best:true, price:"₹18,999", was:"₹24,999", emi:"or 3 × ₹6,333 no-cost EMI", desc:"All 8 weeks · live classes", feats:["Full 8-week curriculum incl. F&O","Live market sessions at 9:15 AM","4 weeks guided paper trading","Weekly trade-journal review","Lifetime recordings & mentor support","Certificate of completion"], cta:"Book free demo" }
   ]},
 
   refund: { title:"7-day refund promise", text:"Attend the first week. If the course isn't right for you, tell us within 7 days and get a full refund." }
 };
 /* ===================================================================================== */
 
+const WEEKS = [
+  { t:"How the market works", d:"Exchanges, brokers, SEBI and what really happens when you press Buy.", k:["NSE & BSE","Role of SEBI","Demat & trading a/c","Order types","T+1 settlement"] },
+  { t:"Reading a company", d:"Fundamentals for people who aren't accountants. Enough to avoid obvious traps.", k:["P&L and balance sheet","P/E, P/B, ROE","Promoter holding","Valuation basics"] },
+  { t:"Charts & price action", d:"Trends, ranges and the levels where buyers and sellers fight, on real Nifty charts.", k:["Candlesticks","Support & resistance","Trendlines","Timeframes"] },
+  { t:"Indicators that matter", d:"Moving averages, RSI, MACD and volume, and when each one misleads you.", k:["EMA 20/50/200","RSI & MACD","VWAP","Volume"] },
+  { t:"Risk management", d:"The week that decides whether you survive. Size, stop and reward on every single trade.", k:["Position sizing","Stop-loss placement","Risk : reward","Drawdown maths"], imp:true },
+  { t:"Swing & intraday setups", d:"Three repeatable setups, each with written entry, exit and invalidation rules.", k:["Breakout retest","Pullback to EMA","Range trading","Gap opens"] },
+  { t:"Futures & options", d:"Lots, margins, premiums and the Greeks, taught with the risks stated up front.", k:["Calls & puts","Option chain","Delta & theta","Hedging"] },
+  { t:"Psychology & your plan", d:"Journaling, reviewing losses and leaving with a written plan you'll actually follow.", k:["Trade journal","FOMO & revenge trades","Review routine","Plan template"] }
+];
+
 (function(){
-  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)], byId = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const S = on => on ? ' <span class="sample">SAMPLE</span>' : '';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* text fills */
+  /* fills */
   const batch = new Date(CONFIG.batchStart);
   const fills = { brand:CONFIG.brand, city:CONFIG.city, address:CONFIG.address, phoneLabel:CONFIG.phoneLabel,
-    seatsText:`${CONFIG.seatsLeft} of ${CONFIG.seatsTotal} seats left`, seatsShort:`${CONFIG.seatsLeft} seats left`,
-    batchLong: batch.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Kolkata'}) };
+    seatsText:`${CONFIG.seatsLeft} of ${CONFIG.seatsTotal} seats left`,
+    batchLong:batch.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Kolkata'}) };
   $$('[data-c]').forEach(el => { if (fills[el.dataset.c] != null) el.textContent = fills[el.dataset.c]; });
-  $('#batchDate').textContent = batch.toLocaleDateString('en-IN',{day:'numeric',month:'short',timeZone:'Asia/Kolkata'});
-  $('#seatFill').style.width = Math.round((1 - CONFIG.seatsLeft/CONFIG.seatsTotal)*100) + '%';
+  byId('batchShort').textContent = batch.toLocaleDateString('en-IN',{day:'numeric',month:'short',timeZone:'Asia/Kolkata'});
 
-  /* ad message-match: ?h=Your+headline overrides the hero headline */
-  try { const h = new URLSearchParams(location.search).get('h'); if (h) $('#headline').textContent = h.slice(0,90); } catch(e){}
+  /* ?h= headline override for ad message-match */
+  try { const h = new URLSearchParams(location.search).get('h'); if (h) byId('headline').textContent = h.slice(0,90); } catch(e){}
 
   /* contact links */
   const waText = encodeURIComponent("Hi, I'd like to book a free demo class for the stock market course.");
   if (CONFIG.phone) {
-    $$('.js-wa').forEach(a => { a.href = `https://wa.me/${CONFIG.phone}?text=${waText}`; a.target = "_blank"; a.rel = "noopener"; a.addEventListener('click', () => track('Contact')); });
-    $$('.js-tel').forEach(a => { a.href = `tel:+${CONFIG.phone}`; a.addEventListener('click', () => track('Contact')); });
+    $$('.js-wa').forEach(a => { a.href = `https://wa.me/${CONFIG.phone}?text=${waText}`; a.target="_blank"; a.rel="noopener"; a.addEventListener('click',()=>track('Contact')); });
+    $$('.js-tel').forEach(a => { a.href = `tel:+${CONFIG.phone}`; a.addEventListener('click',()=>track('Contact')); });
   }
 
-  /* setup banner when anything is still sample */
-  const needsSetup = !CONFIG.phone || CONFIG.proof.sample || CONFIG.mentor.sample || CONFIG.reviews.sample || CONFIG.plans.sample;
-  let hidden = false; try { hidden = sessionStorage.getItem('setupHidden') === '1'; } catch(e){}
-  if (needsSetup && !hidden) { $('#setup').hidden = false; $('#setupHide').onclick = () => { $('#setup').hidden = true; try{ sessionStorage.setItem('setupHidden','1'); }catch(e){} }; }
+  /* setup banner */
+  const needs = !CONFIG.phone || CONFIG.proof.sample || CONFIG.mentor.sample || CONFIG.reviews.sample || CONFIG.plans.sample;
+  let hid=false; try{ hid = sessionStorage.getItem('setupHidden')==='1'; }catch(e){}
+  if (needs && !hid) { byId('setup').hidden=false; byId('setupHide').onclick=()=>{ byId('setup').hidden=true; try{sessionStorage.setItem('setupHidden','1');}catch(e){} }; }
 
   /* countdown */
-  function tick(){ let s = Math.max(0, (batch - Date.now())/1000|0); const d=s/86400|0; s%=86400; const h=s/3600|0; s%=3600; const m=s/60|0; s%=60;
-    $('#clock').innerHTML = [[d,'d'],[h,'h'],[m,'m'],[s,'s']].map(([v,u])=>`<span>${String(v).padStart(2,'0')}${u}</span>`).join(''); }
-  tick(); setInterval(tick, 1000);
+  function tick(){ let s=Math.max(0,(batch-Date.now())/1000|0); const d=s/86400|0; s%=86400; const h=s/3600|0; s%=3600; const m=s/60|0; s%=60;
+    byId('clock').innerHTML=[[d,'d'],[h,'h'],[m,'m'],[s,'s']].map(([v,u])=>`<span>${String(v).padStart(2,'0')}${u}</span>`).join(''); }
+  tick(); setInterval(tick,1000);
 
-  /* proof row */
-  $('#proof').innerHTML = CONFIG.proof.items.map(([b,l],i)=>`<div><b>${esc(b)}</b><span>${esc(l)}${i===0?S(CONFIG.proof.sample):''}</span></div>`).join('');
+  /* proof chips */
+  byId('proof').innerHTML = CONFIG.proof.items.map(([b,l],i)=>`<span class="chip"><b>${esc(b)}</b>${esc(l)}${i===0?S(CONFIG.proof.sample):''}</span>`).join('');
+
+  /* marquee */
+  const topics=["Candlesticks","Support & resistance","Position sizing","Option Greeks","Risk : reward","Price action","Moving averages","RSI & MACD","Swing setups","Option chain","Trading journal","Portfolio building"];
+  byId('marq').innerHTML=[...topics,...topics].map(t=>`<span>${t}</span>`).join('');
+
+  /* curriculum tabs */
+  const list=byId('wkList'), panel=byId('wkPanel');
+  list.innerHTML = WEEKS.map((w,i)=>`<button type="button" class="wk-btn" role="tab" id="wk${i}" aria-controls="wkPanel" aria-selected="${i===0}"><span class="n">WEEK ${String(i+1).padStart(2,'0')}</span><span>${esc(w.t)}</span></button>`).join('');
+  function showWeek(i){ const w=WEEKS[i]; $$('.wk-btn').forEach((b,j)=>{ b.setAttribute('aria-selected', j===i); b.tabIndex = j===i?0:-1; });
+    panel.setAttribute('aria-labelledby','wk'+i);
+    panel.innerHTML=`<span class="big">${String(i+1).padStart(2,'0')}</span>${w.imp?'<span class="imp">MOST IMPORTANT WEEK</span>':''}<h3>${esc(w.t)}</h3><p>${esc(w.d)}</p><ul>${w.k.map(k=>`<li>${esc(k)}</li>`).join('')}</ul>`; }
+  list.addEventListener('click', e=>{ const b=e.target.closest('.wk-btn'); if(b) showWeek([...list.children].indexOf(b)); });
+  list.addEventListener('keydown', e=>{ const i=$$('.wk-btn').findIndex(b=>b.getAttribute('aria-selected')==='true'); let n=null;
+    if(e.key==='ArrowDown'||e.key==='ArrowRight') n=(i+1)%WEEKS.length; if(e.key==='ArrowUp'||e.key==='ArrowLeft') n=(i-1+WEEKS.length)%WEEKS.length;
+    if(n!==null){ e.preventDefault(); showWeek(n); list.children[n].focus(); } });
+  showWeek(0);
 
   /* mentor */
-  const M = CONFIG.mentor;
-  $('#mentorName').innerHTML = esc(M.name) + S(M.sample);
-  $('#mentorRole').textContent = M.role; $('#mentorBio').textContent = M.bio;
-  if (M.photo) $('#mentorPhoto').innerHTML = `<img src="${esc(M.photo)}" alt="${esc(M.name)}">`;
-  $('#creds').innerHTML = M.creds.map(([b,l])=>`<div><b>${esc(b)}</b><span>${esc(l)}</span></div>`).join('');
+  const M=CONFIG.mentor;
+  byId('mentorName').innerHTML=esc(M.name)+S(M.sample); byId('mentorRole').textContent=M.role; byId('mentorBio').textContent=M.bio; byId('mentorQuote').textContent=`"${M.quote}"`;
+  byId('mentorPhoto').innerHTML = (M.photo?`<img src="${esc(M.photo)}" alt="${esc(M.name)}">`:'Mentor photo<br>(add in CONFIG)') + `<div class="badge"><small>Teaches every batch</small>${esc(M.name)}</div>`;
+  byId('creds').innerHTML=M.creds.map(([b,l])=>`<div><b>${esc(b)}</b><span>${esc(l)}</span></div>`).join('');
 
-  /* reviews */
-  const R = CONFIG.rating;
-  $('#ratingBox').innerHTML = `<b>${esc(R.score)}</b><div><span class="stars">★★★★★</span><small>${esc(R.count)}${S(R.sample)}</small></div>`;
-  const tones = ['#0d1838','#0f9d58','#d98a06','#5a4fcf','#d93a2b','#1f7a8c'];
-  $('#reviews').innerHTML = CONFIG.reviews.items.map((r,i)=>`<article class="rev"><span class="stars">★★★★★</span><p>${esc(r.text)}</p>${r.tag?`<span class="res">✓ ${esc(r.tag)}</span>`:''}<div class="who"><span class="avatar" style="background:${tones[i%tones.length]}">${esc(r.name[0])}</span><div><b>${esc(r.name)}${S(CONFIG.reviews.sample)}</b><small>${esc(r.meta)}</small></div></div></article>`).join('');
-
-  /* gallery */
-  const labels = ['Live market session','Chart lesson','Small batch','Doubt clearing','Certificate day'];
-  $('#gallery').innerHTML = CONFIG.gallery.map((src,i)=> src ? `<div><img src="${esc(src)}" alt="${labels[i]||'Classroom'}"></div>` : `<div>Add photo: ${labels[i]||'Classroom'}</div>`).join('');
+  /* reviews + gallery */
+  const R=CONFIG.rating;
+  byId('score').innerHTML=`<b>${esc(R.score)}</b><div><span class="stars">★★★★★</span><small>${esc(R.count)}${S(R.sample)}</small></div>`;
+  const tones=['#ff8a1f','#5be49b','#ffd166','#8ecae6','#ff6b5e','#c3b1e1'];
+  byId('reviews').innerHTML=CONFIG.reviews.items.map((r,i)=>`<article class="rev"><span class="stars">★★★★★</span><p>${esc(r.text)}</p>${r.tag?`<span class="res">✓ ${esc(r.tag)}</span>`:''}<div class="who"><span class="av" style="background:${tones[i%tones.length]}">${esc(r.name[0])}</span><div><b>${esc(r.name)}${S(CONFIG.reviews.sample)}</b><small>${esc(r.meta)}</small></div></div></article>`).join('');
+  const gl=['Live market session','Chart lesson','Small batch','Doubt clearing','Certificate day'];
+  byId('gallery').innerHTML=CONFIG.gallery.map((src,i)=>src?`<div><img src="${esc(src)}" alt="${gl[i]||'Classroom'}"></div>`:`<div>Add photo: ${gl[i]||'Classroom'}</div>`).join('');
 
   /* plans */
-  $('#plans').innerHTML = CONFIG.plans.items.map(p=>`<div class="plan${p.best?' best':''}">${p.best?'<span class="flag">MOST CHOSEN</span>':''}<div><h3>${esc(p.name)}${S(CONFIG.plans.sample)}</h3><p style="opacity:.75;font-size:.92rem;margin-top:.3rem">${esc(p.desc)}</p></div><div><div class="price"><b>${esc(p.price)}</b>${p.was?`<s>${esc(p.was)}</s>`:''}</div>${p.emi?`<div class="emi">${esc(p.emi)}</div>`:''}</div><ul>${p.feats.map(f=>`<li>${esc(f)}</li>`).join('')}</ul><a class="btn ${p.best?'btn-gold':'btn-ghost'}" href="#lead">${esc(p.cta)}</a></div>`).join('');
-  $('#refundTitle').textContent = CONFIG.refund.title; $('#refundText').textContent = CONFIG.refund.text;
+  byId('plans').innerHTML=CONFIG.plans.items.map(p=>`<div class="plan${p.best?' best':''}">${p.best?'<span class="ribbon">MOST CHOSEN</span>':''}<div><h3>${esc(p.name)}${S(CONFIG.plans.sample)}</h3><p class="muted">${esc(p.desc)}</p></div><div><div class="price"><b>${esc(p.price)}</b>${p.was?`<s>${esc(p.was)}</s>`:''}</div>${p.emi?`<div class="emi">${esc(p.emi)}</div>`:''}</div><ul>${p.feats.map(f=>`<li>${esc(f)}</li>`).join('')}</ul><a class="btn ${p.best?'btn-s':'btn-o'}" href="#start">${esc(p.cta)}</a></div>`).join('');
+  byId('refundTitle').textContent=CONFIG.refund.title; byId('refundText').textContent=CONFIG.refund.text;
 
   /* tracking */
-  function loadScript(src){ const s=document.createElement('script'); s.async=true; s.src=src; document.head.appendChild(s); }
-  if (CONFIG.metaPixelId) {
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];}(window,document);
-    loadScript('https://connect.facebook.net/en_US/fbevents.js'); fbq('init', CONFIG.metaPixelId); fbq('track','PageView');
-  }
-  if (CONFIG.googleTagId) { window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', CONFIG.googleTagId); loadScript('https://www.googletagmanager.com/gtag/js?id=' + CONFIG.googleTagId); }
-  function track(ev){
-    try { if (window.fbq) fbq('track', ev); } catch(e){}
-    try { if (window.gtag) { gtag('event', ev === 'Lead' ? 'generate_lead' : 'contact'); if (ev === 'Lead' && CONFIG.googleAdsSendTo) gtag('event','conversion',{send_to:CONFIG.googleAdsSendTo}); } } catch(e){}
-  }
-  const utm = (()=>{ try { const q=new URLSearchParams(location.search); return ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].reduce((o,k)=>(q.get(k)&&(o[k]=q.get(k)),o),{}); } catch(e){ return {}; } })();
+  function load(src){ const s=document.createElement('script'); s.async=true; s.src=src; document.head.appendChild(s); }
+  if (CONFIG.metaPixelId){ !function(f){ if(f.fbq) return; const n=f.fbq=function(){ n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments); }; f._fbq=n; n.push=n; n.loaded=true; n.version='2.0'; n.queue=[]; }(window); load('https://connect.facebook.net/en_US/fbevents.js'); fbq('init',CONFIG.metaPixelId); fbq('track','PageView'); }
+  if (CONFIG.googleTagId){ window.dataLayer=window.dataLayer||[]; window.gtag=function(){ dataLayer.push(arguments); }; gtag('js',new Date()); gtag('config',CONFIG.googleTagId); load('https://www.googletagmanager.com/gtag/js?id='+CONFIG.googleTagId); }
+  function track(ev){ try{ if(window.fbq) fbq('track',ev); }catch(e){} try{ if(window.gtag){ gtag('event', ev==='Lead'?'generate_lead':'contact'); if(ev==='Lead'&&CONFIG.googleAdsSendTo) gtag('event','conversion',{send_to:CONFIG.googleAdsSendTo}); } }catch(e){} }
+  const utm=(()=>{ try{ const q=new URLSearchParams(location.search); return ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].reduce((o,k)=>(q.get(k)&&(o[k]=q.get(k)),o),{}); }catch(e){ return {}; } })();
 
-  /* lead form */
-  $$('form[data-form]').forEach(form => {
-    const name = form.querySelector('[name=name]'), phone = form.querySelector('[name=phone]'), mode = form.querySelector('[name=mode]');
-    const err = (inp,msg) => { const e = inp.closest('.f').querySelector('.err'); e.textContent = msg||''; e.hidden = !msg; inp.setAttribute('aria-invalid', msg?'true':'false'); };
-    phone.addEventListener('input', () => { phone.value = phone.value.replace(/[^\d ]/g,''); });
-    form.addEventListener('submit', e => {
+  /* lead forms */
+  $$('form[data-form]').forEach(form=>{
+    const name=form.querySelector('[name=name]'), phone=form.querySelector('[name=phone]'), ferr=form.querySelector('.ferr');
+    phone.addEventListener('input',()=>{ phone.value=phone.value.replace(/[^\d ]/g,''); });
+    form.addEventListener('submit', e=>{
       e.preventDefault();
-      const n = name.value.trim(), p = phone.value.replace(/\D/g,'').replace(/^0/,'');
-      const okN = n.length >= 2, okP = /^[6-9]\d{9}$/.test(p);
-      err(name, okN ? '' : 'Please enter your name.');
-      err(phone, okP ? '' : 'Enter a valid 10-digit mobile number.');
-      if (!okN || !okP) { (okN ? phone : name).focus(); return; }
-      const lead = { name:n, phone:'+91'+p, mode:mode ? mode.value : '', page:location.href.split('?')[0], time:new Date().toISOString(), ...utm };
-      if (CONFIG.sheetUrl) { try { fetch(CONFIG.sheetUrl, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify(lead) }); } catch(e){} }
+      const n=name.value.trim(), p=phone.value.replace(/\D/g,'').replace(/^0/,'');
+      const okN=n.length>=2, okP=/^[6-9]\d{9}$/.test(p);
+      name.setAttribute('aria-invalid',!okN); phone.setAttribute('aria-invalid',!okP);
+      if(!okN||!okP){ ferr.textContent = !okN ? 'Please enter your name.' : 'Enter a valid 10-digit mobile number.'; ferr.hidden=false; (okN?phone:name).focus(); return; }
+      const lead={ name:n, phone:'+91'+p, mode:'', page:location.href.split('?')[0], time:new Date().toISOString(), ...utm };
+      if (CONFIG.sheetUrl){ try{ fetch(CONFIG.sheetUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(lead)}); }catch(e){} }
       track('Lead');
-      const waLead = CONFIG.phone ? `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(`Hi, I just booked a free demo.\nName: ${n}\nMobile: +91 ${p}\nPreference: ${lead.mode}`)}` : '';
-      form.innerHTML = `<div class="ok"><b>Thanks, ${esc(n.split(' ')[0])}! Your demo request is in.</b><p>We'll call you on +91 ${esc(p)} within 2 hours (10 AM – 7 PM).${CONFIG.sheetUrl ? '' : ' <span class="sample">SETUP</span> Add a Google Sheet URL in CONFIG so requests are saved.'}</p></div>${waLead ? `<a class="btn btn-wa" href="${waLead}" target="_blank" rel="noopener">Confirm on WhatsApp (faster)</a>` : ''}`;
+      const wa = CONFIG.phone ? `https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(`Hi, I just booked a free demo.\nName: ${n}\nMobile: +91 ${p}`)}` : '';
+      form.innerHTML=`<div class="ok"><b>Thanks, ${esc(n.split(' ')[0])}! Your demo request is in.</b><p>We'll call you on +91 ${esc(p)} within 2 hours (10 AM – 7 PM).${CONFIG.sheetUrl?'':' <span class="sample">SETUP</span> Add a Google Sheet URL in CONFIG so requests are saved.'}</p>${wa?`<a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener">Confirm on WhatsApp</a>`:''}</div>`;
     });
   });
 
-  /* calculator */
-  const inr = (v,d=0) => '₹' + v.toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  /* trade ticket */
+  const inr=(v,d=0)=>'₹'+v.toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
+  const DEFAULT_NOTE = byId('cNote').textContent;
   function calc(){
-    const cap=+cCap.value, rp=+cRisk.value, en=+cEntry.value, sl=+cStop.value, note=$('#cNote');
-    const set=(q,l,c,t)=>{ qOut.textContent=q; lossOut.textContent=l; capOut.textContent=c; tgtOut.textContent=t; };
-    if(!(cap>0&&rp>0&&en>0&&sl>0)){ set('—','—','—','—'); note.textContent='Fill in all four boxes.'; return; }
-    const per=en-sl; if(per<=0){ set('—','—','—','—'); note.textContent='For a buy trade, the stop-loss must be below the entry price.'; return; }
+    const cap=+byId('cCap').value, rp=+byId('cRisk').value, en=+byId('cEntry').value, sl=+byId('cStop').value, note=byId('cNote');
+    const set=(q,l,t)=>{ byId('qOut').textContent=q; byId('lossOut').textContent=l; byId('tgtOut').textContent=t; };
+    if(!(cap>0&&rp>0&&en>0&&sl>0)){ set('—','—','—'); note.textContent='Fill in all four boxes.'; return; }
+    const per=en-sl; if(per<=0){ set('—','—','—'); note.textContent='For a buy trade, the stop-loss must be below the entry price.'; return; }
     let q=Math.floor(cap*rp/100/per), capped=false; if(q*en>cap){ q=Math.floor(cap/en); capped=true; }
-    set(q.toLocaleString('en-IN'), inr(q*per), inr(q*en), inr(en+2*per,2));
-    note.textContent = capped ? 'Quantity is limited by your capital. Your stop is very tight.' : rp>2 ? 'Above 2% per trade, a short losing streak can do serious damage.' : '';
+    const tgt=en+2*per; set(q.toLocaleString('en-IN'), inr(q*per), inr(tgt, tgt%1?2:0));
+    note.textContent = capped ? `Quantity is limited by your capital (needs ${inr(q*en)}). Your stop is very tight.` : rp>2 ? 'Above 2% per trade, a short losing streak can do serious damage.' : `Uses ${inr(q*en)} of your capital. If the stop hits, you lose ${rp}% and live to trade again.`;
+    // ladder: target at 10%, stop at 90%, entry between (1:2 means entry sits at 2/3 of the way down)
+    const top=10, bot=90, ey=top+(bot-top)*(2/3);
+    byId('lT').style.top=top+'%'; byId('lE').style.top=ey+'%'; byId('lS').style.top=bot+'%';
+    const r=v=>Math.round(v).toLocaleString('en-IN'); byId('lT').textContent=r(tgt); byId('lE').textContent=r(en); byId('lS').textContent=r(sl);
+    Object.assign(byId('zG').style,{top:top+'%',height:(ey-top)+'%'}); Object.assign(byId('zR').style,{top:ey+'%',height:(bot-ey)+'%'});
   }
-  $('#calc').addEventListener('input', calc); $('#calc').addEventListener('submit', e=>e.preventDefault()); calc();
-
-  /* hero candle tape */
-  const cv = $('#heroTape'); let seed=7; const rnd=()=> (seed=(seed*16807)%2147483647)/2147483647;
-  const candles=[]; let p=100; for(let i=0;i<90;i++){ const o=p, c=p+Math.sin(i/7)*1.2+(rnd()-.42)*3; candles.push({o,c,h:Math.max(o,c)+rnd()*1.6,l:Math.min(o,c)-rnd()*1.6}); p=c; }
-  function draw(){
-    const dpr=devicePixelRatio||1, w=cv.clientWidth, h=cv.clientHeight; if(!w) return;
-    cv.width=w*dpr; cv.height=h*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.min(candles.length, Math.max(30, Math.floor(w/14))), d=candles.slice(-n);
-    const hi=Math.max(...d.map(k=>k.h)), lo=Math.min(...d.map(k=>k.l)), Y=v=>8+(hi-v)/(hi-lo)*(h-16), cw=w/n;
-    d.forEach((k,i)=>{ const col=k.c>=k.o?'rgba(15,157,88,.5)':'rgba(217,58,43,.45)', cx=i*cw+cw/2; x.strokeStyle=col; x.beginPath(); x.moveTo(cx,Y(k.h)); x.lineTo(cx,Y(k.l)); x.stroke(); x.fillStyle=col; x.fillRect(cx-cw*.3,Y(Math.max(k.o,k.c)),cw*.6,Math.max(1,Math.abs(Y(k.o)-Y(k.c)))); });
-  }
-  draw(); addEventListener('resize', draw);
-  if(!reduce) setInterval(()=>{ const l=candles[candles.length-1]; const c=l.c+(rnd()-.45)*2.2; candles.push({o:l.c,c,h:Math.max(l.c,c)+rnd(),l:Math.min(l.c,c)-rnd()}); candles.shift(); draw(); }, 1400);
+  byId('calc').addEventListener('input',calc); byId('calc').addEventListener('submit',e=>e.preventDefault()); calc();
 })();
 </script>
 </body>
